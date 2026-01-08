@@ -88,7 +88,6 @@ class CPU6502 extends Module {
   alu.io.a := regA
   alu.io.b := io.dataIn
   alu.io.carryIn := flagC
-  alu.io.decimalMode := flagD
   alu.io.operation := decoder.io.aluOp
 
   // ============================================

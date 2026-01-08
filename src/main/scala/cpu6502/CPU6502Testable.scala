@@ -9,7 +9,7 @@ import chisel3.util._
   * This module adds test inputs to directly set CPU state, enabling
   * single-instruction testing with known initial conditions.
   */
-class CPU6502Testable(enableBCD: Boolean = false) extends Module {
+class CPU6502Testable extends Module {
   val io = IO(new Bundle {
     // Memory interface
     val address = Output(UInt(16.W))
@@ -118,7 +118,6 @@ class CPU6502Testable(enableBCD: Boolean = false) extends Module {
   alu.io.a := regA
   alu.io.b := operand
   alu.io.carryIn := flagC
-  alu.io.decimalMode := flagD && enableBCD.B  // BCD disabled for NES compatibility by default
   alu.io.operation := decoder.io.aluOp
 
   // ============================================

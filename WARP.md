@@ -66,7 +66,7 @@ Decodes opcodes into:
 Testable wrapper with direct state injection for single-instruction testing:
 - `io.test.enable` — load test state when high
 - `io.test.{pc,a,x,y,s,p}` — initial register values
-- `enableBCD` parameter — defaults to false for NES (2A03) compatibility
+- Note: BCD mode is not implemented (NES 2A03 compatible)
 
 ## External Test Suite
 

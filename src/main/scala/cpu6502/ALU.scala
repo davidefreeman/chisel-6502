@@ -12,17 +12,16 @@ object ALUOp extends ChiselEnum {
 }
 
 /**
-  * Arithmetic Logic Unit for the 6502 CPU
+  * Arithmetic Logic Unit for the 6502 CPU (NES 2A03 compatible)
   * 
-  * Supports all 6502 arithmetic and logic operations including
-  * optional BCD (Binary Coded Decimal) mode for ADC and SBC.
+  * Supports all 6502 arithmetic and logic operations.
+  * Note: BCD mode is not implemented (matches NES 2A03 behavior).
   */
 class ALU extends Module {
   val io = IO(new Bundle {
     val a = Input(UInt(8.W))
     val b = Input(UInt(8.W))
     val carryIn = Input(Bool())
-    val decimalMode = Input(Bool())
     val operation = Input(ALUOp())
     
     val result = Output(UInt(8.W))
@@ -46,44 +45,16 @@ class ALU extends Module {
 
   switch(io.operation) {
     is(ALUOp.opADC) {
-      when(io.decimalMode) {
-        // BCD addition (simplified - full BCD needs nibble correction)
-        val loNibble = (io.a(3, 0) +& io.b(3, 0) +& io.carryIn.asUInt)
-        val loCarry = loNibble > 9.U
-        val loCorrected = Mux(loCarry, loNibble + 6.U, loNibble)
-        
-        val hiNibble = (io.a(7, 4) +& io.b(7, 4) +& loCarry.asUInt)
-        val hiCarry = hiNibble > 9.U
-        val hiCorrected = Mux(hiCarry, hiNibble + 6.U, hiNibble)
-        
-        result := Cat(hiCorrected(3, 0), loCorrected(3, 0))
-        carryOut := hiCarry
-      }.otherwise {
-        result := sum(7, 0)
-        carryOut := sum(8)
-        // Overflow: sign of result differs from sign of both operands
-        overflow := (io.a(7) === io.b(7)) && (io.a(7) =/= sum(7))
-      }
+      result := sum(7, 0)
+      carryOut := sum(8)
+      // Overflow: sign of result differs from sign of both operands
+      overflow := (io.a(7) === io.b(7)) && (io.a(7) =/= sum(7))
     }
     
     is(ALUOp.opSBC) {
-      when(io.decimalMode) {
-        // BCD subtraction (simplified)
-        val loNibble = (io.a(3, 0) -& io.b(3, 0) -& (!io.carryIn).asUInt)
-        val loBorrow = loNibble(4)
-        val loCorrected = Mux(loBorrow, loNibble - 6.U, loNibble)
-        
-        val hiNibble = (io.a(7, 4) -& io.b(7, 4) -& loBorrow.asUInt)
-        val hiBorrow = hiNibble(4)
-        val hiCorrected = Mux(hiBorrow, hiNibble - 6.U, hiNibble)
-        
-        result := Cat(hiCorrected(3, 0), loCorrected(3, 0))
-        carryOut := !hiBorrow
-      }.otherwise {
-        result := diff(7, 0)
-        carryOut := !diff(8)
-        overflow := (io.a(7) =/= io.b(7)) && (io.a(7) =/= diff(7))
-      }
+      result := diff(7, 0)
+      carryOut := !diff(8)
+      overflow := (io.a(7) =/= io.b(7)) && (io.a(7) =/= diff(7))
     }
     
     is(ALUOp.opAND) {

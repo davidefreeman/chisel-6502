@@ -649,3 +649,14 @@ class Test_LDX_absy extends SingleStepTestBase {
   behavior of "LDX absolute,Y (0xBE)"
   it should "execute correctly" in { runOpcodeTests("singlestep/be.json") }
 }
+
+// Absolute Indexed Store Instructions
+class Test_STA_absx extends SingleStepTestBase {
+  behavior of "STA absolute,X (0x9D)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/9d.json") }
+}
+
+class Test_STA_absy extends SingleStepTestBase {
+  behavior of "STA absolute,Y (0x99)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/99.json") }
+}

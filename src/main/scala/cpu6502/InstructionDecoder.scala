@@ -361,6 +361,14 @@ class InstructionDecoder extends Module {
       io.updateFlags := true.B
       io.cycles := 2.U
     }
+    is(0x25.U) { // AND zero page
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amZeroPage
+      io.aluOp := ALUOp.opAND
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 3.U
+    }
     
     // ORA
     is(0x09.U) { // ORA #immediate
@@ -371,6 +379,14 @@ class InstructionDecoder extends Module {
       io.updateFlags := true.B
       io.cycles := 2.U
     }
+    is(0x05.U) { // ORA zero page
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amZeroPage
+      io.aluOp := ALUOp.opORA
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 3.U
+    }
     
     // EOR
     is(0x49.U) { // EOR #immediate
@@ -380,6 +396,14 @@ class InstructionDecoder extends Module {
       io.writeA := true.B
       io.updateFlags := true.B
       io.cycles := 2.U
+    }
+    is(0x45.U) { // EOR zero page
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amZeroPage
+      io.aluOp := ALUOp.opEOR
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 3.U
     }
     
     // ==========================================
@@ -394,6 +418,14 @@ class InstructionDecoder extends Module {
       io.writeA := false.B  // CMP doesn't modify A
       io.updateFlags := true.B
       io.cycles := 2.U
+    }
+    is(0xC5.U) { // CMP zero page
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amZeroPage
+      io.aluOp := ALUOp.opCMP
+      io.writeA := false.B
+      io.updateFlags := true.B
+      io.cycles := 3.U
     }
     
     // CPX - Compare X Register

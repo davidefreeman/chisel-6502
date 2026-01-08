@@ -440,3 +440,34 @@ class Test_LDY_abs extends SingleStepTestBase {
   behavior of "LDY absolute (0xAC)"
   it should "execute correctly" in { runOpcodeTests("singlestep/ac.json") }
 }
+
+// Zero Page ALU Instructions
+class Test_ADC_zp extends SingleStepTestBase {
+  behavior of "ADC zero page (0x65)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/65.json") }
+}
+
+class Test_SBC_zp extends SingleStepTestBase {
+  behavior of "SBC zero page (0xE5)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/e5.json") }
+}
+
+class Test_AND_zp extends SingleStepTestBase {
+  behavior of "AND zero page (0x25)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/25.json") }
+}
+
+class Test_ORA_zp extends SingleStepTestBase {
+  behavior of "ORA zero page (0x05)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/05.json") }
+}
+
+class Test_EOR_zp extends SingleStepTestBase {
+  behavior of "EOR zero page (0x45)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/45.json") }
+}
+
+class Test_CMP_zp extends SingleStepTestBase {
+  behavior of "CMP zero page (0xC5)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/c5.json") }
+}

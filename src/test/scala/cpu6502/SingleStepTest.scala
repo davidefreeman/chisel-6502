@@ -722,3 +722,24 @@ class Test_PLP extends SingleStepTestBase {
   behavior of "PLP (0x28)"
   it should "execute correctly" in { runOpcodeTests("singlestep/28.json") }
 }
+
+// Shift/Rotate Accumulator Instructions
+class Test_ASL_A extends SingleStepTestBase {
+  behavior of "ASL A (0x0A)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/0a.json") }
+}
+
+class Test_LSR_A extends SingleStepTestBase {
+  behavior of "LSR A (0x4A)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/4a.json") }
+}
+
+class Test_ROL_A extends SingleStepTestBase {
+  behavior of "ROL A (0x2A)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/2a.json") }
+}
+
+class Test_ROR_A extends SingleStepTestBase {
+  behavior of "ROR A (0x6A)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/6a.json") }
+}

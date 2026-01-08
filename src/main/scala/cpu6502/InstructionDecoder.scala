@@ -775,6 +775,43 @@ class InstructionDecoder extends Module {
     }
     
     // ==========================================
+    // Shift/Rotate Instructions (Accumulator)
+    // ==========================================
+    
+    is(0x0A.U) { // ASL A - Arithmetic Shift Left Accumulator
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amAccumulator
+      io.aluOp := ALUOp.opASL
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 2.U
+    }
+    is(0x4A.U) { // LSR A - Logical Shift Right Accumulator
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amAccumulator
+      io.aluOp := ALUOp.opLSR
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 2.U
+    }
+    is(0x2A.U) { // ROL A - Rotate Left Accumulator
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amAccumulator
+      io.aluOp := ALUOp.opROL
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 2.U
+    }
+    is(0x6A.U) { // ROR A - Rotate Right Accumulator
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amAccumulator
+      io.aluOp := ALUOp.opROR
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 2.U
+    }
+    
+    // ==========================================
     // Register Transfer Instructions
     // ==========================================
     

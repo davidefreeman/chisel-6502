@@ -347,6 +347,14 @@ class InstructionDecoder extends Module {
       io.updateFlags := true.B
       io.cycles := 3.U
     }
+    is(0xED.U) { // SBC absolute
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amAbsolute
+      io.aluOp := ALUOp.opSBC
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 4.U
+    }
     
     // ==========================================
     // Logic Instructions
@@ -369,6 +377,14 @@ class InstructionDecoder extends Module {
       io.updateFlags := true.B
       io.cycles := 3.U
     }
+    is(0x2D.U) { // AND absolute
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amAbsolute
+      io.aluOp := ALUOp.opAND
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 4.U
+    }
     
     // ORA
     is(0x09.U) { // ORA #immediate
@@ -387,6 +403,14 @@ class InstructionDecoder extends Module {
       io.updateFlags := true.B
       io.cycles := 3.U
     }
+    is(0x0D.U) { // ORA absolute
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amAbsolute
+      io.aluOp := ALUOp.opORA
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 4.U
+    }
     
     // EOR
     is(0x49.U) { // EOR #immediate
@@ -404,6 +428,14 @@ class InstructionDecoder extends Module {
       io.writeA := true.B
       io.updateFlags := true.B
       io.cycles := 3.U
+    }
+    is(0x4D.U) { // EOR absolute
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amAbsolute
+      io.aluOp := ALUOp.opEOR
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 4.U
     }
     
     // ==========================================
@@ -426,6 +458,14 @@ class InstructionDecoder extends Module {
       io.writeA := false.B
       io.updateFlags := true.B
       io.cycles := 3.U
+    }
+    is(0xCD.U) { // CMP absolute
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amAbsolute
+      io.aluOp := ALUOp.opCMP
+      io.writeA := false.B
+      io.updateFlags := true.B
+      io.cycles := 4.U
     }
     
     // CPX - Compare X Register

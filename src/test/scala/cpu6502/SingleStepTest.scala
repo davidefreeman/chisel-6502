@@ -471,3 +471,34 @@ class Test_CMP_zp extends SingleStepTestBase {
   behavior of "CMP zero page (0xC5)"
   it should "execute correctly" in { runOpcodeTests("singlestep/c5.json") }
 }
+
+// Absolute ALU Instructions
+class Test_ADC_abs extends SingleStepTestBase {
+  behavior of "ADC absolute (0x6D)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/6d.json") }
+}
+
+class Test_SBC_abs extends SingleStepTestBase {
+  behavior of "SBC absolute (0xED)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/ed.json") }
+}
+
+class Test_AND_abs extends SingleStepTestBase {
+  behavior of "AND absolute (0x2D)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/2d.json") }
+}
+
+class Test_ORA_abs extends SingleStepTestBase {
+  behavior of "ORA absolute (0x0D)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/0d.json") }
+}
+
+class Test_EOR_abs extends SingleStepTestBase {
+  behavior of "EOR absolute (0x4D)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/4d.json") }
+}
+
+class Test_CMP_abs extends SingleStepTestBase {
+  behavior of "CMP absolute (0xCD)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/cd.json") }
+}

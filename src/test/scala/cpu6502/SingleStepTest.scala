@@ -660,3 +660,44 @@ class Test_STA_absy extends SingleStepTestBase {
   behavior of "STA absolute,Y (0x99)"
   it should "execute correctly" in { runOpcodeTests("singlestep/99.json") }
 }
+
+// Branch Instructions
+class Test_BPL extends SingleStepTestBase {
+  behavior of "BPL (0x10)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/10.json") }
+}
+
+class Test_BMI extends SingleStepTestBase {
+  behavior of "BMI (0x30)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/30.json") }
+}
+
+class Test_BVC extends SingleStepTestBase {
+  behavior of "BVC (0x50)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/50.json") }
+}
+
+class Test_BVS extends SingleStepTestBase {
+  behavior of "BVS (0x70)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/70.json") }
+}
+
+class Test_BCC extends SingleStepTestBase {
+  behavior of "BCC (0x90)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/90.json") }
+}
+
+class Test_BCS extends SingleStepTestBase {
+  behavior of "BCS (0xB0)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/b0.json") }
+}
+
+class Test_BNE extends SingleStepTestBase {
+  behavior of "BNE (0xD0)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/d0.json") }
+}
+
+class Test_BEQ extends SingleStepTestBase {
+  behavior of "BEQ (0xF0)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/f0.json") }
+}

@@ -210,6 +210,12 @@ class CPU6502Testable extends Module {
             regPC := regPC + 1.U
             state := sReadAddrHi
           }
+          is(AddressMode.amRelative) {
+            io.address := regPC
+            operand := io.dataIn  // Branch offset (signed)
+            regPC := regPC + 1.U
+            state := sExecute
+          }
         }
         // Default for unhandled modes
         when(decoder.io.addressMode === AddressMode.amAccumulator) {
@@ -389,6 +395,31 @@ class CPU6502Testable extends Module {
             when(decoder.io.updateFlags) {
               flagZ := incDecResult === 0.U
               flagN := incDecResult(7)
+            }
+            state := sFetch
+          }
+          
+          is(InstrType.itBranch) {
+            // Determine if branch is taken based on opcode and flags
+            val takeBranch = Wire(Bool())
+            takeBranch := false.B
+            
+            switch(opcode) {
+              is(0x10.U) { takeBranch := !flagN }  // BPL - Branch if Positive
+              is(0x30.U) { takeBranch := flagN }   // BMI - Branch if Minus
+              is(0x50.U) { takeBranch := !flagV }  // BVC - Branch if Overflow Clear
+              is(0x70.U) { takeBranch := flagV }   // BVS - Branch if Overflow Set
+              is(0x90.U) { takeBranch := !flagC }  // BCC - Branch if Carry Clear
+              is(0xB0.U) { takeBranch := flagC }   // BCS - Branch if Carry Set
+              is(0xD0.U) { takeBranch := !flagZ }  // BNE - Branch if Not Equal
+              is(0xF0.U) { takeBranch := flagZ }   // BEQ - Branch if Equal
+            }
+            
+            when(takeBranch) {
+              // Sign-extend offset and add to PC
+              val signedOffset = Wire(SInt(16.W))
+              signedOffset := operand.asSInt
+              regPC := (regPC.asSInt + signedOffset).asUInt
             }
             state := sFetch
           }

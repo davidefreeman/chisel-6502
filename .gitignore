@@ -1,0 +1,25 @@
+# SBT
+target/
+project/target/
+project/project/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+.bsp/
+.metals/
+.bloop/
+
+# Generated files
+generated/
+*.v
+*.fir
+*.anno.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

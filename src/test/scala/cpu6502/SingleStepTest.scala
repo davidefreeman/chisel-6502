@@ -1002,3 +1002,32 @@ class Test_CMP_indy extends SingleStepTestBase {
   behavior of "CMP (indirect),Y (0xD1)"
   it should "execute correctly" in { runOpcodeTests("singlestep/d1.json") }
 }
+
+// ==========================================
+// Subroutine and Interrupt Instructions
+// ==========================================
+
+class Test_JSR extends SingleStepTestBase {
+  behavior of "JSR (0x20)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/20.json") }
+}
+
+class Test_RTS extends SingleStepTestBase {
+  behavior of "RTS (0x60)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/60.json") }
+}
+
+class Test_JMP_ind extends SingleStepTestBase {
+  behavior of "JMP indirect (0x6C)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/6c.json") }
+}
+
+class Test_BRK extends SingleStepTestBase {
+  behavior of "BRK (0x00)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/00.json") }
+}
+
+class Test_RTI extends SingleStepTestBase {
+  behavior of "RTI (0x40)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/40.json") }
+}

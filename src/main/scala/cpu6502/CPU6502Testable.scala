@@ -68,7 +68,8 @@ class CPU6502Testable extends Module {
   object State extends ChiselEnum {
     val sReset, sFetch, sDecode, sExecute, sMemRead, sMemWrite, 
         sReadOperand, sReadAddrLo, sReadAddrHi, sRMWWrite,
-        sIndirectReadLo, sIndirectReadHi = Value
+        sIndirectReadLo, sIndirectReadHi,
+        sJSR, sRTS, sBRK, sRTI, sJMPIndirect = Value
   }
   import State._
 
@@ -168,7 +169,19 @@ class CPU6502Testable extends Module {
         // Handle different addressing modes
         switch(decoder.io.addressMode) {
           is(AddressMode.amImplied) {
-            state := sExecute
+            // RTS, RTI, BRK need special multi-cycle handling
+            when(opcode === 0x60.U) {
+              state := sRTS
+              cycle := 0.U
+            }.elsewhen(opcode === 0x40.U) {
+              state := sRTI
+              cycle := 0.U
+            }.elsewhen(opcode === 0x00.U) {
+              state := sBRK
+              cycle := 0.U
+            }.otherwise {
+              state := sExecute
+            }
           }
           is(AddressMode.amImmediate) {
             io.address := regPC
@@ -180,7 +193,21 @@ class CPU6502Testable extends Module {
             io.address := regPC
             addrLo := io.dataIn
             regPC := regPC + 1.U
-            state := sReadAddrHi
+            // JSR needs special handling to push return address
+            when(opcode === 0x20.U) {
+              state := sJSR
+              cycle := 0.U
+            }.otherwise {
+              state := sReadAddrHi
+            }
+          }
+          is(AddressMode.amIndirect) {
+            // JMP indirect: read pointer address
+            io.address := regPC
+            addrLo := io.dataIn
+            regPC := regPC + 1.U
+            state := sJMPIndirect
+            cycle := 0.U
           }
           is(AddressMode.amZeroPage) {
             io.address := regPC
@@ -552,6 +579,201 @@ class CPU6502Testable extends Module {
           }
         }
         state := sFetch
+      }
+      
+      is(sJSR) {
+        // JSR: Push return address-1, then jump to subroutine
+        // At entry: addrLo has target low byte, PC points to high byte
+        switch(cycle) {
+          is(0.U) {
+            // Push PC high byte (PC still points to high byte of target)
+            io.address := Cat(0x01.U(8.W), regSP)
+            io.dataOut := regPC(15, 8)
+            io.writeEnable := true.B
+            regSP := regSP - 1.U
+            cycle := 1.U
+          }
+          is(1.U) {
+            // Push PC low byte
+            io.address := Cat(0x01.U(8.W), regSP)
+            io.dataOut := regPC(7, 0)
+            io.writeEnable := true.B
+            regSP := regSP - 1.U
+            cycle := 2.U
+          }
+          is(2.U) {
+            // Read target high byte
+            io.address := regPC
+            addrHi := io.dataIn
+            cycle := 3.U
+          }
+          is(3.U) {
+            // Jump to subroutine
+            regPC := Cat(addrHi, addrLo)
+            state := sFetch
+            cycle := 0.U
+          }
+        }
+      }
+      
+      is(sRTS) {
+        // RTS: Pull return address, add 1, continue
+        switch(cycle) {
+          is(0.U) {
+            // Increment SP, prepare to read
+            regSP := regSP + 1.U
+            cycle := 1.U
+          }
+          is(1.U) {
+            // Read PC low byte
+            io.address := Cat(0x01.U(8.W), regSP)
+            addrLo := io.dataIn
+            regSP := regSP + 1.U
+            cycle := 2.U
+          }
+          is(2.U) {
+            // Read PC high byte
+            io.address := Cat(0x01.U(8.W), regSP)
+            addrHi := io.dataIn
+            cycle := 3.U
+          }
+          is(3.U) {
+            // Set PC to return address + 1
+            regPC := Cat(addrHi, addrLo) + 1.U
+            state := sFetch
+            cycle := 0.U
+          }
+        }
+      }
+      
+      is(sBRK) {
+        // BRK: Push PC+1, push P with B set, load IRQ vector
+        switch(cycle) {
+          is(0.U) {
+            // Read and discard byte after BRK, increment PC
+            io.address := regPC
+            regPC := regPC + 1.U
+            cycle := 1.U
+          }
+          is(1.U) {
+            // Push PC high byte
+            io.address := Cat(0x01.U(8.W), regSP)
+            io.dataOut := regPC(15, 8)
+            io.writeEnable := true.B
+            regSP := regSP - 1.U
+            cycle := 2.U
+          }
+          is(2.U) {
+            // Push PC low byte
+            io.address := Cat(0x01.U(8.W), regSP)
+            io.dataOut := regPC(7, 0)
+            io.writeEnable := true.B
+            regSP := regSP - 1.U
+            cycle := 3.U
+          }
+          is(3.U) {
+            // Push P with B flag set
+            io.address := Cat(0x01.U(8.W), regSP)
+            io.dataOut := Cat(flagN, flagV, 1.U(1.W), 1.U(1.W), flagD, flagI, flagZ, flagC)
+            io.writeEnable := true.B
+            regSP := regSP - 1.U
+            flagI := true.B  // Set interrupt disable
+            cycle := 4.U
+          }
+          is(4.U) {
+            // Read IRQ vector low
+            io.address := 0xFFFE.U
+            addrLo := io.dataIn
+            cycle := 5.U
+          }
+          is(5.U) {
+            // Read IRQ vector high
+            io.address := 0xFFFF.U
+            addrHi := io.dataIn
+            cycle := 6.U
+          }
+          is(6.U) {
+            // Jump to IRQ handler
+            regPC := Cat(addrHi, addrLo)
+            state := sFetch
+            cycle := 0.U
+          }
+        }
+      }
+      
+      is(sRTI) {
+        // RTI: Pull P, pull PC
+        switch(cycle) {
+          is(0.U) {
+            // Increment SP
+            regSP := regSP + 1.U
+            cycle := 1.U
+          }
+          is(1.U) {
+            // Pull P
+            io.address := Cat(0x01.U(8.W), regSP)
+            val pulledP = io.dataIn
+            flagN := pulledP(7)
+            flagV := pulledP(6)
+            flagD := pulledP(3)
+            flagI := pulledP(2)
+            flagZ := pulledP(1)
+            flagC := pulledP(0)
+            regSP := regSP + 1.U
+            cycle := 2.U
+          }
+          is(2.U) {
+            // Pull PC low
+            io.address := Cat(0x01.U(8.W), regSP)
+            addrLo := io.dataIn
+            regSP := regSP + 1.U
+            cycle := 3.U
+          }
+          is(3.U) {
+            // Pull PC high
+            io.address := Cat(0x01.U(8.W), regSP)
+            addrHi := io.dataIn
+            cycle := 4.U
+          }
+          is(4.U) {
+            // Set PC (no increment unlike RTS)
+            regPC := Cat(addrHi, addrLo)
+            state := sFetch
+            cycle := 0.U
+          }
+        }
+      }
+      
+      is(sJMPIndirect) {
+        // JMP indirect: read target address from pointer
+        // Note: 6502 bug - if low byte is FF, high byte is read from XX00
+        switch(cycle) {
+          is(0.U) {
+            // Read pointer high byte
+            io.address := regPC
+            addrHi := io.dataIn
+            cycle := 1.U
+          }
+          is(1.U) {
+            // Read target low byte from pointer
+            io.address := Cat(addrHi, addrLo)
+            zpAddr := io.dataIn  // Store target low temporarily
+            cycle := 2.U
+          }
+          is(2.U) {
+            // Read target high byte (with 6502 page crossing bug)
+            val nextAddr = Cat(addrHi, (addrLo + 1.U)(7, 0))  // Wrap within page
+            io.address := nextAddr
+            operand := io.dataIn  // Store target high temporarily
+            cycle := 3.U
+          }
+          is(3.U) {
+            // Jump to target
+            regPC := Cat(operand, zpAddr)
+            state := sFetch
+            cycle := 0.U
+          }
+        }
       }
     }
   }

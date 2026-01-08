@@ -11,17 +11,19 @@ sbt compile
 # Run all tests
 sbt test
 
-# Run a specific test class
-sbt "testOnly cpu6502.ALUTest"
+# Run all SingleStepTests (105 parallel test classes)
+sbt -DtestCount=1000 "testOnly cpu6502.Test_*"
 
-# Run a specific test within a class
-sbt "testOnly cpu6502.ALUTest -- -z \"perform addition\""
+# Run a specific opcode test
+sbt -DtestCount=1000 "testOnly cpu6502.Test_ADC_imm"
 
-# Generate Verilog output (outputs to generated/ directory)
+# Run tests for an addressing mode group
+sbt -DtestCount=100 "testOnly cpu6502.Test_*_zp"   # zero page
+sbt -DtestCount=100 "testOnly cpu6502.Test_*_abs"  # absolute
+sbt -DtestCount=100 "testOnly cpu6502.Test_*_absx" # absolute,X
+
+# Generate Verilog output
 sbt "runMain cpu6502.CPU6502Main"
-
-# Continuous compilation (watches for changes)
-sbt ~compile
 
 # Clean build artifacts
 sbt clean
@@ -29,77 +31,161 @@ sbt clean
 
 ## Architecture
 
-This is a Chisel 6 HDL implementation of the MOS 6502 8-bit microprocessor.
+Chisel 6 HDL implementation of MOS 6502, NES 2A03 compatible (no BCD mode).
 
 ### Module Hierarchy
 
 ```
-CPU6502 (top-level)
+CPU6502Testable (testable wrapper)
 ├── InstructionDecoder - decodes 8-bit opcodes into control signals
-└── ALU - arithmetic/logic operations with BCD support
+└── ALU - arithmetic/logic operations (no BCD)
 ```
 
-### CPU6502 (`CPU6502.scala`)
-Main CPU module implementing:
-- **Registers**: A (accumulator), X, Y (index), SP (stack pointer), PC (program counter), P (status flags: NV-BDIZC)
-- **State machine**: `sReset → sFetch → sDecode → sExecute` cycle with `sMemRead`/`sMemWrite` states
-- **Memory interface**: 16-bit address bus, 8-bit data bus, active-high write enable
-- **Interrupts**: IRQ and NMI inputs (not yet fully implemented)
-- **Debug bundle**: Exposes internal state for testing/simulation
+### Key Files
 
-### ALU (`ALU.scala`)
-Supports operations via `ALUOp` enum:
-- Arithmetic: `opADC`, `opSBC` (with BCD mode support)
-- Logic: `opAND`, `opORA`, `opEOR`
-- Shifts/rotates: `opASL`, `opLSR`, `opROL`, `opROR`
-- Increment/decrement: `opINC`, `opDEC`
-- Compare/test: `opCMP`, `opBIT`, `opPASS`
+| File | Description |
+|------|-------------|
+| `CPU6502Testable.scala` | Testable CPU with state injection via `io.test.*` |
+| `InstructionDecoder.scala` | Opcode → control signals (105+ opcodes) |
+| `ALU.scala` | All ALU operations (ADC, SBC, AND, ORA, EOR, shifts, CMP, BIT) |
+| `SingleStepTest.scala` | Test harness with 105 parallel test classes |
 
-### InstructionDecoder (`InstructionDecoder.scala`)
-Decodes opcodes into:
-- `aluOp` - ALU operation to perform
-- `addressMode` - one of 13 modes (immediate, zero page, absolute, indexed, indirect, etc.)
-- `instrType` - category (ALU, Load, Store, Branch, Jump, Stack, Status, NOP, Illegal)
-- Register write enables and cycle counts
+### CPU State Machine
 
-### CPU6502Testable (`CPU6502Testable.scala`)
-Testable wrapper with direct state injection for single-instruction testing:
-- `io.test.enable` — load test state when high
-- `io.test.{pc,a,x,y,s,p}` — initial register values
-- Note: BCD mode is not implemented (NES 2A03 compatible)
+```
+sFetch → sDecode → [sReadAddrHi] → [sMemRead] → sExecute → sFetch
+```
 
-## External Test Suite
+### Implemented Addressing Modes
+- ✅ Implied, Accumulator
+- ✅ Immediate
+- ✅ Zero Page, Zero Page X, Zero Page Y
+- ✅ Absolute, Absolute X, Absolute Y
+- ✅ Relative (branches)
+- ❌ Indirect (JMP indirect)
+- ❌ Indexed Indirect (zp,X)
+- ❌ Indirect Indexed (zp),Y
 
-The project uses [SingleStepTests/65x02](https://github.com/SingleStepTests/65x02) for validation — JSON-encoded single-instruction tests with full CPU and memory state.
+### Implemented Instruction Types
+- ✅ `itLoad` - LDA, LDX, LDY (all addressing modes)
+- ✅ `itStore` - STA, STX, STY (all addressing modes)
+- ✅ `itALU` - ADC, SBC, AND, ORA, EOR, CMP, CPX, CPY, BIT, ASL/LSR/ROL/ROR A
+- ✅ `itBranch` - BPL, BMI, BVC, BVS, BCC, BCS, BNE, BEQ
+- ✅ `itJump` - JMP absolute
+- ✅ `itStack` - PHA, PLA, PHP, PLP
+- ✅ `itStatus` - CLC, SEC, CLI, SEI, CLV, CLD, SED
+- ✅ `itRegTransfer` - TAX, TXA, TAY, TYA, TSX, TXS
+- ✅ `itIncDec` - INX, INY, DEX, DEY
+- ❌ JSR, RTS, BRK, RTI
+- ❌ INC/DEC memory, ASL/LSR/ROL/ROR memory
 
-### Test Files Location
-`src/test/resources/singlestep/*.json` — one file per opcode (e.g., `a9.json` for LDA immediate)
+## SingleStepTests Integration
 
-### Running SingleStepTests
+### Test Structure
+
+Each opcode has its own test class for parallel execution:
+```scala
+class Test_ADC_imm extends SingleStepTestBase { ... }
+class Test_LDA_zp extends SingleStepTestBase { ... }
+```
+
+### Configuration
+
+| Property | Default | Description |
+|----------|---------|-------------|
+| `testCount` | 50 | Tests per opcode |
+| `progressInterval` | 100 | Print progress every N tests |
+
+### Running Tests
+
 ```bash
-# Run SingleStepTests with default count (50 per opcode)
-sbt "testOnly cpu6502.SingleStepTest"
+# Quick validation (10 tests each)
+sbt -DtestCount=10 "testOnly cpu6502.Test_*"
 
-# Run with custom test count via system property
-sbt -DtestCount=100 "testOnly cpu6502.SingleStepTest"
+# Full validation (1000 tests each) - ~2 minutes
+sbt -DtestCount=1000 "testOnly cpu6502.Test_*"
 
-# Or via environment variable
-TEST_COUNT=200 sbt "testOnly cpu6502.SingleStepTest"
-
-# Download additional opcode tests
-curl -s "https://raw.githubusercontent.com/SingleStepTests/65x02/main/nes6502/v1/XX.json" \
-  -o src/test/resources/singlestep/XX.json
+# Overnight full test (all 10000 tests per opcode)
+sbt -DtestCount=10000 "testOnly cpu6502.Test_*"
 ```
 
-### Currently Tested Opcodes
-- `0xEA` NOP, `0xA9` LDA imm, `0x69` ADC imm, `0xE9` SBC imm
-- `0x29` AND imm, `0x09` ORA imm, `0x49` EOR imm, `0xC9` CMP imm
-- `0xA2` LDX imm, `0xA0` LDY imm, `0x4C` JMP abs
+### Test File Location
+`src/test/resources/singlestep/*.json` — 105 opcode test files
 
-### Development Status
-The CPU structure is complete but instruction execution is partial. Key areas needing work:
-- Full instruction execution in state machine
-- All addressing modes in execution logic
-- Interrupt handling (IRQ/NMI)
-- Cycle-accurate timing
-- Additional opcode coverage in SingleStepTests
+### Downloading New Test Files
+```bash
+cd src/test/resources/singlestep
+curl -sO "https://raw.githubusercontent.com/SingleStepTests/65x02/main/nes6502/v1/XX.json"
+```
+
+## Current Status (January 2026)
+
+**105 of 151 opcodes validated (70%)**
+
+### Validated Opcodes by Category
+
+| Category | Opcodes | Count |
+|----------|---------|-------|
+| Status Flags | CLC, SEC, CLI, SEI, CLV, CLD, SED | 7 |
+| Register Transfer | TAX, TXA, TAY, TYA, TSX, TXS | 6 |
+| Inc/Dec Register | INX, INY, DEX, DEY | 4 |
+| Stack | PHA, PLA, PHP, PLP | 4 |
+| Shift/Rotate A | ASL A, LSR A, ROL A, ROR A | 4 |
+| Branches | BPL, BMI, BVC, BVS, BCC, BCS, BNE, BEQ | 8 |
+| LDA | imm, zp, zp,X, abs, abs,X, abs,Y | 6 |
+| LDX | imm, zp, zp,Y, abs, abs,Y | 5 |
+| LDY | imm, zp, zp,X, abs, abs,X | 5 |
+| STA | zp, zp,X, abs, abs,X, abs,Y | 5 |
+| STX | zp, zp,Y, abs | 3 |
+| STY | zp, zp,X, abs | 3 |
+| ADC | imm, zp, zp,X, abs, abs,X, abs,Y | 6 |
+| SBC | imm, zp, zp,X, abs, abs,X, abs,Y | 6 |
+| AND | imm, zp, zp,X, abs, abs,X, abs,Y | 6 |
+| ORA | imm, zp, zp,X, abs, abs,X, abs,Y | 6 |
+| EOR | imm, zp, zp,X, abs, abs,X, abs,Y | 6 |
+| CMP | imm, zp, zp,X, abs, abs,X, abs,Y | 6 |
+| CPX | imm, zp, abs | 3 |
+| CPY | imm, zp, abs | 3 |
+| BIT | zp, abs | 2 |
+| JMP | abs | 1 |
+| NOP | | 1 |
+
+### Remaining Work (~46 opcodes)
+
+1. **Read-Modify-Write Instructions** (~26 opcodes)
+   - INC/DEC memory (zp, zp,X, abs, abs,X)
+   - ASL/LSR/ROL/ROR memory modes
+   - Requires new state machine states for read→modify→write
+
+2. **Indirect Addressing** (~16 opcodes)
+   - (zp,X) indexed indirect: ADC, SBC, AND, ORA, EOR, CMP, LDA, STA
+   - (zp),Y indirect indexed: same 8 instructions
+   - Requires multi-byte address calculation
+
+3. **Subroutines/Interrupts** (4 opcodes)
+   - JSR, RTS, BRK, RTI
+   - Requires stack push/pull of PC and status
+
+4. **JMP Indirect** (1 opcode)
+   - 0x6C - requires reading address from memory
+
+## Development Workflow
+
+When adding new opcodes:
+
+1. **Download test file**: `curl -sO ".../{opcode}.json"`
+2. **Add decoder entry** in `InstructionDecoder.scala`
+3. **Add/update CPU execution logic** in `CPU6502Testable.scala`
+4. **Add test class** in `SingleStepTest.scala`
+5. **Initial test**: `sbt -DtestCount=10 "testOnly cpu6502.Test_NewOpcode"`
+6. **Fix issues** until tests pass
+7. **Full test**: `sbt -DtestCount=1000 "testOnly cpu6502.Test_NewOpcode"`
+8. **Regression test**: `sbt -DtestCount=100 "testOnly cpu6502.Test_*"`
+9. **Commit** with co-author line
+
+## Notes
+
+- BCD mode intentionally not implemented (NES 2A03 compatibility)
+- Stack is at $0100-$01FF, stack pointer is 8-bit offset
+- Memory is external (CPU exposes bus interface)
+- Tests run in parallel via separate test classes per opcode

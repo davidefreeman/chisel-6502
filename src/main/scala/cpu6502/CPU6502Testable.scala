@@ -198,6 +198,18 @@ class CPU6502Testable extends Module {
             regPC := regPC + 1.U
             state := sMemRead
           }
+          is(AddressMode.amAbsoluteX) {
+            io.address := regPC
+            addrLo := io.dataIn
+            regPC := regPC + 1.U
+            state := sReadAddrHi
+          }
+          is(AddressMode.amAbsoluteY) {
+            io.address := regPC
+            addrLo := io.dataIn
+            regPC := regPC + 1.U
+            state := sReadAddrHi
+          }
         }
         // Default for unhandled modes
         when(decoder.io.addressMode === AddressMode.amAccumulator) {
@@ -208,8 +220,17 @@ class CPU6502Testable extends Module {
       
       is(sReadAddrHi) {
         io.address := regPC
-        addrHi := io.dataIn
         regPC := regPC + 1.U
+        
+        // Compute effective address with indexing
+        val baseAddr = Cat(io.dataIn, addrLo)
+        val indexedAddr = MuxCase(baseAddr, Seq(
+          (decoder.io.addressMode === AddressMode.amAbsoluteX) -> (baseAddr + regX),
+          (decoder.io.addressMode === AddressMode.amAbsoluteY) -> (baseAddr + regY)
+        ))
+        addrLo := indexedAddr(7, 0)
+        addrHi := indexedAddr(15, 8)
+        
         // For JMP, go directly to execute
         when(decoder.io.instrType === InstrType.itJump) {
           state := sExecute

@@ -565,3 +565,45 @@ class Test_STX_zpy extends SingleStepTestBase {
   behavior of "STX zero page,Y (0x96)"
   it should "execute correctly" in { runOpcodeTests("singlestep/96.json") }
 }
+
+// Absolute,X ALU Instructions
+class Test_ADC_absx extends SingleStepTestBase {
+  behavior of "ADC absolute,X (0x7D)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/7d.json") }
+}
+
+class Test_SBC_absx extends SingleStepTestBase {
+  behavior of "SBC absolute,X (0xFD)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/fd.json") }
+}
+
+class Test_AND_absx extends SingleStepTestBase {
+  behavior of "AND absolute,X (0x3D)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/3d.json") }
+}
+
+class Test_ORA_absx extends SingleStepTestBase {
+  behavior of "ORA absolute,X (0x1D)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/1d.json") }
+}
+
+class Test_EOR_absx extends SingleStepTestBase {
+  behavior of "EOR absolute,X (0x5D)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/5d.json") }
+}
+
+class Test_CMP_absx extends SingleStepTestBase {
+  behavior of "CMP absolute,X (0xDD)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/dd.json") }
+}
+
+// Absolute,X Load Instructions
+class Test_LDA_absx extends SingleStepTestBase {
+  behavior of "LDA absolute,X (0xBD)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/bd.json") }
+}
+
+class Test_LDY_absx extends SingleStepTestBase {
+  behavior of "LDY absolute,X (0xBC)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/bc.json") }
+}

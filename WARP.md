@@ -62,9 +62,33 @@ Decodes opcodes into:
 - `instrType` - category (ALU, Load, Store, Branch, Jump, Stack, Status, NOP, Illegal)
 - Register write enables and cycle counts
 
+### CPU6502Testable (`CPU6502Testable.scala`)
+Testable wrapper with direct state injection for single-instruction testing:
+- `io.test.enable` — load test state when high
+- `io.test.{pc,a,x,y,s,p}` — initial register values
+- `enableBCD` parameter — defaults to false for NES (2A03) compatibility
+
+## External Test Suite
+
+The project uses [SingleStepTests/65x02](https://github.com/SingleStepTests/65x02) for validation — JSON-encoded single-instruction tests with full CPU and memory state.
+
+### Test Files Location
+`src/test/resources/singlestep/*.json` — one file per opcode (e.g., `a9.json` for LDA immediate)
+
+### Running SingleStepTests
+```bash
+# Run all SingleStepTests (currently: NOP, LDA imm, ADC imm, JMP abs)
+sbt "testOnly cpu6502.SingleStepTest"
+
+# Download additional opcode tests
+curl -s "https://raw.githubusercontent.com/SingleStepTests/65x02/main/nes6502/v1/XX.json" \
+  -o src/test/resources/singlestep/XX.json
+```
+
 ### Development Status
 The CPU structure is complete but instruction execution is partial. Key areas needing work:
 - Full instruction execution in state machine
 - All addressing modes in execution logic
 - Interrupt handling (IRQ/NMI)
 - Cycle-accurate timing
+- Additional opcode coverage in SingleStepTests

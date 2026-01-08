@@ -621,6 +621,22 @@ class InstructionDecoder extends Module {
       io.updateFlags := true.B
       io.cycles := 2.U
     }
+    is(0xE4.U) { // CPX zero page
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amZeroPage
+      io.aluOp := ALUOp.opCMP
+      io.writeX := false.B
+      io.updateFlags := true.B
+      io.cycles := 3.U
+    }
+    is(0xEC.U) { // CPX absolute
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amAbsolute
+      io.aluOp := ALUOp.opCMP
+      io.writeX := false.B
+      io.updateFlags := true.B
+      io.cycles := 4.U
+    }
     
     // CPY - Compare Y Register  
     is(0xC0.U) { // CPY #immediate
@@ -630,6 +646,22 @@ class InstructionDecoder extends Module {
       io.writeY := false.B
       io.updateFlags := true.B
       io.cycles := 2.U
+    }
+    is(0xC4.U) { // CPY zero page
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amZeroPage
+      io.aluOp := ALUOp.opCMP
+      io.writeY := false.B
+      io.updateFlags := true.B
+      io.cycles := 3.U
+    }
+    is(0xCC.U) { // CPY absolute
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amAbsolute
+      io.aluOp := ALUOp.opCMP
+      io.writeY := false.B
+      io.updateFlags := true.B
+      io.cycles := 4.U
     }
     
     // ==========================================

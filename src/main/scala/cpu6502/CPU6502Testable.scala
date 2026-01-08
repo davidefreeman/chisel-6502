@@ -117,8 +117,8 @@ class CPU6502Testable extends Module {
   val alu = Module(new ALU)
   // Select ALU input A based on opcode (for CPX/CPY comparisons)
   alu.io.a := MuxCase(regA, Seq(
-    (opcode === 0xE0.U) -> regX,  // CPX
-    (opcode === 0xC0.U) -> regY   // CPY
+    (opcode === 0xE0.U || opcode === 0xE4.U || opcode === 0xEC.U) -> regX,  // CPX
+    (opcode === 0xC0.U || opcode === 0xC4.U || opcode === 0xCC.U) -> regY   // CPY
   ))
   alu.io.b := operand
   alu.io.carryIn := flagC

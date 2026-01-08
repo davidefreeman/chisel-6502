@@ -765,3 +765,24 @@ class Test_BIT_abs extends SingleStepTestBase {
   behavior of "BIT absolute (0x2C)"
   it should "execute correctly" in { runOpcodeTests("singlestep/2c.json") }
 }
+
+// CPX/CPY Memory Mode Instructions
+class Test_CPX_zp extends SingleStepTestBase {
+  behavior of "CPX zero page (0xE4)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/e4.json") }
+}
+
+class Test_CPX_abs extends SingleStepTestBase {
+  behavior of "CPX absolute (0xEC)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/ec.json") }
+}
+
+class Test_CPY_zp extends SingleStepTestBase {
+  behavior of "CPY zero page (0xC4)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/c4.json") }
+}
+
+class Test_CPY_abs extends SingleStepTestBase {
+  behavior of "CPY absolute (0xCC)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/cc.json") }
+}

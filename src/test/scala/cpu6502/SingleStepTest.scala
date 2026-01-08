@@ -786,3 +786,133 @@ class Test_CPY_abs extends SingleStepTestBase {
   behavior of "CPY absolute (0xCC)"
   it should "execute correctly" in { runOpcodeTests("singlestep/cc.json") }
 }
+
+// ==========================================
+// Read-Modify-Write Instructions
+// ==========================================
+
+// INC - Increment Memory
+class Test_INC_zp extends SingleStepTestBase {
+  behavior of "INC zero page (0xE6)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/e6.json") }
+}
+
+class Test_INC_zpx extends SingleStepTestBase {
+  behavior of "INC zero page,X (0xF6)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/f6.json") }
+}
+
+class Test_INC_abs extends SingleStepTestBase {
+  behavior of "INC absolute (0xEE)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/ee.json") }
+}
+
+class Test_INC_absx extends SingleStepTestBase {
+  behavior of "INC absolute,X (0xFE)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/fe.json") }
+}
+
+// DEC - Decrement Memory
+class Test_DEC_zp extends SingleStepTestBase {
+  behavior of "DEC zero page (0xC6)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/c6.json") }
+}
+
+class Test_DEC_zpx extends SingleStepTestBase {
+  behavior of "DEC zero page,X (0xD6)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/d6.json") }
+}
+
+class Test_DEC_abs extends SingleStepTestBase {
+  behavior of "DEC absolute (0xCE)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/ce.json") }
+}
+
+class Test_DEC_absx extends SingleStepTestBase {
+  behavior of "DEC absolute,X (0xDE)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/de.json") }
+}
+
+// ASL - Arithmetic Shift Left Memory
+class Test_ASL_zp extends SingleStepTestBase {
+  behavior of "ASL zero page (0x06)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/06.json") }
+}
+
+class Test_ASL_zpx extends SingleStepTestBase {
+  behavior of "ASL zero page,X (0x16)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/16.json") }
+}
+
+class Test_ASL_abs extends SingleStepTestBase {
+  behavior of "ASL absolute (0x0E)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/0e.json") }
+}
+
+class Test_ASL_absx extends SingleStepTestBase {
+  behavior of "ASL absolute,X (0x1E)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/1e.json") }
+}
+
+// LSR - Logical Shift Right Memory
+class Test_LSR_zp extends SingleStepTestBase {
+  behavior of "LSR zero page (0x46)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/46.json") }
+}
+
+class Test_LSR_zpx extends SingleStepTestBase {
+  behavior of "LSR zero page,X (0x56)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/56.json") }
+}
+
+class Test_LSR_abs extends SingleStepTestBase {
+  behavior of "LSR absolute (0x4E)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/4e.json") }
+}
+
+class Test_LSR_absx extends SingleStepTestBase {
+  behavior of "LSR absolute,X (0x5E)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/5e.json") }
+}
+
+// ROL - Rotate Left Memory
+class Test_ROL_zp extends SingleStepTestBase {
+  behavior of "ROL zero page (0x26)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/26.json") }
+}
+
+class Test_ROL_zpx extends SingleStepTestBase {
+  behavior of "ROL zero page,X (0x36)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/36.json") }
+}
+
+class Test_ROL_abs extends SingleStepTestBase {
+  behavior of "ROL absolute (0x2E)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/2e.json") }
+}
+
+class Test_ROL_absx extends SingleStepTestBase {
+  behavior of "ROL absolute,X (0x3E)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/3e.json") }
+}
+
+// ROR - Rotate Right Memory
+class Test_ROR_zp extends SingleStepTestBase {
+  behavior of "ROR zero page (0x66)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/66.json") }
+}
+
+class Test_ROR_zpx extends SingleStepTestBase {
+  behavior of "ROR zero page,X (0x76)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/76.json") }
+}
+
+class Test_ROR_abs extends SingleStepTestBase {
+  behavior of "ROR absolute (0x6E)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/6e.json") }
+}
+
+class Test_ROR_absx extends SingleStepTestBase {
+  behavior of "ROR absolute,X (0x7E)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/7e.json") }
+}

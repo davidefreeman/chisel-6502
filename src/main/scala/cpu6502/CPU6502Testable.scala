@@ -67,7 +67,7 @@ class CPU6502Testable extends Module {
   
   object State extends ChiselEnum {
     val sReset, sFetch, sDecode, sExecute, sMemRead, sMemWrite, 
-        sReadOperand, sReadAddrLo, sReadAddrHi = Value
+        sReadOperand, sReadAddrLo, sReadAddrHi, sRMWWrite = Value
   }
   import State._
 
@@ -115,8 +115,11 @@ class CPU6502Testable extends Module {
   // ============================================
   
   val alu = Module(new ALU)
-  // Select ALU input A based on opcode (for CPX/CPY comparisons)
+  // Select ALU input A based on opcode and instruction type
+  // For RMW instructions, ALU operates on memory operand
+  // For CPX/CPY, ALU compares X or Y register
   alu.io.a := MuxCase(regA, Seq(
+    (decoder.io.instrType === InstrType.itRMW) -> operand,  // RMW: operate on memory value
     (opcode === 0xE0.U || opcode === 0xE4.U || opcode === 0xEC.U) -> regX,  // CPX
     (opcode === 0xC0.U || opcode === 0xC4.U || opcode === 0xCC.U) -> regY   // CPY
   ))
@@ -248,7 +251,12 @@ class CPU6502Testable extends Module {
       is(sMemRead) {
         io.address := effectiveAddr
         operand := io.dataIn
-        state := sExecute
+        // For RMW instructions, go to write phase; otherwise execute
+        when(decoder.io.instrType === InstrType.itRMW) {
+          state := sRMWWrite
+        }.otherwise {
+          state := sExecute
+        }
       }
       
       is(sExecute) {
@@ -475,6 +483,26 @@ class CPU6502Testable extends Module {
         io.address := effectiveAddr
         io.dataOut := regA
         io.writeEnable := true.B
+        state := sFetch
+      }
+      
+      is(sRMWWrite) {
+        // Write ALU result back to memory and update flags
+        io.address := effectiveAddr
+        io.dataOut := alu.io.result
+        io.writeEnable := true.B
+        
+        // Update flags based on ALU result
+        when(decoder.io.updateFlags) {
+          flagZ := alu.io.zero
+          flagN := alu.io.negative
+          // Carry flag for shift/rotate operations
+          val aluOp = decoder.io.aluOp
+          when(aluOp === ALUOp.opASL || aluOp === ALUOp.opLSR || 
+               aluOp === ALUOp.opROL || aluOp === ALUOp.opROR) {
+            flagC := alu.io.carryOut
+          }
+        }
         state := sFetch
       }
     }

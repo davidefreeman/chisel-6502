@@ -17,7 +17,7 @@ object AddressMode extends ChiselEnum {
   */
 object InstrType extends ChiselEnum {
   val itALU, itLoad, itStore, itBranch, itJump, itStack, itStatus, itNOP, itIllegal,
-      itRegTransfer, itIncDec = Value
+      itRegTransfer, itIncDec, itRMW = Value
 }
 
 /**
@@ -951,6 +951,214 @@ class InstructionDecoder extends Module {
       io.instrType := InstrType.itNOP
       io.addressMode := AddressMode.amImplied
       io.cycles := 2.U
+    }
+    
+    // ==========================================
+    // Read-Modify-Write Instructions
+    // ==========================================
+    
+    // INC - Increment Memory
+    is(0xE6.U) { // INC zero page
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amZeroPage
+      io.aluOp := ALUOp.opINC
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 5.U
+    }
+    is(0xF6.U) { // INC zero page,X
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amZeroPageX
+      io.aluOp := ALUOp.opINC
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0xEE.U) { // INC absolute
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amAbsolute
+      io.aluOp := ALUOp.opINC
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0xFE.U) { // INC absolute,X
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amAbsoluteX
+      io.aluOp := ALUOp.opINC
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 7.U
+    }
+    
+    // DEC - Decrement Memory
+    is(0xC6.U) { // DEC zero page
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amZeroPage
+      io.aluOp := ALUOp.opDEC
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 5.U
+    }
+    is(0xD6.U) { // DEC zero page,X
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amZeroPageX
+      io.aluOp := ALUOp.opDEC
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0xCE.U) { // DEC absolute
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amAbsolute
+      io.aluOp := ALUOp.opDEC
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0xDE.U) { // DEC absolute,X
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amAbsoluteX
+      io.aluOp := ALUOp.opDEC
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 7.U
+    }
+    
+    // ASL - Arithmetic Shift Left Memory
+    is(0x06.U) { // ASL zero page
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amZeroPage
+      io.aluOp := ALUOp.opASL
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 5.U
+    }
+    is(0x16.U) { // ASL zero page,X
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amZeroPageX
+      io.aluOp := ALUOp.opASL
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0x0E.U) { // ASL absolute
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amAbsolute
+      io.aluOp := ALUOp.opASL
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0x1E.U) { // ASL absolute,X
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amAbsoluteX
+      io.aluOp := ALUOp.opASL
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 7.U
+    }
+    
+    // LSR - Logical Shift Right Memory
+    is(0x46.U) { // LSR zero page
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amZeroPage
+      io.aluOp := ALUOp.opLSR
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 5.U
+    }
+    is(0x56.U) { // LSR zero page,X
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amZeroPageX
+      io.aluOp := ALUOp.opLSR
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0x4E.U) { // LSR absolute
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amAbsolute
+      io.aluOp := ALUOp.opLSR
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0x5E.U) { // LSR absolute,X
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amAbsoluteX
+      io.aluOp := ALUOp.opLSR
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 7.U
+    }
+    
+    // ROL - Rotate Left Memory
+    is(0x26.U) { // ROL zero page
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amZeroPage
+      io.aluOp := ALUOp.opROL
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 5.U
+    }
+    is(0x36.U) { // ROL zero page,X
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amZeroPageX
+      io.aluOp := ALUOp.opROL
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0x2E.U) { // ROL absolute
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amAbsolute
+      io.aluOp := ALUOp.opROL
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0x3E.U) { // ROL absolute,X
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amAbsoluteX
+      io.aluOp := ALUOp.opROL
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 7.U
+    }
+    
+    // ROR - Rotate Right Memory
+    is(0x66.U) { // ROR zero page
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amZeroPage
+      io.aluOp := ALUOp.opROR
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 5.U
+    }
+    is(0x76.U) { // ROR zero page,X
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amZeroPageX
+      io.aluOp := ALUOp.opROR
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0x6E.U) { // ROR absolute
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amAbsolute
+      io.aluOp := ALUOp.opROR
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0x7E.U) { // ROR absolute,X
+      io.instrType := InstrType.itRMW
+      io.addressMode := AddressMode.amAbsoluteX
+      io.aluOp := ALUOp.opROR
+      io.writeMem := true.B
+      io.updateFlags := true.B
+      io.cycles := 7.U
     }
   }
 }

@@ -607,3 +607,45 @@ class Test_LDY_absx extends SingleStepTestBase {
   behavior of "LDY absolute,X (0xBC)"
   it should "execute correctly" in { runOpcodeTests("singlestep/bc.json") }
 }
+
+// Absolute,Y ALU Instructions
+class Test_ADC_absy extends SingleStepTestBase {
+  behavior of "ADC absolute,Y (0x79)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/79.json") }
+}
+
+class Test_SBC_absy extends SingleStepTestBase {
+  behavior of "SBC absolute,Y (0xF9)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/f9.json") }
+}
+
+class Test_AND_absy extends SingleStepTestBase {
+  behavior of "AND absolute,Y (0x39)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/39.json") }
+}
+
+class Test_ORA_absy extends SingleStepTestBase {
+  behavior of "ORA absolute,Y (0x19)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/19.json") }
+}
+
+class Test_EOR_absy extends SingleStepTestBase {
+  behavior of "EOR absolute,Y (0x59)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/59.json") }
+}
+
+class Test_CMP_absy extends SingleStepTestBase {
+  behavior of "CMP absolute,Y (0xD9)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/d9.json") }
+}
+
+// Absolute,Y Load Instructions
+class Test_LDA_absy extends SingleStepTestBase {
+  behavior of "LDA absolute,Y (0xB9)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/b9.json") }
+}
+
+class Test_LDX_absy extends SingleStepTestBase {
+  behavior of "LDX absolute,Y (0xBE)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/be.json") }
+}

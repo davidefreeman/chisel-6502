@@ -423,6 +423,43 @@ class CPU6502Testable extends Module {
             }
             state := sFetch
           }
+          
+          is(InstrType.itStack) {
+            switch(opcode) {
+              is(0x48.U) { // PHA - Push Accumulator
+                io.address := Cat(0x01.U(8.W), regSP)
+                io.dataOut := regA
+                io.writeEnable := true.B
+                regSP := regSP - 1.U
+              }
+              is(0x68.U) { // PLA - Pull Accumulator
+                regSP := regSP + 1.U
+                io.address := Cat(0x01.U(8.W), regSP + 1.U)
+                regA := io.dataIn
+                flagZ := io.dataIn === 0.U
+                flagN := io.dataIn(7)
+              }
+              is(0x08.U) { // PHP - Push Processor Status
+                io.address := Cat(0x01.U(8.W), regSP)
+                // PHP sets B flag in pushed value
+                io.dataOut := Cat(flagN, flagV, 1.U(1.W), 1.U(1.W), flagD, flagI, flagZ, flagC)
+                io.writeEnable := true.B
+                regSP := regSP - 1.U
+              }
+              is(0x28.U) { // PLP - Pull Processor Status
+                regSP := regSP + 1.U
+                io.address := Cat(0x01.U(8.W), regSP + 1.U)
+                val pulledP = io.dataIn
+                flagN := pulledP(7)
+                flagV := pulledP(6)
+                flagD := pulledP(3)
+                flagI := pulledP(2)
+                flagZ := pulledP(1)
+                flagC := pulledP(0)
+              }
+            }
+            state := sFetch
+          }
         }
       }
       

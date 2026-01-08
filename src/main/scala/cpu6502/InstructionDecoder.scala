@@ -748,6 +748,33 @@ class InstructionDecoder extends Module {
     }
     
     // ==========================================
+    // Stack Instructions
+    // ==========================================
+    
+    is(0x48.U) { // PHA - Push Accumulator
+      io.instrType := InstrType.itStack
+      io.addressMode := AddressMode.amImplied
+      io.cycles := 3.U
+    }
+    is(0x68.U) { // PLA - Pull Accumulator
+      io.instrType := InstrType.itStack
+      io.addressMode := AddressMode.amImplied
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 4.U
+    }
+    is(0x08.U) { // PHP - Push Processor Status
+      io.instrType := InstrType.itStack
+      io.addressMode := AddressMode.amImplied
+      io.cycles := 3.U
+    }
+    is(0x28.U) { // PLP - Pull Processor Status
+      io.instrType := InstrType.itStack
+      io.addressMode := AddressMode.amImplied
+      io.cycles := 4.U
+    }
+    
+    // ==========================================
     // Register Transfer Instructions
     // ==========================================
     

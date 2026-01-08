@@ -701,3 +701,24 @@ class Test_BEQ extends SingleStepTestBase {
   behavior of "BEQ (0xF0)"
   it should "execute correctly" in { runOpcodeTests("singlestep/f0.json") }
 }
+
+// Stack Instructions
+class Test_PHA extends SingleStepTestBase {
+  behavior of "PHA (0x48)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/48.json") }
+}
+
+class Test_PLA extends SingleStepTestBase {
+  behavior of "PLA (0x68)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/68.json") }
+}
+
+class Test_PHP extends SingleStepTestBase {
+  behavior of "PHP (0x08)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/08.json") }
+}
+
+class Test_PLP extends SingleStepTestBase {
+  behavior of "PLP (0x28)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/28.json") }
+}

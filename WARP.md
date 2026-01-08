@@ -11,7 +11,7 @@ sbt compile
 # Run all tests
 sbt test
 
-# Run all SingleStepTests (129 parallel test classes)
+# Run all SingleStepTests (150 parallel test classes)
 sbt -DtestCount=1000 "testOnly cpu6502.Test_*"
 
 # Run a specific opcode test
@@ -46,16 +46,18 @@ CPU6502Testable (testable wrapper)
 | File | Description |
 |------|-------------|
 | `CPU6502Testable.scala` | Testable CPU with state injection via `io.test.*` |
-| `InstructionDecoder.scala` | Opcode → control signals (129 opcodes) |
+| `InstructionDecoder.scala` | Opcode → control signals (150 opcodes) |
 | `ALU.scala` | All ALU operations (ADC, SBC, AND, ORA, EOR, shifts, CMP, BIT, INC, DEC) |
-| `SingleStepTest.scala` | Test harness with 129 parallel test classes |
+| `SingleStepTest.scala` | Test harness with 150 parallel test classes |
 
 ### CPU State Machine
 
 ```
 sFetch → sDecode → [sReadAddrHi] → [sMemRead] → sExecute → sFetch
-                                       ↓
-                                 sRMWWrite → sFetch  (for read-modify-write)
+                         ↓              ↓
+                    sJMPIndirect   sRMWWrite → sFetch
+                         ↓
+                    sJSR/sRTS/sBRK/sRTI → sFetch  (multi-cycle stack ops)
 ```
 
 ### Implemented Addressing Modes
@@ -64,9 +66,9 @@ sFetch → sDecode → [sReadAddrHi] → [sMemRead] → sExecute → sFetch
 - ✅ Zero Page, Zero Page X, Zero Page Y
 - ✅ Absolute, Absolute X, Absolute Y
 - ✅ Relative (branches)
-- ❌ Indirect (JMP indirect)
-- ❌ Indexed Indirect (zp,X)
-- ❌ Indirect Indexed (zp),Y
+- ✅ Indirect (JMP indirect)
+- ✅ Indexed Indirect (zp,X)
+- ✅ Indirect Indexed (zp),Y
 
 ### Implemented Instruction Types
 - ✅ `itLoad` - LDA, LDX, LDY (all addressing modes)
@@ -79,7 +81,7 @@ sFetch → sDecode → [sReadAddrHi] → [sMemRead] → sExecute → sFetch
 - ✅ `itRegTransfer` - TAX, TXA, TAY, TYA, TSX, TXS
 - ✅ `itIncDec` - INX, INY, DEX, DEY
 - ✅ `itRMW` - INC/DEC memory, ASL/LSR/ROL/ROR memory (zp, zp,X, abs, abs,X)
-- ❌ JSR, RTS, BRK, RTI
+- ✅ JSR, RTS, BRK, RTI, JMP indirect
 
 ## SingleStepTests Integration
 
@@ -112,7 +114,7 @@ sbt -DtestCount=10000 "testOnly cpu6502.Test_*"
 ```
 
 ### Test File Location
-`src/test/resources/singlestep/*.json` — 129 opcode test files
+`src/test/resources/singlestep/*.json` — 150 opcode test files
 
 ### Downloading New Test Files
 ```bash
@@ -122,7 +124,9 @@ curl -sO "https://raw.githubusercontent.com/SingleStepTests/65x02/main/nes6502/v
 
 ## Current Status (January 2026)
 
-**129 of 151 opcodes validated (85%)**
+**150 of 151 opcodes validated (99%)** - NES 6502 COMPLETE!
+
+The one missing opcode (0x89) is an unofficial NOP that most 6502 tests don't include.
 
 ### Validated Opcodes by Category
 
@@ -157,20 +161,11 @@ curl -sO "https://raw.githubusercontent.com/SingleStepTests/65x02/main/nes6502/v
 | LSR memory | zp, zp,X, abs, abs,X | 4 |
 | ROL memory | zp, zp,X, abs, abs,X | 4 |
 | ROR memory | zp, zp,X, abs, abs,X | 4 |
-
-### Remaining Work (~22 opcodes)
-
-1. **Indirect Addressing** (~16 opcodes)
-   - (zp,X) indexed indirect: ADC, SBC, AND, ORA, EOR, CMP, LDA, STA
-   - (zp),Y indirect indexed: same 8 instructions
-   - Requires multi-byte address calculation
-
-3. **Subroutines/Interrupts** (4 opcodes)
-   - JSR, RTS, BRK, RTI
-   - Requires stack push/pull of PC and status
-
-4. **JMP Indirect** (1 opcode)
-   - 0x6C - requires reading address from memory
+| (zp,X) indirect | LDA, STA, ADC, SBC, AND, ORA, EOR, CMP | 8 |
+| (zp),Y indirect | LDA, STA, ADC, SBC, AND, ORA, EOR, CMP | 8 |
+| Subroutines | JSR, RTS | 2 |
+| Interrupts | BRK, RTI | 2 |
+| JMP indirect | 0x6C | 1 |
 
 ## Development Workflow
 

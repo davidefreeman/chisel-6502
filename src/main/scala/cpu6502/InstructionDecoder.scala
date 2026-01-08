@@ -812,6 +812,27 @@ class InstructionDecoder extends Module {
     }
     
     // ==========================================
+    // BIT Test Instructions
+    // ==========================================
+    
+    is(0x24.U) { // BIT zero page
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amZeroPage
+      io.aluOp := ALUOp.opBIT
+      io.writeA := false.B  // BIT doesn't modify A
+      io.updateFlags := true.B
+      io.cycles := 3.U
+    }
+    is(0x2C.U) { // BIT absolute
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amAbsolute
+      io.aluOp := ALUOp.opBIT
+      io.writeA := false.B
+      io.updateFlags := true.B
+      io.cycles := 4.U
+    }
+    
+    // ==========================================
     // Register Transfer Instructions
     // ==========================================
     

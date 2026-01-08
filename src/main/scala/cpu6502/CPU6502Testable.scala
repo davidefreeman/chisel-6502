@@ -280,19 +280,27 @@ class CPU6502Testable extends Module {
               regA := alu.io.result
             }
             when(decoder.io.updateFlags) {
-              // N and Z are always updated
+              // N and Z are always updated (except BIT has special handling)
               flagZ := alu.io.zero
-              flagN := alu.io.negative
-              // C and V only for arithmetic/compare operations
               val aluOp = decoder.io.aluOp
+              
+              // BIT instruction: N = M[7], V = M[6], Z = (A AND M) == 0
+              when(aluOp === ALUOp.opBIT) {
+                flagN := operand(7)  // N from memory operand, not result
+                flagV := operand(6)  // V from memory operand
+              }.otherwise {
+                flagN := alu.io.negative
+              }
+              
+              // C flag for arithmetic/shift operations
               when(aluOp === ALUOp.opADC || aluOp === ALUOp.opSBC || 
                    aluOp === ALUOp.opCMP || aluOp === ALUOp.opASL ||
                    aluOp === ALUOp.opLSR || aluOp === ALUOp.opROL ||
                    aluOp === ALUOp.opROR) {
                 flagC := alu.io.carryOut
               }
-              when(aluOp === ALUOp.opADC || aluOp === ALUOp.opSBC ||
-                   aluOp === ALUOp.opBIT) {
+              // V flag for ADC/SBC (BIT handled above)
+              when(aluOp === ALUOp.opADC || aluOp === ALUOp.opSBC) {
                 flagV := alu.io.overflow
               }
             }

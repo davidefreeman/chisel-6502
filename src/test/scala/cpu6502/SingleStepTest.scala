@@ -754,3 +754,14 @@ class Test_STY_abs extends SingleStepTestBase {
   behavior of "STY absolute (0x8C)"
   it should "execute correctly" in { runOpcodeTests("singlestep/8c.json") }
 }
+
+// BIT Test Instructions
+class Test_BIT_zp extends SingleStepTestBase {
+  behavior of "BIT zero page (0x24)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/24.json") }
+}
+
+class Test_BIT_abs extends SingleStepTestBase {
+  behavior of "BIT absolute (0x2C)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/2c.json") }
+}

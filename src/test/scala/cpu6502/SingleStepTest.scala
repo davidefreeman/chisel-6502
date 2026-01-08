@@ -533,3 +533,35 @@ class Test_CMP_zpx extends SingleStepTestBase {
   behavior of "CMP zero page,X (0xD5)"
   it should "execute correctly" in { runOpcodeTests("singlestep/d5.json") }
 }
+
+// Zero Page,X Load/Store Instructions
+class Test_LDA_zpx extends SingleStepTestBase {
+  behavior of "LDA zero page,X (0xB5)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/b5.json") }
+}
+
+class Test_STA_zpx extends SingleStepTestBase {
+  behavior of "STA zero page,X (0x95)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/95.json") }
+}
+
+class Test_LDY_zpx extends SingleStepTestBase {
+  behavior of "LDY zero page,X (0xB4)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/b4.json") }
+}
+
+class Test_STY_zpx extends SingleStepTestBase {
+  behavior of "STY zero page,X (0x94)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/94.json") }
+}
+
+// Zero Page,Y Load/Store Instructions
+class Test_LDX_zpy extends SingleStepTestBase {
+  behavior of "LDX zero page,Y (0xB6)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/b6.json") }
+}
+
+class Test_STX_zpy extends SingleStepTestBase {
+  behavior of "STX zero page,Y (0x96)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/96.json") }
+}

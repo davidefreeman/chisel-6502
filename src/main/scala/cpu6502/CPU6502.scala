@@ -180,5 +180,5 @@ class DebugBundle extends Bundle {
   * Top-level module for generating Verilog
   */
 object CPU6502Main extends App {
-  emitVerilog(new CPU6502, Array("--target-dir", "generated"))
+  emitVerilog(new CPU6502Testable, Array("--target-dir", "generated"))
 }

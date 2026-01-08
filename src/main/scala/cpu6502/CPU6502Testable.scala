@@ -184,6 +184,20 @@ class CPU6502Testable extends Module {
             regPC := regPC + 1.U
             state := sMemRead
           }
+          is(AddressMode.amZeroPageX) {
+            io.address := regPC
+            addrLo := (io.dataIn + regX)(7, 0)  // Wrap within zero page
+            addrHi := 0.U
+            regPC := regPC + 1.U
+            state := sMemRead
+          }
+          is(AddressMode.amZeroPageY) {
+            io.address := regPC
+            addrLo := (io.dataIn + regY)(7, 0)  // Wrap within zero page
+            addrHi := 0.U
+            regPC := regPC + 1.U
+            state := sMemRead
+          }
         }
         // Default for unhandled modes
         when(decoder.io.addressMode === AddressMode.amAccumulator) {

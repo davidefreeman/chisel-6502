@@ -329,6 +329,14 @@ class InstructionDecoder extends Module {
       io.updateFlags := true.B
       io.cycles := 4.U
     }
+    is(0x75.U) { // ADC zero page,X
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amZeroPageX
+      io.aluOp := ALUOp.opADC
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 4.U
+    }
     
     // SBC - Subtract with Carry
     is(0xE9.U) { // SBC #immediate
@@ -350,6 +358,14 @@ class InstructionDecoder extends Module {
     is(0xED.U) { // SBC absolute
       io.instrType := InstrType.itALU
       io.addressMode := AddressMode.amAbsolute
+      io.aluOp := ALUOp.opSBC
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 4.U
+    }
+    is(0xF5.U) { // SBC zero page,X
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amZeroPageX
       io.aluOp := ALUOp.opSBC
       io.writeA := true.B
       io.updateFlags := true.B
@@ -385,6 +401,14 @@ class InstructionDecoder extends Module {
       io.updateFlags := true.B
       io.cycles := 4.U
     }
+    is(0x35.U) { // AND zero page,X
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amZeroPageX
+      io.aluOp := ALUOp.opAND
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 4.U
+    }
     
     // ORA
     is(0x09.U) { // ORA #immediate
@@ -406,6 +430,14 @@ class InstructionDecoder extends Module {
     is(0x0D.U) { // ORA absolute
       io.instrType := InstrType.itALU
       io.addressMode := AddressMode.amAbsolute
+      io.aluOp := ALUOp.opORA
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 4.U
+    }
+    is(0x15.U) { // ORA zero page,X
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amZeroPageX
       io.aluOp := ALUOp.opORA
       io.writeA := true.B
       io.updateFlags := true.B
@@ -437,6 +469,14 @@ class InstructionDecoder extends Module {
       io.updateFlags := true.B
       io.cycles := 4.U
     }
+    is(0x55.U) { // EOR zero page,X
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amZeroPageX
+      io.aluOp := ALUOp.opEOR
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 4.U
+    }
     
     // ==========================================
     // Compare Instructions
@@ -462,6 +502,14 @@ class InstructionDecoder extends Module {
     is(0xCD.U) { // CMP absolute
       io.instrType := InstrType.itALU
       io.addressMode := AddressMode.amAbsolute
+      io.aluOp := ALUOp.opCMP
+      io.writeA := false.B
+      io.updateFlags := true.B
+      io.cycles := 4.U
+    }
+    is(0xD5.U) { // CMP zero page,X
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amZeroPageX
       io.aluOp := ALUOp.opCMP
       io.writeA := false.B
       io.updateFlags := true.B

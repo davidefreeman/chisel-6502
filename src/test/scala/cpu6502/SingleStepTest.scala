@@ -502,3 +502,34 @@ class Test_CMP_abs extends SingleStepTestBase {
   behavior of "CMP absolute (0xCD)"
   it should "execute correctly" in { runOpcodeTests("singlestep/cd.json") }
 }
+
+// Zero Page,X ALU Instructions
+class Test_ADC_zpx extends SingleStepTestBase {
+  behavior of "ADC zero page,X (0x75)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/75.json") }
+}
+
+class Test_SBC_zpx extends SingleStepTestBase {
+  behavior of "SBC zero page,X (0xF5)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/f5.json") }
+}
+
+class Test_AND_zpx extends SingleStepTestBase {
+  behavior of "AND zero page,X (0x35)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/35.json") }
+}
+
+class Test_ORA_zpx extends SingleStepTestBase {
+  behavior of "ORA zero page,X (0x15)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/15.json") }
+}
+
+class Test_EOR_zpx extends SingleStepTestBase {
+  behavior of "EOR zero page,X (0x55)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/55.json") }
+}
+
+class Test_CMP_zpx extends SingleStepTestBase {
+  behavior of "CMP zero page,X (0xD5)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/d5.json") }
+}

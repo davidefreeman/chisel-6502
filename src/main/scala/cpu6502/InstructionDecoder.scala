@@ -353,6 +353,22 @@ class InstructionDecoder extends Module {
       io.updateFlags := true.B
       io.cycles := 4.U
     }
+    is(0x61.U) { // ADC (indirect,X)
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amIndirectX
+      io.aluOp := ALUOp.opADC
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0x71.U) { // ADC (indirect),Y
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amIndirectY
+      io.aluOp := ALUOp.opADC
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 5.U
+    }
     
     // SBC - Subtract with Carry
     is(0xE9.U) { // SBC #immediate
@@ -402,6 +418,22 @@ class InstructionDecoder extends Module {
       io.writeA := true.B
       io.updateFlags := true.B
       io.cycles := 4.U
+    }
+    is(0xE1.U) { // SBC (indirect,X)
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amIndirectX
+      io.aluOp := ALUOp.opSBC
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0xF1.U) { // SBC (indirect),Y
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amIndirectY
+      io.aluOp := ALUOp.opSBC
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 5.U
     }
     
     // ==========================================
@@ -457,6 +489,22 @@ class InstructionDecoder extends Module {
       io.updateFlags := true.B
       io.cycles := 4.U
     }
+    is(0x21.U) { // AND (indirect,X)
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amIndirectX
+      io.aluOp := ALUOp.opAND
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0x31.U) { // AND (indirect),Y
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amIndirectY
+      io.aluOp := ALUOp.opAND
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 5.U
+    }
     
     // ORA
     is(0x09.U) { // ORA #immediate
@@ -507,6 +555,22 @@ class InstructionDecoder extends Module {
       io.updateFlags := true.B
       io.cycles := 4.U
     }
+    is(0x01.U) { // ORA (indirect,X)
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amIndirectX
+      io.aluOp := ALUOp.opORA
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0x11.U) { // ORA (indirect),Y
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amIndirectY
+      io.aluOp := ALUOp.opORA
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 5.U
+    }
     
     // EOR
     is(0x49.U) { // EOR #immediate
@@ -556,6 +620,22 @@ class InstructionDecoder extends Module {
       io.writeA := true.B
       io.updateFlags := true.B
       io.cycles := 4.U
+    }
+    is(0x41.U) { // EOR (indirect,X)
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amIndirectX
+      io.aluOp := ALUOp.opEOR
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0x51.U) { // EOR (indirect),Y
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amIndirectY
+      io.aluOp := ALUOp.opEOR
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 5.U
     }
     
     // ==========================================
@@ -610,6 +690,22 @@ class InstructionDecoder extends Module {
       io.writeA := false.B
       io.updateFlags := true.B
       io.cycles := 4.U
+    }
+    is(0xC1.U) { // CMP (indirect,X)
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amIndirectX
+      io.aluOp := ALUOp.opCMP
+      io.writeA := false.B
+      io.updateFlags := true.B
+      io.cycles := 6.U
+    }
+    is(0xD1.U) { // CMP (indirect),Y
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amIndirectY
+      io.aluOp := ALUOp.opCMP
+      io.writeA := false.B
+      io.updateFlags := true.B
+      io.cycles := 5.U
     }
     
     // CPX - Compare X Register

@@ -916,3 +916,89 @@ class Test_ROR_absx extends SingleStepTestBase {
   behavior of "ROR absolute,X (0x7E)"
   it should "execute correctly" in { runOpcodeTests("singlestep/7e.json") }
 }
+
+// ==========================================
+// Indirect Addressing Mode Instructions
+// ==========================================
+
+// (zp,X) Indexed Indirect
+class Test_LDA_indx extends SingleStepTestBase {
+  behavior of "LDA (indirect,X) (0xA1)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/a1.json") }
+}
+
+class Test_STA_indx extends SingleStepTestBase {
+  behavior of "STA (indirect,X) (0x81)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/81.json") }
+}
+
+class Test_ADC_indx extends SingleStepTestBase {
+  behavior of "ADC (indirect,X) (0x61)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/61.json") }
+}
+
+class Test_SBC_indx extends SingleStepTestBase {
+  behavior of "SBC (indirect,X) (0xE1)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/e1.json") }
+}
+
+class Test_AND_indx extends SingleStepTestBase {
+  behavior of "AND (indirect,X) (0x21)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/21.json") }
+}
+
+class Test_ORA_indx extends SingleStepTestBase {
+  behavior of "ORA (indirect,X) (0x01)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/01.json") }
+}
+
+class Test_EOR_indx extends SingleStepTestBase {
+  behavior of "EOR (indirect,X) (0x41)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/41.json") }
+}
+
+class Test_CMP_indx extends SingleStepTestBase {
+  behavior of "CMP (indirect,X) (0xC1)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/c1.json") }
+}
+
+// (zp),Y Indirect Indexed
+class Test_LDA_indy extends SingleStepTestBase {
+  behavior of "LDA (indirect),Y (0xB1)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/b1.json") }
+}
+
+class Test_STA_indy extends SingleStepTestBase {
+  behavior of "STA (indirect),Y (0x91)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/91.json") }
+}
+
+class Test_ADC_indy extends SingleStepTestBase {
+  behavior of "ADC (indirect),Y (0x71)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/71.json") }
+}
+
+class Test_SBC_indy extends SingleStepTestBase {
+  behavior of "SBC (indirect),Y (0xF1)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/f1.json") }
+}
+
+class Test_AND_indy extends SingleStepTestBase {
+  behavior of "AND (indirect),Y (0x31)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/31.json") }
+}
+
+class Test_ORA_indy extends SingleStepTestBase {
+  behavior of "ORA (indirect),Y (0x11)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/11.json") }
+}
+
+class Test_EOR_indy extends SingleStepTestBase {
+  behavior of "EOR (indirect),Y (0x51)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/51.json") }
+}
+
+class Test_CMP_indy extends SingleStepTestBase {
+  behavior of "CMP (indirect),Y (0xD1)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/d1.json") }
+}

@@ -67,7 +67,8 @@ class CPU6502Testable extends Module {
   
   object State extends ChiselEnum {
     val sReset, sFetch, sDecode, sExecute, sMemRead, sMemWrite, 
-        sReadOperand, sReadAddrLo, sReadAddrHi, sRMWWrite = Value
+        sReadOperand, sReadAddrLo, sReadAddrHi, sRMWWrite,
+        sIndirectReadLo, sIndirectReadHi = Value
   }
   import State._
 
@@ -80,6 +81,7 @@ class CPU6502Testable extends Module {
   val addrLo = RegInit(0.U(8.W))
   val addrHi = RegInit(0.U(8.W))
   val effectiveAddr = Cat(addrHi, addrLo)
+  val zpAddr = RegInit(0.U(8.W))  // Zero page address for indirect modes
 
   // ============================================
   // Test State Injection
@@ -219,6 +221,20 @@ class CPU6502Testable extends Module {
             regPC := regPC + 1.U
             state := sExecute
           }
+          is(AddressMode.amIndirectX) {
+            // (zp,X): Read zp byte, add X (wrap), then read pointer from zero page
+            io.address := regPC
+            zpAddr := (io.dataIn + regX)(7, 0)  // Wrap within zero page
+            regPC := regPC + 1.U
+            state := sIndirectReadLo
+          }
+          is(AddressMode.amIndirectY) {
+            // (zp),Y: Read zp byte, then read pointer from zero page, add Y later
+            io.address := regPC
+            zpAddr := io.dataIn
+            regPC := regPC + 1.U
+            state := sIndirectReadLo
+          }
         }
         // Default for unhandled modes
         when(decoder.io.addressMode === AddressMode.amAccumulator) {
@@ -256,6 +272,38 @@ class CPU6502Testable extends Module {
           state := sRMWWrite
         }.otherwise {
           state := sExecute
+        }
+      }
+      
+      is(sIndirectReadLo) {
+        // Read low byte of effective address from zero page
+        io.address := Cat(0.U(8.W), zpAddr)
+        addrLo := io.dataIn
+        // Increment zpAddr for high byte read (wraps within zero page)
+        zpAddr := zpAddr + 1.U
+        state := sIndirectReadHi
+      }
+      
+      is(sIndirectReadHi) {
+        // Read high byte of effective address from zero page
+        io.address := Cat(0.U(8.W), zpAddr)
+        
+        // For (zp),Y: add Y to the full address
+        // For (zp,X): X was already added before reading pointer
+        val baseAddr = Cat(io.dataIn, addrLo)
+        val indexedAddr = Mux(
+          decoder.io.addressMode === AddressMode.amIndirectY,
+          baseAddr + regY,
+          baseAddr
+        )
+        addrLo := indexedAddr(7, 0)
+        addrHi := indexedAddr(15, 8)
+        
+        // For store instructions, go directly to execute (which handles the write)
+        when(decoder.io.instrType === InstrType.itStore) {
+          state := sExecute
+        }.otherwise {
+          state := sMemRead
         }
       }
       

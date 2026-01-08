@@ -11,7 +11,7 @@ sbt compile
 # Run all tests
 sbt test
 
-# Run all SingleStepTests (105 parallel test classes)
+# Run all SingleStepTests (129 parallel test classes)
 sbt -DtestCount=1000 "testOnly cpu6502.Test_*"
 
 # Run a specific opcode test
@@ -46,14 +46,16 @@ CPU6502Testable (testable wrapper)
 | File | Description |
 |------|-------------|
 | `CPU6502Testable.scala` | Testable CPU with state injection via `io.test.*` |
-| `InstructionDecoder.scala` | Opcode → control signals (105+ opcodes) |
-| `ALU.scala` | All ALU operations (ADC, SBC, AND, ORA, EOR, shifts, CMP, BIT) |
-| `SingleStepTest.scala` | Test harness with 105 parallel test classes |
+| `InstructionDecoder.scala` | Opcode → control signals (129 opcodes) |
+| `ALU.scala` | All ALU operations (ADC, SBC, AND, ORA, EOR, shifts, CMP, BIT, INC, DEC) |
+| `SingleStepTest.scala` | Test harness with 129 parallel test classes |
 
 ### CPU State Machine
 
 ```
 sFetch → sDecode → [sReadAddrHi] → [sMemRead] → sExecute → sFetch
+                                       ↓
+                                 sRMWWrite → sFetch  (for read-modify-write)
 ```
 
 ### Implemented Addressing Modes
@@ -76,8 +78,8 @@ sFetch → sDecode → [sReadAddrHi] → [sMemRead] → sExecute → sFetch
 - ✅ `itStatus` - CLC, SEC, CLI, SEI, CLV, CLD, SED
 - ✅ `itRegTransfer` - TAX, TXA, TAY, TYA, TSX, TXS
 - ✅ `itIncDec` - INX, INY, DEX, DEY
+- ✅ `itRMW` - INC/DEC memory, ASL/LSR/ROL/ROR memory (zp, zp,X, abs, abs,X)
 - ❌ JSR, RTS, BRK, RTI
-- ❌ INC/DEC memory, ASL/LSR/ROL/ROR memory
 
 ## SingleStepTests Integration
 
@@ -110,7 +112,7 @@ sbt -DtestCount=10000 "testOnly cpu6502.Test_*"
 ```
 
 ### Test File Location
-`src/test/resources/singlestep/*.json` — 105 opcode test files
+`src/test/resources/singlestep/*.json` — 129 opcode test files
 
 ### Downloading New Test Files
 ```bash
@@ -120,7 +122,7 @@ curl -sO "https://raw.githubusercontent.com/SingleStepTests/65x02/main/nes6502/v
 
 ## Current Status (January 2026)
 
-**105 of 151 opcodes validated (70%)**
+**129 of 151 opcodes validated (85%)**
 
 ### Validated Opcodes by Category
 
@@ -149,15 +151,16 @@ curl -sO "https://raw.githubusercontent.com/SingleStepTests/65x02/main/nes6502/v
 | BIT | zp, abs | 2 |
 | JMP | abs | 1 |
 | NOP | | 1 |
+| INC memory | zp, zp,X, abs, abs,X | 4 |
+| DEC memory | zp, zp,X, abs, abs,X | 4 |
+| ASL memory | zp, zp,X, abs, abs,X | 4 |
+| LSR memory | zp, zp,X, abs, abs,X | 4 |
+| ROL memory | zp, zp,X, abs, abs,X | 4 |
+| ROR memory | zp, zp,X, abs, abs,X | 4 |
 
-### Remaining Work (~46 opcodes)
+### Remaining Work (~22 opcodes)
 
-1. **Read-Modify-Write Instructions** (~26 opcodes)
-   - INC/DEC memory (zp, zp,X, abs, abs,X)
-   - ASL/LSR/ROL/ROR memory modes
-   - Requires new state machine states for read→modify→write
-
-2. **Indirect Addressing** (~16 opcodes)
+1. **Indirect Addressing** (~16 opcodes)
    - (zp,X) indexed indirect: ADC, SBC, AND, ORA, EOR, CMP, LDA, STA
    - (zp),Y indirect indexed: same 8 instructions
    - Requires multi-byte address calculation

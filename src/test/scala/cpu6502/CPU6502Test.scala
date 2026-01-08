@@ -121,22 +121,20 @@ class CPU6502Test extends AnyFlatSpec with ChiselScalatestTester {
 
   it should "initialize and read reset vector" in {
     test(new CPU6502) { dut =>
-      // After reset, CPU should read from 0xFFFC
-      dut.clock.step(1)
+      // Cycle 0: CPU outputs address 0xFFFC
       dut.io.address.expect(0xFFFC.U)
+      dut.clock.step(1)
       
-      // Provide low byte of reset vector
+      // Cycle 1: CPU outputs address 0xFFFD, poke low byte (captured as addrLo on next edge)
+      dut.io.address.expect(0xFFFD.U)
       dut.io.dataIn.poke(0x00.U)
       dut.clock.step(1)
       
-      // CPU should read from 0xFFFD
-      dut.io.address.expect(0xFFFD.U)
-      
-      // Provide high byte of reset vector
+      // Cycle 2: addrLo=0x00, poke high byte (used for addrHi and regPC)
       dut.io.dataIn.poke(0x80.U)
       dut.clock.step(1)
       
-      // PC should now be 0x8000
+      // Now in sFetch: regPC should be 0x8000
       dut.io.debug.pc.expect(0x8000.U)
     }
   }

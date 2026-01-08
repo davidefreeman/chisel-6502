@@ -119,8 +119,18 @@ class TestMemory(initialRam: Map[Int, Int]) {
 
 /**
   * SingleStepTests runner for CPU6502
+  * 
+  * Test count is configurable via:
+  *   - System property: -DtestCount=100
+  *   - Environment variable: TEST_COUNT=100
+  * 
+  * Example: sbt -DtestCount=100 "testOnly cpu6502.SingleStepTest"
   */
 class SingleStepTest extends AnyFlatSpec with ChiselScalatestTester with Matchers {
+  
+  // Configurable test count (default: 50)
+  val testCount: Int = sys.props.getOrElse("testCount", 
+    sys.env.getOrElse("TEST_COUNT", "50")).toInt
   
   behavior of "CPU6502 SingleStepTests"
   
@@ -231,52 +241,71 @@ class SingleStepTest extends AnyFlatSpec with ChiselScalatestTester with Matcher
     }
   }
   
-  // NOP tests (0xEA) - simplest instruction
-  it should "execute NOP instructions correctly" in {
-    val testCases = SingleStepTestParser.parseTestFile("singlestep/ea.json")
-    val subset = testCases.take(50)
+  // Helper to run tests from a file
+  def runOpcodeTests(resourcePath: String): Unit = {
+    val testCases = SingleStepTestParser.parseTestFile(resourcePath)
+    val subset = testCases.take(testCount)
     
     test(new CPU6502Testable) { dut =>
       for (testCase <- subset) {
         runTestCase(dut, testCase)
       }
     }
+  }
+  
+  // NOP tests (0xEA) - simplest instruction
+  it should "execute NOP (0xEA) instructions correctly" in {
+    runOpcodeTests("singlestep/ea.json")
   }
   
   // LDA immediate tests (0xA9)
-  it should "execute LDA immediate instructions correctly" in {
-    val testCases = SingleStepTestParser.parseTestFile("singlestep/a9.json")
-    val subset = testCases.take(50)
-    
-    test(new CPU6502Testable) { dut =>
-      for (testCase <- subset) {
-        runTestCase(dut, testCase)
-      }
-    }
+  it should "execute LDA immediate (0xA9) instructions correctly" in {
+    runOpcodeTests("singlestep/a9.json")
   }
   
   // ADC immediate tests (0x69)
-  it should "execute ADC immediate instructions correctly" in {
-    val testCases = SingleStepTestParser.parseTestFile("singlestep/69.json")
-    val subset = testCases.take(50)
-    
-    test(new CPU6502Testable) { dut =>
-      for (testCase <- subset) {
-        runTestCase(dut, testCase)
-      }
-    }
+  it should "execute ADC immediate (0x69) instructions correctly" in {
+    runOpcodeTests("singlestep/69.json")
   }
   
   // JMP absolute tests (0x4C)
-  it should "execute JMP absolute instructions correctly" in {
-    val testCases = SingleStepTestParser.parseTestFile("singlestep/4c.json")
-    val subset = testCases.take(50)
-    
-    test(new CPU6502Testable) { dut =>
-      for (testCase <- subset) {
-        runTestCase(dut, testCase)
-      }
-    }
+  it should "execute JMP absolute (0x4C) instructions correctly" in {
+    runOpcodeTests("singlestep/4c.json")
+  }
+  
+  // SBC immediate tests (0xE9)
+  it should "execute SBC immediate (0xE9) instructions correctly" in {
+    runOpcodeTests("singlestep/e9.json")
+  }
+  
+  // AND immediate tests (0x29)
+  it should "execute AND immediate (0x29) instructions correctly" in {
+    runOpcodeTests("singlestep/29.json")
+  }
+  
+  // ORA immediate tests (0x09)
+  it should "execute ORA immediate (0x09) instructions correctly" in {
+    runOpcodeTests("singlestep/09.json")
+  }
+  
+  // EOR immediate tests (0x49)
+  it should "execute EOR immediate (0x49) instructions correctly" in {
+    runOpcodeTests("singlestep/49.json")
+  }
+  
+  // CMP immediate tests (0xC9)
+  it should "execute CMP immediate (0xC9) instructions correctly" in {
+    runOpcodeTests("singlestep/c9.json")
+  }
+  
+  // LDX immediate tests (0xA2)
+  it should "execute LDX immediate (0xA2) instructions correctly" in {
+    runOpcodeTests("singlestep/a2.json")
+  }
+  
+  // LDY immediate tests (0xA0)
+  it should "execute LDY immediate (0xA0) instructions correctly" in {
+    runOpcodeTests("singlestep/a0.json")
   }
 }
 

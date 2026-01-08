@@ -77,13 +77,24 @@ The project uses [SingleStepTests/65x02](https://github.com/SingleStepTests/65x0
 
 ### Running SingleStepTests
 ```bash
-# Run all SingleStepTests (currently: NOP, LDA imm, ADC imm, JMP abs)
+# Run SingleStepTests with default count (50 per opcode)
 sbt "testOnly cpu6502.SingleStepTest"
+
+# Run with custom test count via system property
+sbt -DtestCount=100 "testOnly cpu6502.SingleStepTest"
+
+# Or via environment variable
+TEST_COUNT=200 sbt "testOnly cpu6502.SingleStepTest"
 
 # Download additional opcode tests
 curl -s "https://raw.githubusercontent.com/SingleStepTests/65x02/main/nes6502/v1/XX.json" \
   -o src/test/resources/singlestep/XX.json
 ```
+
+### Currently Tested Opcodes
+- `0xEA` NOP, `0xA9` LDA imm, `0x69` ADC imm, `0xE9` SBC imm
+- `0x29` AND imm, `0x09` ORA imm, `0x49` EOR imm, `0xC9` CMP imm
+- `0xA2` LDX imm, `0xA0` LDY imm, `0x4C` JMP abs
 
 ### Development Status
 The CPU structure is complete but instruction execution is partial. Key areas needing work:

@@ -38,10 +38,12 @@ class ALU extends Module {
 
   // Extended results for carry detection
   val sum = Wire(UInt(9.W))
-  val diff = Wire(UInt(9.W))
+  val diff = Wire(UInt(9.W))      // For SBC (uses carryIn as borrow)
+  val cmpDiff = Wire(UInt(9.W))   // For CMP (no carryIn)
   
   sum := io.a +& io.b +& io.carryIn.asUInt
   diff := io.a -& io.b -& (!io.carryIn).asUInt
+  cmpDiff := io.a -& io.b  // Simple subtraction for CMP
 
   switch(io.operation) {
     is(ALUOp.opADC) {
@@ -98,8 +100,8 @@ class ALU extends Module {
     }
     
     is(ALUOp.opCMP) {
-      result := diff(7, 0)
-      carryOut := !diff(8)
+      result := cmpDiff(7, 0)
+      carryOut := !cmpDiff(8)  // C=1 if A >= M (no borrow)
     }
     
     is(ALUOp.opBIT) {

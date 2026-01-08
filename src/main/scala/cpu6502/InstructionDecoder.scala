@@ -342,6 +342,40 @@ class InstructionDecoder extends Module {
     }
     
     // ==========================================
+    // Compare Instructions
+    // ==========================================
+    
+    // CMP - Compare Accumulator
+    is(0xC9.U) { // CMP #immediate
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amImmediate
+      io.aluOp := ALUOp.opCMP
+      io.writeA := false.B  // CMP doesn't modify A
+      io.updateFlags := true.B
+      io.cycles := 2.U
+    }
+    
+    // CPX - Compare X Register
+    is(0xE0.U) { // CPX #immediate
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amImmediate
+      io.aluOp := ALUOp.opCMP
+      io.writeX := false.B
+      io.updateFlags := true.B
+      io.cycles := 2.U
+    }
+    
+    // CPY - Compare Y Register  
+    is(0xC0.U) { // CPY #immediate
+      io.instrType := InstrType.itALU
+      io.addressMode := AddressMode.amImmediate
+      io.aluOp := ALUOp.opCMP
+      io.writeY := false.B
+      io.updateFlags := true.B
+      io.cycles := 2.U
+    }
+    
+    // ==========================================
     // Branch Instructions
     // ==========================================
     

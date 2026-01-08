@@ -115,7 +115,11 @@ class CPU6502Testable extends Module {
   // ============================================
   
   val alu = Module(new ALU)
-  alu.io.a := regA
+  // Select ALU input A based on opcode (for CPX/CPY comparisons)
+  alu.io.a := MuxCase(regA, Seq(
+    (opcode === 0xE0.U) -> regX,  // CPX
+    (opcode === 0xC0.U) -> regY   // CPY
+  ))
   alu.io.b := operand
   alu.io.carryIn := flagC
   alu.io.operation := decoder.io.aluOp
@@ -235,10 +239,21 @@ class CPU6502Testable extends Module {
               regA := alu.io.result
             }
             when(decoder.io.updateFlags) {
+              // N and Z are always updated
               flagZ := alu.io.zero
               flagN := alu.io.negative
-              flagC := alu.io.carryOut
-              flagV := alu.io.overflow
+              // C and V only for arithmetic/compare operations
+              val aluOp = decoder.io.aluOp
+              when(aluOp === ALUOp.opADC || aluOp === ALUOp.opSBC || 
+                   aluOp === ALUOp.opCMP || aluOp === ALUOp.opASL ||
+                   aluOp === ALUOp.opLSR || aluOp === ALUOp.opROL ||
+                   aluOp === ALUOp.opROR) {
+                flagC := alu.io.carryOut
+              }
+              when(aluOp === ALUOp.opADC || aluOp === ALUOp.opSBC ||
+                   aluOp === ALUOp.opBIT) {
+                flagV := alu.io.overflow
+              }
             }
             state := sFetch
           }

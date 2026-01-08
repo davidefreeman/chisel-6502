@@ -25,5 +25,14 @@ lazy val root = (project in file("."))
       "-Xcheckinit",
       "-Ymacro-annotations"
     ),
-    addCompilerPlugin("org.chipsalliance" % "chisel-plugin" % chiselVersion cross CrossVersion.full)
+    addCompilerPlugin("org.chipsalliance" % "chisel-plugin" % chiselVersion cross CrossVersion.full),
+    // Parallel test execution
+    Test / testForkedParallel := true,
+    Test / fork := true,
+    Test / parallelExecution := true,
+    // Pass system properties to forked JVMs
+    Test / javaOptions ++= Seq(
+      s"-DtestCount=${sys.props.getOrElse("testCount", "50")}",
+      s"-DprogressInterval=${sys.props.getOrElse("progressInterval", "100")}"
+    )
   )

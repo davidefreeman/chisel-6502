@@ -266,10 +266,19 @@ class CPU6502Testable extends Module {
           
           is(InstrType.itStore) {
             io.address := effectiveAddr
+            // STA opcodes
             when(opcode === 0x85.U || opcode === 0x8D.U || opcode === 0x95.U || 
                  opcode === 0x9D.U || opcode === 0x99.U || opcode === 0x81.U || 
                  opcode === 0x91.U) {
               io.dataOut := regA
+            }
+            // STX opcodes
+            when(opcode === 0x86.U || opcode === 0x96.U || opcode === 0x8E.U) {
+              io.dataOut := regX
+            }
+            // STY opcodes
+            when(opcode === 0x84.U || opcode === 0x94.U || opcode === 0x8C.U) {
+              io.dataOut := regY
             }
             io.writeEnable := true.B
             state := sFetch
@@ -285,6 +294,66 @@ class CPU6502Testable extends Module {
               is(0xB8.U) { flagV := false.B }  // CLV
               is(0xD8.U) { flagD := false.B }  // CLD
               is(0xF8.U) { flagD := true.B }   // SED
+            }
+            state := sFetch
+          }
+          
+          is(InstrType.itRegTransfer) {
+            // Register-to-register transfers
+            val transferValue = Wire(UInt(8.W))
+            transferValue := 0.U
+            
+            switch(opcode) {
+              is(0xAA.U) { transferValue := regA }   // TAX: A -> X
+              is(0x8A.U) { transferValue := regX }   // TXA: X -> A
+              is(0xA8.U) { transferValue := regA }   // TAY: A -> Y
+              is(0x98.U) { transferValue := regY }   // TYA: Y -> A
+              is(0xBA.U) { transferValue := regSP }  // TSX: S -> X
+              is(0x9A.U) { transferValue := regX }   // TXS: X -> S
+            }
+            
+            when(decoder.io.writeA) {
+              regA := transferValue
+            }
+            when(decoder.io.writeX) {
+              regX := transferValue
+            }
+            when(decoder.io.writeY) {
+              regY := transferValue
+            }
+            when(opcode === 0x9A.U) {
+              regSP := transferValue  // TXS
+            }
+            
+            when(decoder.io.updateFlags) {
+              flagZ := transferValue === 0.U
+              flagN := transferValue(7)
+            }
+            state := sFetch
+          }
+          
+          is(InstrType.itIncDec) {
+            // Increment/Decrement register
+            val incDecResult = Wire(UInt(8.W))
+            incDecResult := 0.U
+            
+            switch(opcode) {
+              is(0xE8.U) { incDecResult := regX + 1.U }  // INX
+              is(0xC8.U) { incDecResult := regY + 1.U }  // INY
+              is(0xCA.U) { incDecResult := regX - 1.U }  // DEX
+              is(0x88.U) { incDecResult := regY - 1.U }  // DEY
+            }
+            
+            when(decoder.io.writeX) {
+              regX := incDecResult
+            }
+            when(decoder.io.writeY) {
+              regY := incDecResult
+            }
+            
+            when(decoder.io.updateFlags) {
+              flagZ := incDecResult === 0.U
+              flagN := incDecResult(7)
             }
             state := sFetch
           }

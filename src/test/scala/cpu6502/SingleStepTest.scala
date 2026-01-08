@@ -118,21 +118,17 @@ class TestMemory(initialRam: Map[Int, Int]) {
 }
 
 /**
-  * SingleStepTests runner for CPU6502
-  * 
-  * Test count is configurable via:
-  *   - System property: -DtestCount=100
-  *   - Environment variable: TEST_COUNT=100
-  * 
-  * Example: sbt -DtestCount=100 "testOnly cpu6502.SingleStepTest"
+  * Base trait for SingleStepTests with shared configuration and helpers
   */
-class SingleStepTest extends AnyFlatSpec with ChiselScalatestTester with Matchers {
+trait SingleStepTestBase extends AnyFlatSpec with ChiselScalatestTester with Matchers {
   
   // Configurable test count (default: 50)
   val testCount: Int = sys.props.getOrElse("testCount", 
     sys.env.getOrElse("TEST_COUNT", "50")).toInt
   
-  behavior of "CPU6502 SingleStepTests"
+  // Progress reporting interval
+  val progressInterval: Int = sys.props.getOrElse("progressInterval",
+    sys.env.getOrElse("PROGRESS_INTERVAL", "100")).toInt
   
   // Helper to run a single test case
   def runTestCase(dut: CPU6502Testable, testCase: SingleStepTestCase): Unit = {
@@ -217,113 +213,230 @@ class SingleStepTest extends AnyFlatSpec with ChiselScalatestTester with Matcher
     }
   }
   
-  // Run a subset of tests from a file
-  def runTestsFromFile(resourcePath: String, maxTests: Int = 10): Unit = {
-    val testCases = SingleStepTestParser.parseTestFile(resourcePath)
-    val subset = testCases.take(maxTests)
-    
-    test(new CPU6502Testable) { dut =>
-      var passed = 0
-      var failed = 0
-      
-      for (testCase <- subset) {
-        try {
-          runTestCase(dut, testCase)
-          passed += 1
-        } catch {
-          case e: Exception =>
-            failed += 1
-            println(s"FAILED: ${testCase.name} - ${e.getMessage}")
-        }
-      }
-      
-      println(s"\nResults: $passed passed, $failed failed out of ${subset.length}")
-    }
-  }
-  
-  // Helper to run tests from a file
+  // Helper to run tests from a file with progress reporting
   def runOpcodeTests(resourcePath: String): Unit = {
+    val opcodeName = resourcePath.replace("singlestep/", "").replace(".json", "").toUpperCase
     val testCases = SingleStepTestParser.parseTestFile(resourcePath)
     val subset = testCases.take(testCount)
+    val total = subset.length
+    
+    println(s">>> $opcodeName: $total tests")
     
     test(new CPU6502Testable) { dut =>
+      var completed = 0
       for (testCase <- subset) {
         runTestCase(dut, testCase)
+        completed += 1
+        if (completed % progressInterval == 0 || completed == total) {
+          println(s"    $opcodeName: $completed/$total")
+        }
       }
     }
-  }
-  
-  // NOP tests (0xEA) - simplest instruction
-  it should "execute NOP (0xEA) instructions correctly" in {
-    runOpcodeTests("singlestep/ea.json")
-  }
-  
-  // LDA immediate tests (0xA9)
-  it should "execute LDA immediate (0xA9) instructions correctly" in {
-    runOpcodeTests("singlestep/a9.json")
-  }
-  
-  // ADC immediate tests (0x69)
-  it should "execute ADC immediate (0x69) instructions correctly" in {
-    runOpcodeTests("singlestep/69.json")
-  }
-  
-  // JMP absolute tests (0x4C)
-  it should "execute JMP absolute (0x4C) instructions correctly" in {
-    runOpcodeTests("singlestep/4c.json")
-  }
-  
-  // SBC immediate tests (0xE9)
-  it should "execute SBC immediate (0xE9) instructions correctly" in {
-    runOpcodeTests("singlestep/e9.json")
-  }
-  
-  // AND immediate tests (0x29)
-  it should "execute AND immediate (0x29) instructions correctly" in {
-    runOpcodeTests("singlestep/29.json")
-  }
-  
-  // ORA immediate tests (0x09)
-  it should "execute ORA immediate (0x09) instructions correctly" in {
-    runOpcodeTests("singlestep/09.json")
-  }
-  
-  // EOR immediate tests (0x49)
-  it should "execute EOR immediate (0x49) instructions correctly" in {
-    runOpcodeTests("singlestep/49.json")
-  }
-  
-  // CMP immediate tests (0xC9)
-  it should "execute CMP immediate (0xC9) instructions correctly" in {
-    runOpcodeTests("singlestep/c9.json")
-  }
-  
-  // LDX immediate tests (0xA2)
-  it should "execute LDX immediate (0xA2) instructions correctly" in {
-    runOpcodeTests("singlestep/a2.json")
-  }
-  
-  // LDY immediate tests (0xA0)
-  it should "execute LDY immediate (0xA0) instructions correctly" in {
-    runOpcodeTests("singlestep/a0.json")
   }
 }
 
-/**
-  * Comprehensive test runner - runs more tests per opcode
-  */
-class SingleStepComprehensiveTest extends AnyFlatSpec with ChiselScalatestTester with Matchers {
-  
-  behavior of "CPU6502 Comprehensive SingleStepTests"
-  
-  // This test runs 100 cases per opcode file
-  it should "pass comprehensive NOP tests" ignore {
-    val runner = new SingleStepTest
-    runner.runTestsFromFile("singlestep/ea.json", 100)
-  }
-  
-  it should "pass comprehensive LDA immediate tests" ignore {
-    val runner = new SingleStepTest
-    runner.runTestsFromFile("singlestep/a9.json", 100)
-  }
+// ==========================================
+// Individual test classes for parallel execution
+// ==========================================
+
+class Test_NOP extends SingleStepTestBase {
+  behavior of "NOP (0xEA)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/ea.json") }
+}
+
+class Test_LDA_imm extends SingleStepTestBase {
+  behavior of "LDA immediate (0xA9)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/a9.json") }
+}
+
+class Test_ADC_imm extends SingleStepTestBase {
+  behavior of "ADC immediate (0x69)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/69.json") }
+}
+
+class Test_JMP_abs extends SingleStepTestBase {
+  behavior of "JMP absolute (0x4C)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/4c.json") }
+}
+
+class Test_SBC_imm extends SingleStepTestBase {
+  behavior of "SBC immediate (0xE9)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/e9.json") }
+}
+
+class Test_AND_imm extends SingleStepTestBase {
+  behavior of "AND immediate (0x29)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/29.json") }
+}
+
+class Test_ORA_imm extends SingleStepTestBase {
+  behavior of "ORA immediate (0x09)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/09.json") }
+}
+
+class Test_EOR_imm extends SingleStepTestBase {
+  behavior of "EOR immediate (0x49)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/49.json") }
+}
+
+class Test_CMP_imm extends SingleStepTestBase {
+  behavior of "CMP immediate (0xC9)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/c9.json") }
+}
+
+class Test_LDX_imm extends SingleStepTestBase {
+  behavior of "LDX immediate (0xA2)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/a2.json") }
+}
+
+class Test_LDY_imm extends SingleStepTestBase {
+  behavior of "LDY immediate (0xA0)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/a0.json") }
+}
+
+// Status Flag Instructions
+class Test_CLC extends SingleStepTestBase {
+  behavior of "CLC (0x18)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/18.json") }
+}
+
+class Test_SEC extends SingleStepTestBase {
+  behavior of "SEC (0x38)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/38.json") }
+}
+
+class Test_CLI extends SingleStepTestBase {
+  behavior of "CLI (0x58)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/58.json") }
+}
+
+class Test_SEI extends SingleStepTestBase {
+  behavior of "SEI (0x78)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/78.json") }
+}
+
+class Test_CLV extends SingleStepTestBase {
+  behavior of "CLV (0xB8)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/b8.json") }
+}
+
+class Test_CLD extends SingleStepTestBase {
+  behavior of "CLD (0xD8)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/d8.json") }
+}
+
+class Test_SED extends SingleStepTestBase {
+  behavior of "SED (0xF8)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/f8.json") }
+}
+
+// Register Transfer Instructions
+class Test_TAX extends SingleStepTestBase {
+  behavior of "TAX (0xAA)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/aa.json") }
+}
+
+class Test_TXA extends SingleStepTestBase {
+  behavior of "TXA (0x8A)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/8a.json") }
+}
+
+class Test_TAY extends SingleStepTestBase {
+  behavior of "TAY (0xA8)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/a8.json") }
+}
+
+class Test_TYA extends SingleStepTestBase {
+  behavior of "TYA (0x98)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/98.json") }
+}
+
+class Test_TSX extends SingleStepTestBase {
+  behavior of "TSX (0xBA)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/ba.json") }
+}
+
+class Test_TXS extends SingleStepTestBase {
+  behavior of "TXS (0x9A)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/9a.json") }
+}
+
+// Increment/Decrement Instructions
+class Test_INX extends SingleStepTestBase {
+  behavior of "INX (0xE8)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/e8.json") }
+}
+
+class Test_INY extends SingleStepTestBase {
+  behavior of "INY (0xC8)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/c8.json") }
+}
+
+class Test_DEX extends SingleStepTestBase {
+  behavior of "DEX (0xCA)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/ca.json") }
+}
+
+class Test_DEY extends SingleStepTestBase {
+  behavior of "DEY (0x88)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/88.json") }
+}
+
+// Compare X/Y Instructions
+class Test_CPX_imm extends SingleStepTestBase {
+  behavior of "CPX immediate (0xE0)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/e0.json") }
+}
+
+class Test_CPY_imm extends SingleStepTestBase {
+  behavior of "CPY immediate (0xC0)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/c0.json") }
+}
+
+// Zero Page Load Instructions
+class Test_LDA_zp extends SingleStepTestBase {
+  behavior of "LDA zero page (0xA5)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/a5.json") }
+}
+
+class Test_LDX_zp extends SingleStepTestBase {
+  behavior of "LDX zero page (0xA6)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/a6.json") }
+}
+
+class Test_LDY_zp extends SingleStepTestBase {
+  behavior of "LDY zero page (0xA4)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/a4.json") }
+}
+
+// Zero Page Store Instructions
+class Test_STA_zp extends SingleStepTestBase {
+  behavior of "STA zero page (0x85)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/85.json") }
+}
+
+class Test_STX_zp extends SingleStepTestBase {
+  behavior of "STX zero page (0x86)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/86.json") }
+}
+
+class Test_STY_zp extends SingleStepTestBase {
+  behavior of "STY zero page (0x84)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/84.json") }
+}
+
+// Absolute Load Instructions
+class Test_LDA_abs extends SingleStepTestBase {
+  behavior of "LDA absolute (0xAD)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/ad.json") }
+}
+
+class Test_LDX_abs extends SingleStepTestBase {
+  behavior of "LDX absolute (0xAE)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/ae.json") }
+}
+
+class Test_LDY_abs extends SingleStepTestBase {
+  behavior of "LDY absolute (0xAC)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/ac.json") }
 }

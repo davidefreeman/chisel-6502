@@ -16,7 +16,8 @@ object AddressMode extends ChiselEnum {
   * Instruction types
   */
 object InstrType extends ChiselEnum {
-  val itALU, itLoad, itStore, itBranch, itJump, itStack, itStatus, itNOP, itIllegal = Value
+  val itALU, itLoad, itStore, itBranch, itJump, itStack, itStatus, itNOP, itIllegal,
+      itRegTransfer, itIncDec = Value
 }
 
 /**
@@ -259,6 +260,46 @@ class InstructionDecoder extends Module {
       io.cycles := 6.U
     }
     
+    // STX - Store X Register
+    is(0x86.U) { // STX zero page
+      io.instrType := InstrType.itStore
+      io.addressMode := AddressMode.amZeroPage
+      io.writeMem := true.B
+      io.cycles := 3.U
+    }
+    is(0x96.U) { // STX zero page,Y
+      io.instrType := InstrType.itStore
+      io.addressMode := AddressMode.amZeroPageY
+      io.writeMem := true.B
+      io.cycles := 4.U
+    }
+    is(0x8E.U) { // STX absolute
+      io.instrType := InstrType.itStore
+      io.addressMode := AddressMode.amAbsolute
+      io.writeMem := true.B
+      io.cycles := 4.U
+    }
+    
+    // STY - Store Y Register
+    is(0x84.U) { // STY zero page
+      io.instrType := InstrType.itStore
+      io.addressMode := AddressMode.amZeroPage
+      io.writeMem := true.B
+      io.cycles := 3.U
+    }
+    is(0x94.U) { // STY zero page,X
+      io.instrType := InstrType.itStore
+      io.addressMode := AddressMode.amZeroPageX
+      io.writeMem := true.B
+      io.cycles := 4.U
+    }
+    is(0x8C.U) { // STY absolute
+      io.instrType := InstrType.itStore
+      io.addressMode := AddressMode.amAbsolute
+      io.writeMem := true.B
+      io.cycles := 4.U
+    }
+    
     // ==========================================
     // Arithmetic Instructions
     // ==========================================
@@ -487,6 +528,85 @@ class InstructionDecoder extends Module {
     is(0xF8.U) { // SED
       io.instrType := InstrType.itStatus
       io.addressMode := AddressMode.amImplied
+      io.cycles := 2.U
+    }
+    
+    // ==========================================
+    // Register Transfer Instructions
+    // ==========================================
+    
+    is(0xAA.U) { // TAX - Transfer A to X
+      io.instrType := InstrType.itRegTransfer
+      io.addressMode := AddressMode.amImplied
+      io.writeX := true.B
+      io.updateFlags := true.B
+      io.cycles := 2.U
+    }
+    is(0x8A.U) { // TXA - Transfer X to A
+      io.instrType := InstrType.itRegTransfer
+      io.addressMode := AddressMode.amImplied
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 2.U
+    }
+    is(0xA8.U) { // TAY - Transfer A to Y
+      io.instrType := InstrType.itRegTransfer
+      io.addressMode := AddressMode.amImplied
+      io.writeY := true.B
+      io.updateFlags := true.B
+      io.cycles := 2.U
+    }
+    is(0x98.U) { // TYA - Transfer Y to A
+      io.instrType := InstrType.itRegTransfer
+      io.addressMode := AddressMode.amImplied
+      io.writeA := true.B
+      io.updateFlags := true.B
+      io.cycles := 2.U
+    }
+    is(0xBA.U) { // TSX - Transfer S to X
+      io.instrType := InstrType.itRegTransfer
+      io.addressMode := AddressMode.amImplied
+      io.writeX := true.B
+      io.updateFlags := true.B
+      io.cycles := 2.U
+    }
+    is(0x9A.U) { // TXS - Transfer X to S
+      io.instrType := InstrType.itRegTransfer
+      io.addressMode := AddressMode.amImplied
+      // TXS doesn't affect flags
+      io.cycles := 2.U
+    }
+    
+    // ==========================================
+    // Increment/Decrement Register Instructions
+    // ==========================================
+    
+    is(0xE8.U) { // INX - Increment X
+      io.instrType := InstrType.itIncDec
+      io.addressMode := AddressMode.amImplied
+      io.writeX := true.B
+      io.updateFlags := true.B
+      io.cycles := 2.U
+    }
+    is(0xC8.U) { // INY - Increment Y
+      io.instrType := InstrType.itIncDec
+      io.addressMode := AddressMode.amImplied
+      io.writeY := true.B
+      io.updateFlags := true.B
+      io.cycles := 2.U
+    }
+    is(0xCA.U) { // DEX - Decrement X
+      io.instrType := InstrType.itIncDec
+      io.addressMode := AddressMode.amImplied
+      io.writeX := true.B
+      io.updateFlags := true.B
+      io.cycles := 2.U
+    }
+    is(0x88.U) { // DEY - Decrement Y
+      io.instrType := InstrType.itIncDec
+      io.addressMode := AddressMode.amImplied
+      io.writeY := true.B
+      io.updateFlags := true.B
       io.cycles := 2.U
     }
     

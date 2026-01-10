@@ -30,8 +30,8 @@ class VicIIText(numCells: Int = 1000) extends Module {
     // VIC Bank Selection (from CIA2, already inverted)
     val vicBank = Input(UInt(2.W))      // Bank 0-3
 
-    // Screen RAM Interface
-    val screenAddr = Output(UInt(10.W)) // Screen RAM address (0-999)
+    // Screen RAM Interface (14-bit address within VIC bank)
+    val screenAddr = Output(UInt(14.W)) // Full 14-bit address in VIC bank
     val screenData = Input(UInt(8.W))   // Screen RAM data
 
     // Color RAM Interface
@@ -214,7 +214,10 @@ class VicIIText(numCells: Int = 1000) extends Module {
   }
 
   // Memory address outputs during scanout
-  io.screenAddr := scanIndex
+  // Screen base address from MEMPTR: bits 7:4 select 1KB block within 16KB bank
+  // screenBase = MEMPTR[7:4] << 10
+  val screenBase = Cat(regMEMPTR(7, 4), 0.U(10.W))
+  io.screenAddr := screenBase + scanIndex
   io.colorAddr := scanIndex
 
   // Frame buffer cell access

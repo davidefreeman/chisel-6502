@@ -55,8 +55,8 @@ class MemoryController(
   // Memory Arrays
   // ============================================
   
-  // 64KB RAM
-  val ram = SyncReadMem(65536, UInt(8.W))
+  // 64KB RAM - Use Mem for combinational reads (CPU expects immediate response)
+  val ram = Mem(65536, UInt(8.W))
   
   // ROMs (use VecInit for read-only memory with initial values)
   val basicRom = VecInit(
@@ -74,8 +74,8 @@ class MemoryController(
     else Seq.fill(4096)(0.U(8.W))
   )
   
-  // Color RAM (1KB, 4-bit)
-  val colorRam = SyncReadMem(1024, UInt(4.W))
+  // Color RAM (1KB, 4-bit) - Use Mem for combinational reads
+  val colorRam = Mem(1024, UInt(4.W))
 
   // ============================================
   // Address Calculations

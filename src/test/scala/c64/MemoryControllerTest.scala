@@ -119,6 +119,35 @@ class MemoryControllerRomTest extends AnyFlatSpec with ChiselScalatestTester wit
     }
   }
 
+  it should "read reset vector from KERNAL ROM at $FFFC-$FFFD" in {
+    // Create ROM with reset vector pointing to $E000
+    val rom = Array.fill(8192)(0xEA)  // Fill with NOP
+    rom(0x1FFC) = 0x00  // Low byte at $FFFC
+    rom(0x1FFD) = 0xE0  // High byte at $FFFD
+    val kernalRom = rom.toSeq
+    
+    test(new MemoryController(kernalRomContents = kernalRom)) { dut =>
+      dut.io.vicAddr.poke(0.U)
+      dut.io.vicBank.poke(0.U)
+      dut.io.vicColorAddr.poke(0.U)
+      dut.io.cpuWe.poke(false.B)
+      
+      dut.io.basicCs.poke(false.B)
+      dut.io.kernalCs.poke(true.B)
+      dut.io.charCs.poke(false.B)
+      dut.io.colorCs.poke(false.B)
+      dut.io.ramCs.poke(false.B)
+      
+      // Read low byte from $FFFC (offset $1FFC)
+      dut.io.cpuAddr.poke(0xFFFC.U)
+      dut.io.cpuDataOut.expect(0x00.U)
+      
+      // Read high byte from $FFFD (offset $1FFD)
+      dut.io.cpuAddr.poke(0xFFFD.U)
+      dut.io.cpuDataOut.expect(0xE0.U)
+    }
+  }
+
   it should "read from Character ROM when charCs active" in {
     val charRom = Seq.tabulate(4096)(i => ((i + 0x20) & 0xFF))
     test(new MemoryController(charRomContents = charRom)) { dut =>

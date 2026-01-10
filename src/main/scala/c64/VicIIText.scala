@@ -15,8 +15,10 @@ import chisel3.util._
   * - No sprites, bitmap modes, or multicolor
   * - No raster interrupts or timing emulation
   * - No smooth scrolling
+  *
+  * @param numCells Number of cells in frame buffer (1000 for production, smaller for testing)
   */
-class VicIIText extends Module {
+class VicIIText(numCells: Int = 1000) extends Module {
   val io = IO(new Bundle {
     // CPU Register Interface
     val addr    = Input(UInt(6.W))      // Register address (0x00-0x2E, masked to 6 bits)
@@ -97,9 +99,9 @@ class VicIIText extends Module {
   val regBG3    = RegInit(0.U(8.W))
   val regSpriteColor = RegInit(VecInit(Seq.fill(10)(0.U(8.W))))  // $25-$2E
 
-  // Frame buffer (40x25 = 1000 entries)
-  val frameChar  = Reg(Vec(1000, UInt(8.W)))
-  val frameFg    = Reg(Vec(1000, UInt(4.W)))
+  // Frame buffer (40x25 = 1000 entries for production)
+  val frameChar  = Reg(Vec(numCells, UInt(8.W)))
+  val frameFg    = Reg(Vec(numCells, UInt(4.W)))
   val frameValid = RegInit(false.B)
 
   // Scanout state machine
@@ -154,7 +156,7 @@ class VicIIText extends Module {
 
   switch(addr) {
     is(RegAddr.CR1.U)    { readData := regCR1 }
-    is(RegAddr.CR2.U)    { readData := Cat(0xE0.U(3.W), regCR2(4, 0)) }  // Bits 7:5 = 1
+    is(RegAddr.CR2.U)    { readData := Cat(7.U(3.W), regCR2(4, 0)) }  // Bits 7:5 = 111
     is(RegAddr.MEMPTR.U) { readData := regMEMPTR | 0x01.U }  // Bit 0 = 1
     is(RegAddr.RASTER.U) { readData := 0.U }  // Always 0
     is(RegAddr.LPX.U)    { readData := 0.U }
@@ -202,7 +204,7 @@ class VicIIText extends Module {
       frameFg(scanIndex) := io.colorData
 
       // Advance to next cell
-      when(scanIndex === 999.U) {
+      when(scanIndex === (numCells - 1).U) {
         state := sIdle
         frameValid := true.B
       }.otherwise {

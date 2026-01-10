@@ -2,6 +2,45 @@
 
 Orchestration guide for building C64 text-mode emulator components.
 
+## Branching Strategy
+
+Each component uses its own branch for isolation:
+
+```
+master                          # Original 6502 CPU
+└── feature/c64-text            # Integration branch for C64 work
+    ├── component/mmu           # MMU/PLA development
+    ├── component/memory-system # Memory controller development
+    ├── component/cia           # CIA 6526 development
+    └── component/vic-ii-text   # VIC-II text mode development
+```
+
+### Branch Lifecycle
+
+1. **Create:** `git checkout -b component/{name} feature/c64-text`
+2. **Work:** RESEARCHER → ARCHITECT → BUILDER → TESTER commit to branch
+3. **Validate:** ARCHITECT reviews, runs integration tests
+4. **Merge:** `git checkout feature/c64-text && git merge component/{name}`
+5. **Clean up:** `git branch -d component/{name}` (optional)
+
+### Commit Message Format
+
+```
+{phase}: {component} - {description}
+
+Co-Authored-By: Warp <agent@warp.dev>
+```
+
+Phase prefixes:
+- `research:` — RESEARCHER findings
+- `spec:` — ARCHITECT specifications
+- `build:` — COMPONENT_BUILDER implementation
+- `test:` — TEST_ENGINEER test cases
+- `integrate:` — INTEGRATION_TESTER harness updates
+- `firmware:` — SOFTWARE_ENGINEER ROM additions
+
+---
+
 ## Per-Component Workflow
 
 ### Step 1: Research (RESEARCHER)

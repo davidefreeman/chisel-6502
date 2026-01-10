@@ -146,8 +146,8 @@ val isCia2Range  = addr >= 0xDD00.U && addr <= 0xDDFF.U
 // Banking logic (no cartridge: GAME=1, EXROM=1)
 val basicVisible  = loram && hiram
 val kernalVisible = hiram
-val ioVisible     = (loram || hiram) && charen
-val charVisible   = (loram || hiram) && !charen
+val ioVisible     = hiram && charen    // LORAM irrelevant for $D000 region
+val charVisible   = hiram && !charen
 
 // Chip selects
 basicCs  := isBasicRom && basicVisible && rw

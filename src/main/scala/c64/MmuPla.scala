@@ -74,11 +74,11 @@ class MmuPla extends Module {
   // KERNAL visible when HIRAM is high
   val kernalVisible = io.hiram
   
-  // I/O visible when (LORAM or HIRAM) and CHAREN
-  val ioVisible = (io.loram || io.hiram) && io.charen
+  // I/O visible when HIRAM and CHAREN (LORAM is irrelevant for $D000 region)
+  val ioVisible = io.hiram && io.charen
   
-  // Char ROM visible when (LORAM or HIRAM) and NOT CHAREN
-  val charVisible = (io.loram || io.hiram) && !io.charen
+  // Char ROM visible when HIRAM and NOT CHAREN
+  val charVisible = io.hiram && !io.charen
 
   // ============================================
   // Chip Select Generation

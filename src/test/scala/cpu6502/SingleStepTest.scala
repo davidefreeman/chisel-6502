@@ -745,6 +745,11 @@ class Test_ROR_A extends SingleStepTestBase {
 }
 
 // Absolute Store Instructions
+class Test_STA_abs extends SingleStepTestBase {
+  behavior of "STA absolute (0x8D)"
+  it should "execute correctly" in { runOpcodeTests("singlestep/8d.json") }
+}
+
 class Test_STX_abs extends SingleStepTestBase {
   behavior of "STX absolute (0x8E)"
   it should "execute correctly" in { runOpcodeTests("singlestep/8e.json") }

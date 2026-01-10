@@ -122,6 +122,43 @@ cd src/test/resources/singlestep
 curl -sO "https://raw.githubusercontent.com/SingleStepTests/65x02/main/nes6502/v1/XX.json"
 ```
 
+## Verilator Testing
+
+The generated Verilog can be tested using Verilator for RTL-level validation.
+
+### Building the Verilator Simulation
+
+```bash
+cd sim
+make          # Build simulation
+make test     # Quick test with NOP
+make clean    # Clean build artifacts
+```
+
+### Running Verilator Tests via sbt
+
+```bash
+# Run Verilator tests (VTest_* classes)
+sbt -DtestCount=100 "testOnly cpu6502.VTest_*"
+
+# Run specific Verilator test
+sbt -DtestCount=1000 "testOnly cpu6502.VTest_ADC_imm"
+
+# Run both Chisel and Verilator tests
+sbt -DtestCount=100 "testOnly cpu6502.Test_* cpu6502.VTest_*"
+```
+
+### Verilator Testbench Protocol
+
+The testbench (`sim/tb_cpu6502.cpp`) uses a simple text protocol:
+
+```
+INPUT:  pc s a x y p addr1:val1 addr2:val2 ...
+OUTPUT: pc s a x y p cycles
+```
+
+All values are decimal. Memory is specified as `address:value` pairs.
+
 ## Current Status (January 2026)
 
 **150 of 151 opcodes validated (99%)** - NES 6502 COMPLETE!

@@ -143,15 +143,21 @@ class CPU6502Testable extends Module {
     
     switch(state) {
       is(sReset) {
+        // Reset sequence: read 16-bit vector from $FFFC-$FFFD
+        // With combinational memory, address must be stable when reading data
         when(cycle === 0.U) {
-          io.address := 0xFFFC.U
+          io.address := 0xFFFC.U  // Set address for low byte
           cycle := 1.U
         }.elsewhen(cycle === 1.U) {
-          addrLo := io.dataIn
-          io.address := 0xFFFD.U
+          io.address := 0xFFFC.U  // Keep address stable
+          addrLo := io.dataIn     // Capture low byte of reset vector
           cycle := 2.U
         }.elsewhen(cycle === 2.U) {
-          addrHi := io.dataIn
+          io.address := 0xFFFD.U  // Set address for high byte
+          cycle := 3.U
+        }.elsewhen(cycle === 3.U) {
+          io.address := 0xFFFD.U  // Keep address stable
+          addrHi := io.dataIn     // Capture high byte of reset vector
           regPC := Cat(io.dataIn, addrLo)
           state := sFetch
           cycle := 0.U

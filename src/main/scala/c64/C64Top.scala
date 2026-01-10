@@ -72,6 +72,10 @@ class C64Top(
     val cpuP     = Output(UInt(8.W))
     val cpuState = Output(UInt(4.W))
     val cpuCycle = Output(UInt(8.W))
+    
+    // Debug port (direct RAM read, bypasses banking)
+    val debugAddr = Input(UInt(16.W))
+    val debugData = Output(UInt(8.W))
   })
 
   // ==========================================================================
@@ -261,6 +265,10 @@ class C64Top(
   io.cpuP     := cpu.io.debug.p
   io.cpuState := cpu.io.debug.state
   io.cpuCycle := cpu.io.cycleCount
+  
+  // Debug port (direct RAM read)
+  mem.io.debugAddr := io.debugAddr
+  io.debugData     := mem.io.debugData
 }
 
 /**

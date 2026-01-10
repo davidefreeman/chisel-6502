@@ -257,3 +257,88 @@ Following the established SingleStepTest pattern:
 3. **VIC-II text mode** — 40×25 rendering
 4. **System boot** — KERNAL or stub displays text
 5. **Forth runs** — Interactive text-mode session
+
+---
+
+## FPGA Implementation Requirements
+
+The current implementation uses combinational memory (`Mem`) for simulation compatibility. FPGA synthesis requires synchronous memory (`SyncReadMem`) for proper operation with block RAM. This section documents the architectural changes needed for FPGA deployment.
+
+### Memory Timing Issue
+
+With combinational memory, reads are instantaneous: set the address, get the data in the same cycle. With synchronous memory (`SyncReadMem`), data appears one cycle after the address is set.
+
+The CPU assumes single-cycle memory access. For example, in the fetch state:
+```scala
+io.address := regPC
+opcode := io.dataIn  // Must have data from regPC THIS cycle
+```
+
+### Solution: 2× Clock Domain
+
+The memory subsystem should operate at 2× the CPU clock:
+
+1. **First half-cycle:** CPU sets address
+2. **Second half-cycle:** Memory returns data, CPU latches result
+
+This maintains the illusion of single-cycle access from the CPU's perspective.
+
+```
+CPU Clock:    ____----____----____----
+Mem Clock:    __--__--__--__--__--__--
+              │  │  │  │
+              │  │  │  └─ Data valid, CPU reads
+              │  │  └──── Memory access
+              │  └─────── Address set
+              └────────── Previous cycle
+```
+
+### VIC/CPU Bus Arbitration
+
+The real C64 alternates memory access between VIC-II and CPU each half-cycle:
+
+| Half-cycle | Bus Owner | Access Type |
+|------------|-----------|-------------|
+| φ1 | VIC-II | Character/color fetch |
+| φ2 | CPU | Instruction/data access |
+
+With 2× memory clock, implement this as:
+1. Odd half-cycles: VIC-II accesses character ROM, screen RAM, color RAM
+2. Even half-cycles: CPU accesses main memory
+
+### Implementation Checklist
+
+- [ ] Create clock divider (2× memory clock → 1× CPU clock)
+- [ ] Add memory arbiter module for VIC/CPU access
+- [ ] Convert `MemoryController` to use `SyncReadMem`
+- [ ] Add output registers to memory controller for synchronous reads
+- [ ] Update CPU to work with pipelined memory (if needed beyond 2× clock)
+- [ ] Verify all timing with Verilator before synthesis
+- [ ] Target FPGA: Add timing constraints for block RAM
+
+### Alternative: Dual-Port Memory
+
+Some FPGAs support true dual-port block RAM. This could allow:
+- Port A: VIC-II read-only access (character, screen, color)
+- Port B: CPU read/write access
+
+This eliminates arbitration but requires FPGA-specific instantiation.
+
+### Current Simulation Behavior
+
+The CPU reset sequence was fixed to work correctly with combinational memory by ensuring the address is stable when data is captured:
+
+```scala
+// Cycle 0: Set address
+io.address := 0xFFFC.U
+// Cycle 1: Keep address stable, capture data
+io.address := 0xFFFC.U
+addrLo := io.dataIn
+// Cycle 2: Set next address
+io.address := 0xFFFD.U
+// Cycle 3: Keep address stable, capture data
+io.address := 0xFFFD.U
+addrHi := io.dataIn
+```
+
+This pattern (set address in one cycle, read data in the next while keeping address stable) is compatible with both combinational and synchronous memory.

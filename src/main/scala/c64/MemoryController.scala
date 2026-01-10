@@ -49,6 +49,10 @@ class MemoryController(
     // VIC Color RAM access
     val vicColorAddr = Input(UInt(10.W))
     val vicColorData = Output(UInt(4.W))
+    
+    // Debug port (direct RAM read, no banking)
+    val debugAddr    = Input(UInt(16.W))
+    val debugData    = Output(UInt(8.W))
   })
 
   // ============================================
@@ -147,4 +151,10 @@ class MemoryController(
   
   // VIC Color RAM read
   io.vicColorData := colorRam.read(io.vicColorAddr)
+  
+  // ============================================
+  // Debug Port (Direct RAM Read)
+  // ============================================
+  
+  io.debugData := ram.read(io.debugAddr)
 }

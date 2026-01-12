@@ -372,6 +372,98 @@ class C64TopScreenWriteTest extends AnyFlatSpec with ChiselScalatestTester with 
   * 3. Program writes character to screen
   * 4. Verify via debug port
   */
+/**
+  * Keyboard to Display integration test
+  * 
+  * Tests the complete input → output path:
+  * 1. ROM scans keyboard via CIA1
+  * 2. Test simulates key press via keyboardCol
+  * 3. ROM detects key and writes character to screen
+  * 4. Verify via debug port
+  *
+  * C64 Keyboard Matrix:
+  *   Row selection: CIA1 PRA ($DC00) - active low
+  *   Column sense:  CIA1 PRB ($DC01) - active low
+  *   'A' key: Row 1 (bit 1), Column 2 (bit 2)
+  */
+class C64TopKeyboardTest extends AnyFlatSpec with ChiselScalatestTester with Matchers {
+  behavior of "C64Top keyboard input"
+
+  it should "detect key press and write character to screen" in {
+    // ROM that scans keyboard and writes 'A' when detected:
+    //   $E000: LDA #$FF      ; DDRA = all outputs
+    //   $E002: STA $DC02
+    //   $E005: LDA #$FD      ; Select row 1 (bit 1 low)
+    //   $E007: STA $DC00
+    //   $E00A: LDA $DC01     ; Read columns
+    //   $E00D: AND #$04      ; Check column 2
+    //   $E00F: BNE $E005     ; Loop if not pressed
+    //   $E011: LDA #$41      ; Load 'A'
+    //   $E013: STA $0400     ; Write to screen
+    //   $E016: JMP $E016     ; Halt
+    val rom = Array.fill(8192)(0xEA)
+    
+    // Program at $E000
+    rom(0x0000) = 0xA9; rom(0x0001) = 0xFF                  // LDA #$FF
+    rom(0x0002) = 0x8D; rom(0x0003) = 0x02; rom(0x0004) = 0xDC  // STA $DC02
+    rom(0x0005) = 0xA9; rom(0x0006) = 0xFD                  // LDA #$FD
+    rom(0x0007) = 0x8D; rom(0x0008) = 0x00; rom(0x0009) = 0xDC  // STA $DC00
+    rom(0x000A) = 0xAD; rom(0x000B) = 0x01; rom(0x000C) = 0xDC  // LDA $DC01
+    rom(0x000D) = 0x29; rom(0x000E) = 0x04                  // AND #$04
+    rom(0x000F) = 0xD0; rom(0x0010) = 0xF4                  // BNE $E005 (-12)
+    rom(0x0011) = 0xA9; rom(0x0012) = 0x41                  // LDA #$41
+    rom(0x0013) = 0x8D; rom(0x0014) = 0x00; rom(0x0015) = 0x04  // STA $0400
+    rom(0x0016) = 0x4C; rom(0x0017) = 0x16; rom(0x0018) = 0xE0  // JMP $E016
+    
+    // Reset vector
+    rom(0x1FFC) = 0x00; rom(0x1FFD) = 0xE0
+    
+    test(new C64Top(
+      basicRomContents = Seq(),
+      kernalRomContents = rom.toSeq,
+      charRomContents = Seq()
+    )) { dut =>
+      // Initialize - no keys pressed
+      dut.io.testEnable.poke(false.B)
+      dut.io.keyboardCol.poke(0xFF.U)  // All columns high = no keys
+      dut.io.joy1.poke(0x1F.U)
+      dut.io.joy2.poke(0x1F.U)
+      dut.io.frameReq.poke(false.B)
+      dut.io.cellRow.poke(0.U)
+      dut.io.cellCol.poke(0.U)
+      dut.io.debugAddr.poke(0.U)
+      
+      // Start at $E000
+      dut.io.testEnable.poke(true.B)
+      dut.io.testPc.poke(0xE000.U)
+      dut.io.testA.poke(0x00.U)
+      dut.io.testX.poke(0x00.U)
+      dut.io.testY.poke(0x00.U)
+      dut.io.testS.poke(0xFF.U)
+      dut.io.testP.poke(0x04.U)
+      dut.clock.step(1)
+      dut.io.testEnable.poke(false.B)
+      
+      // Run setup: LDA + STA $DC02 + LDA + STA $DC00 + enter loop
+      dut.clock.step(30)
+      
+      // Screen should still be empty (no key pressed)
+      dut.io.debugAddr.poke(0x0400.U)
+      dut.io.debugData.expect(0x00.U)
+      
+      // Simulate 'A' key press: column 2 low when row 1 selected
+      dut.io.keyboardCol.poke(0xFB.U)
+      
+      // Run to detect key and write to screen
+      dut.clock.step(30)
+      
+      // Verify 'A' was written to screen
+      dut.io.debugAddr.poke(0x0400.U)
+      dut.io.debugData.expect(0x41.U)
+    }
+  }
+}
+
 class C64TopMinimalRomTest extends AnyFlatSpec with ChiselScalatestTester with Matchers {
   behavior of "C64Top minimal ROM boot"
 

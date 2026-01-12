@@ -23,11 +23,11 @@ VL_INLINE_OPT void VCPU6502Testable___024root___ico_sequent__TOP__0(VCPU6502Test
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.io_writeEnable = ((~ (IData)(vlSelfRef.io_test_enable)) 
-                                & ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_19)) 
+                                & ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_23)) 
                                    & ((3U == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
-                                       ? ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_29)) 
+                                       ? ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_33)) 
                                           & ((2U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
-                                             | ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_27)) 
+                                             | ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_31)) 
                                                 & ((5U 
                                                     == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
                                                    & ((0x48U 
@@ -36,28 +36,118 @@ VL_INLINE_OPT void VCPU6502Testable___024root___ico_sequent__TOP__0(VCPU6502Test
                                                           != (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
                                                          & (8U 
                                                             == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode))))))))
-                                       : ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_38) 
+                                       : ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_40) 
                                           | ((0xcU 
                                               == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
-                                              ? ((0U 
-                                                  == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)) 
-                                                 | (1U 
-                                                    == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)))
+                                              ? (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_5)
                                               : ((0xdU 
                                                   != (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
                                                  & ((0xeU 
                                                      == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
                                                     & ((0U 
                                                         != (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)) 
-                                                       & ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_35) 
+                                                       & ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_6) 
                                                           | (3U 
                                                              == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)))))))))));
+    vlSelfRef.io_dataOut = (((IData)(vlSelfRef.io_test_enable) 
+                             | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_23))
+                             ? 0U : (0xffU & ((3U == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
+                                               ? ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_33)
+                                                   ? 0U
+                                                   : 
+                                                  ((2U 
+                                                    == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))
+                                                    ? 
+                                                   ((IData)(vlSelfRef.__VdfgRegularize_h7cd686f0_0_0)
+                                                     ? (IData)(vlSelfRef.CPU6502Testable__DOT__regY)
+                                                     : 
+                                                    (((0x86U 
+                                                       == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
+                                                      | ((0x96U 
+                                                          == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
+                                                         | (0x8eU 
+                                                            == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode))))
+                                                      ? (IData)(vlSelfRef.CPU6502Testable__DOT__regX)
+                                                      : 
+                                                     (((0x85U 
+                                                        == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
+                                                       | ((0x8dU 
+                                                           == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
+                                                          | ((0x95U 
+                                                              == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
+                                                             | ((0x9dU 
+                                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
+                                                                | ((0x99U 
+                                                                    == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
+                                                                   | ((0x81U 
+                                                                       == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
+                                                                      | (0x91U 
+                                                                         == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode))))))))
+                                                       ? (IData)(vlSelfRef.CPU6502Testable__DOT__regA)
+                                                       : 0U)))
+                                                    : 
+                                                   ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_32)
+                                                     ? 0U
+                                                     : 
+                                                    ((0x48U 
+                                                      == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode))
+                                                      ? (IData)(vlSelfRef.CPU6502Testable__DOT__regA)
+                                                      : 
+                                                     (((8U 
+                                                        != (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
+                                                       | (0x68U 
+                                                          == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)))
+                                                       ? 0U
+                                                       : (IData)(vlSelfRef.CPU6502Testable__DOT____VdfgRegularize_h6471f877_0_3))))))
+                                               : ((5U 
+                                                   == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
+                                                   ? (IData)(vlSelfRef.CPU6502Testable__DOT__regA)
+                                                   : 
+                                                  ((9U 
+                                                    == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
+                                                    ? (IData)(vlSelfRef.CPU6502Testable__DOT___alu_io_result)
+                                                    : 
+                                                   ((0xcU 
+                                                     == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
+                                                     ? 
+                                                    ((0U 
+                                                      == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))
+                                                      ? 
+                                                     ((IData)(vlSelfRef.CPU6502Testable__DOT__regPC) 
+                                                      >> 8U)
+                                                      : 
+                                                     ((1U 
+                                                       == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))
+                                                       ? (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)
+                                                       : 0U))
+                                                     : 
+                                                    (((0xdU 
+                                                       == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
+                                                      | ((0xeU 
+                                                          != (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
+                                                         | (0U 
+                                                            == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))))
+                                                      ? 0U
+                                                      : 
+                                                     ((1U 
+                                                       == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))
+                                                       ? 
+                                                      ((IData)(vlSelfRef.CPU6502Testable__DOT__regPC) 
+                                                       >> 8U)
+                                                       : 
+                                                      ((2U 
+                                                        == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))
+                                                        ? (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)
+                                                        : 
+                                                       ((3U 
+                                                         == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))
+                                                         ? (IData)(vlSelfRef.CPU6502Testable__DOT____VdfgRegularize_h6471f877_0_3)
+                                                         : 0U))))))))));
     vlSelfRef.io_address = ((IData)(vlSelfRef.io_test_enable)
                              ? (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)
                              : ((0U == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
-                                 ? ((0U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))
-                                     ? 0xfffcU : ((1U 
-                                                   == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))
+                                 ? ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_5)
+                                     ? 0xfffcU : ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_4)
                                                    ? 0xfffdU
                                                    : (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)))
                                  : (((1U == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
@@ -75,14 +165,14 @@ VL_INLINE_OPT void VCPU6502Testable___024root___ico_sequent__TOP__0(VCPU6502Test
                                                 ((3U 
                                                   == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
                                                   ? 
-                                                 ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_29)
+                                                 ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_33)
                                                    ? (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)
                                                    : 
                                                   ((2U 
                                                     == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))
                                                     ? (IData)(vlSelfRef.CPU6502Testable__DOT__effectiveAddr)
                                                     : 
-                                                   ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_28)
+                                                   ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_32)
                                                      ? (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)
                                                      : 
                                                     ((0x48U 
@@ -114,7 +204,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___ico_sequent__TOP__0(VCPU6502Test
                                                                + (IData)(vlSelfRef.CPU6502Testable__DOT__regSP))))
                                                          : (IData)(vlSelfRef.CPU6502Testable__DOT__regPC))))))))
                                                   : 
-                                                 ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_38)
+                                                 ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_40)
                                                    ? (IData)(vlSelfRef.CPU6502Testable__DOT__effectiveAddr)
                                                    : 
                                                   ((0xcU 
@@ -232,100 +322,6 @@ VL_INLINE_OPT void VCPU6502Testable___024root___ico_sequent__TOP__0(VCPU6502Test
                                                              & ((IData)(1U) 
                                                                 + (IData)(vlSelfRef.CPU6502Testable__DOT__addrLo))))
                                                           : (IData)(vlSelfRef.CPU6502Testable__DOT__regPC))))))))))))))));
-    vlSelfRef.io_dataOut = (((IData)(vlSelfRef.io_test_enable) 
-                             | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_19))
-                             ? 0U : (0xffU & ((3U == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
-                                               ? ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_29)
-                                                   ? 0U
-                                                   : 
-                                                  ((2U 
-                                                    == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))
-                                                    ? 
-                                                   ((IData)(vlSelfRef.__VdfgRegularize_h7cd686f0_0_0)
-                                                     ? (IData)(vlSelfRef.CPU6502Testable__DOT__regY)
-                                                     : 
-                                                    (((0x86U 
-                                                       == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
-                                                      | ((0x96U 
-                                                          == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
-                                                         | (0x8eU 
-                                                            == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode))))
-                                                      ? (IData)(vlSelfRef.CPU6502Testable__DOT__regX)
-                                                      : 
-                                                     (((0x85U 
-                                                        == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
-                                                       | ((0x8dU 
-                                                           == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
-                                                          | ((0x95U 
-                                                              == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
-                                                             | ((0x9dU 
-                                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
-                                                                | ((0x99U 
-                                                                    == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
-                                                                   | ((0x81U 
-                                                                       == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
-                                                                      | (0x91U 
-                                                                         == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode))))))))
-                                                       ? (IData)(vlSelfRef.CPU6502Testable__DOT__regA)
-                                                       : 0U)))
-                                                    : 
-                                                   ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_28)
-                                                     ? 0U
-                                                     : 
-                                                    ((0x48U 
-                                                      == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode))
-                                                      ? (IData)(vlSelfRef.CPU6502Testable__DOT__regA)
-                                                      : 
-                                                     (((8U 
-                                                        != (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
-                                                       | (0x68U 
-                                                          == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)))
-                                                       ? 0U
-                                                       : (IData)(vlSelfRef.CPU6502Testable__DOT____VdfgRegularize_h6471f877_0_3))))))
-                                               : ((5U 
-                                                   == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
-                                                   ? (IData)(vlSelfRef.CPU6502Testable__DOT__regA)
-                                                   : 
-                                                  ((9U 
-                                                    == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
-                                                    ? (IData)(vlSelfRef.CPU6502Testable__DOT___alu_io_result)
-                                                    : 
-                                                   ((0xcU 
-                                                     == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
-                                                     ? 
-                                                    ((0U 
-                                                      == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))
-                                                      ? 
-                                                     ((IData)(vlSelfRef.CPU6502Testable__DOT__regPC) 
-                                                      >> 8U)
-                                                      : 
-                                                     ((1U 
-                                                       == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))
-                                                       ? (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)
-                                                       : 0U))
-                                                     : 
-                                                    (((0xdU 
-                                                       == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
-                                                      | ((0xeU 
-                                                          != (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
-                                                         | (0U 
-                                                            == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))))
-                                                      ? 0U
-                                                      : 
-                                                     ((1U 
-                                                       == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))
-                                                       ? 
-                                                      ((IData)(vlSelfRef.CPU6502Testable__DOT__regPC) 
-                                                       >> 8U)
-                                                       : 
-                                                      ((2U 
-                                                        == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))
-                                                        ? (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)
-                                                        : 
-                                                       ((3U 
-                                                         == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))
-                                                         ? (IData)(vlSelfRef.CPU6502Testable__DOT____VdfgRegularize_h6471f877_0_3)
-                                                         : 0U))))))))));
 }
 
 void VCPU6502Testable___024root___eval_triggers__ico(VCPU6502Testable___024root* vlSelf);
@@ -554,30 +550,27 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
         vlSelfRef.CPU6502Testable__DOT__flagB = 0U;
         vlSelfRef.CPU6502Testable__DOT__opcode = 0U;
     } else {
-        vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_43 
-            = ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_0) 
-               | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_1));
-        vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_44 
-            = (0U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
         vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_45 
-            = (1U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
+            = (0U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
         vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_46 
-            = (5U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
+            = (1U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
         vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_47 
-            = (8U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
+            = (5U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
         vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_48 
-            = (2U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
+            = (8U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
         vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_49 
-            = (3U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
+            = (2U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
         vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_50 
-            = (4U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
+            = (3U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
         vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_51 
-            = (6U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
+            = (4U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
         vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_52 
-            = (7U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
+            = (6U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
         vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_53 
-            = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_51) 
-               | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_52));
+            = (7U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
+        vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_54 
+            = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_52) 
+               | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_53));
         if (vlSelfRef.io_test_enable) {
             vlSelfRef.CPU6502Testable__DOT__cycleCount = 0U;
             __Vdly__CPU6502Testable__DOT__regA = vlSelfRef.io_test_a;
@@ -610,73 +603,79 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
         } else {
             vlSelfRef.CPU6502Testable__DOT__cycleCount 
                 = (0xffU & ((IData)(1U) + (IData)(vlSelfRef.CPU6502Testable__DOT__cycleCount)));
-            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_54 
+            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_55 
                 = (1U & ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_0) 
                          | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_1))));
-            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_55 
-                = (1U & ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_43) 
-                         | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_2))));
             vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_56 
-                = (0xaaU == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+                = ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_0) 
+                   | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_6));
             vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_57 
-                = (0x8aU == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+                = (1U & ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_56) 
+                         | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_3))));
             vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_58 
-                = (0xa8U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+                = ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_3) 
+                   | (IData)(vlSelfRef.io_test_enable));
             vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_59 
-                = (0x98U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+                = ((~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_56)) 
+                   & (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_3));
             vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_60 
-                = (0xbaU == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+                = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_59) 
+                   | (IData)(vlSelfRef.io_test_enable));
             vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_61 
-                = (0x9aU == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+                = (0xaaU == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
             vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_62 
-                = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_61)
+                = (0x8aU == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_63 
+                = (0xa8U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_64 
+                = (0x98U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_65 
+                = (0xbaU == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_66 
+                = (0x9aU == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_67 
+                = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_66)
                     ? (IData)(vlSelfRef.CPU6502Testable__DOT__regX)
                     : 0U);
-            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_63 
-                = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_60)
+            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_68 
+                = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_65)
                     ? (IData)(vlSelfRef.CPU6502Testable__DOT__regSP)
-                    : (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_62));
-            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_64 
-                = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_59)
+                    : (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_67));
+            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_69 
+                = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_64)
                     ? (IData)(vlSelfRef.CPU6502Testable__DOT__regY)
-                    : (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_63));
-            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_65 
+                    : (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_68));
+            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_70 
                 = (0xe8U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
             vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T 
                 = (0xffU & ((IData)(1U) + (IData)(vlSelfRef.CPU6502Testable__DOT__regX)));
-            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_66 
+            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_71 
                 = (0xc8U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
             vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T_2 
                 = (0xffU & ((IData)(1U) + (IData)(vlSelfRef.CPU6502Testable__DOT__regY)));
-            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_67 
+            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_72 
                 = (0xcaU == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
             vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T_4 
                 = (0xffU & ((IData)(vlSelfRef.CPU6502Testable__DOT__regX) 
                             - (IData)(1U)));
-            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_68 
+            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_73 
                 = (0x88U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
             vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T_6 
                 = (0xffU & ((IData)(vlSelfRef.CPU6502Testable__DOT__regY) 
                             - (IData)(1U)));
-            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_69 
-                = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_68)
+            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_74 
+                = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_73)
                     ? (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T_6)
                     : 0U);
-            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_70 
+            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_75 
                 = (((4U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
                     | (2U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) 
                    | (6U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)));
-            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_71 
+            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_76 
                 = ((0U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
-                   | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_70));
-            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_72 
-                = ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_0) 
-                   | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_35));
-            vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_73 
-                = ((~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_72)) 
-                   & (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_34));
-            if ((1U & (((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_19) 
-                        | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_11))) 
+                   | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_75));
+            if ((1U & (((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_23) 
+                        | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_15))) 
                        | (7U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))))) {
                 if (vlSelfRef.io_test_enable) {
                     __Vdly__CPU6502Testable__DOT__regA 
@@ -717,27 +716,27 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                         __Vdly__CPU6502Testable__DOT__regA 
                             = vlSelfRef.io_test_a;
                     }
-                } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_70) {
+                } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_75) {
                     if (vlSelfRef.io_test_enable) {
                         __Vdly__CPU6502Testable__DOT__regA 
                             = vlSelfRef.io_test_a;
                     }
                 } else if ((9U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) {
                     if (vlSelfRef.CPU6502Testable__DOT___decoder_io_writeA) {
-                        if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_56)))) {
-                            if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_57) {
+                        if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_61)))) {
+                            if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_62) {
                                 __Vdly__CPU6502Testable__DOT__regA 
                                     = vlSelfRef.CPU6502Testable__DOT__regX;
-                            } else if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_58)))) {
+                            } else if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_63)))) {
                                 __Vdly__CPU6502Testable__DOT__regA 
-                                    = vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_64;
+                                    = vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_69;
                             }
                         }
                     } else if (vlSelfRef.io_test_enable) {
                         __Vdly__CPU6502Testable__DOT__regA 
                             = vlSelfRef.io_test_a;
                     }
-                } else if (((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_24) 
+                } else if (((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_28) 
                               | (5U != (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) 
                              | (0x48U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode))) 
                             | (0x68U != (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)))) {
@@ -749,7 +748,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                     __Vdly__CPU6502Testable__DOT__regA 
                         = vlSelfRef.io_dataIn;
                 }
-                if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_71) {
+                if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_76) {
                     if (vlSelfRef.io_test_enable) {
                         __Vdly__CPU6502Testable__DOT__regX 
                             = vlSelfRef.io_test_x;
@@ -758,20 +757,20 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                     }
                 } else if ((9U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) {
                     if (vlSelfRef.CPU6502Testable__DOT___decoder_io_writeX) {
-                        if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_56) {
+                        if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_61) {
                             __Vdly__CPU6502Testable__DOT__regX 
                                 = vlSelfRef.CPU6502Testable__DOT__regA;
-                        } else if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_57)))) {
-                            if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_58) {
+                        } else if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_62)))) {
+                            if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_63) {
                                 __Vdly__CPU6502Testable__DOT__regX 
                                     = vlSelfRef.CPU6502Testable__DOT__regA;
-                            } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_59) {
+                            } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_64) {
                                 __Vdly__CPU6502Testable__DOT__regX 
                                     = vlSelfRef.CPU6502Testable__DOT__regY;
-                            } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_60) {
+                            } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_65) {
                                 __Vdly__CPU6502Testable__DOT__regX 
                                     = vlSelfRef.CPU6502Testable__DOT__regSP;
-                            } else if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_61)))) {
+                            } else if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_66)))) {
                                 __Vdly__CPU6502Testable__DOT__regX = 0U;
                             }
                         }
@@ -780,18 +779,18 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                             = vlSelfRef.io_test_x;
                     }
                     if (vlSelfRef.CPU6502Testable__DOT___decoder_io_writeY) {
-                        if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_56) {
+                        if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_61) {
                             __Vdly__CPU6502Testable__DOT__regY 
                                 = vlSelfRef.CPU6502Testable__DOT__regA;
-                        } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_57) {
+                        } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_62) {
                             __Vdly__CPU6502Testable__DOT__regY 
                                 = vlSelfRef.CPU6502Testable__DOT__regX;
-                        } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_58) {
+                        } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_63) {
                             __Vdly__CPU6502Testable__DOT__regY 
                                 = vlSelfRef.CPU6502Testable__DOT__regA;
-                        } else if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_59)))) {
+                        } else if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_64)))) {
                             __Vdly__CPU6502Testable__DOT__regY 
-                                = vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_63;
+                                = vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_68;
                         }
                     } else if (vlSelfRef.io_test_enable) {
                         __Vdly__CPU6502Testable__DOT__regY 
@@ -801,13 +800,13 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                     if (((0xaU == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
                          & (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_writeX))) {
                         __Vdly__CPU6502Testable__DOT__regX 
-                            = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_65)
+                            = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_70)
                                 ? (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T)
-                                : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_66)
+                                : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_71)
                                     ? (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T_2)
-                                    : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_67)
+                                    : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_72)
                                         ? (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T_4)
-                                        : (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_69))));
+                                        : (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_74))));
                     } else if (vlSelfRef.io_test_enable) {
                         __Vdly__CPU6502Testable__DOT__regX 
                             = vlSelfRef.io_test_x;
@@ -815,13 +814,13 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                     if (((0xaU == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
                          & (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_writeY))) {
                         __Vdly__CPU6502Testable__DOT__regY 
-                            = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_65)
+                            = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_70)
                                 ? (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T)
-                                : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_66)
+                                : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_71)
                                     ? (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T_2)
-                                    : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_67)
+                                    : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_72)
                                         ? (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T_4)
-                                        : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_68)
+                                        : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_73)
                                             ? (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T_6)
                                             : 0U))));
                     } else if (vlSelfRef.io_test_enable) {
@@ -830,7 +829,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                     }
                 }
             }
-            if (vlSelfRef.CPU6502Testable__DOT___GEN_19) {
+            if (vlSelfRef.CPU6502Testable__DOT___GEN_23) {
                 if (vlSelfRef.io_test_enable) {
                     __Vdly__CPU6502Testable__DOT__regSP 
                         = vlSelfRef.io_test_s;
@@ -853,71 +852,71 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                         = (1U & (IData)(vlSelfRef.io_test_p));
                 }
             } else {
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_74 
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_77 
                     = (1U & ((IData)(vlSelfRef.io_test_enable)
                               ? ((IData)(vlSelfRef.io_test_p) 
                                  >> 2U) : (IData)(vlSelfRef.CPU6502Testable__DOT__flagI)));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_75 
-                    = (5U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_76 
-                    = (6U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_77 
-                    = (7U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp));
                 vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_78 
+                    = (5U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp));
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_79 
+                    = (6U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp));
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_80 
+                    = (7U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp));
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_81 
                     = (8U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp));
-                if (vlSelfRef.CPU6502Testable__DOT___GEN_11) {
-                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_79 
-                        = (0xcU == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp));
-                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_80 
-                        = (0x18U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
-                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_81 
-                        = (0x38U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+                if (vlSelfRef.CPU6502Testable__DOT___GEN_15) {
                     vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_82 
-                        = (0x58U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+                        = (0xcU == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp));
                     vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_83 
-                        = (0x78U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+                        = (0x18U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
                     vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_84 
-                        = (0xb8U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+                        = (0x38U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
                     vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_85 
-                        = ((((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_26) 
+                        = (0x58U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_86 
+                        = (0x78U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_87 
+                        = (0xb8U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_88 
+                        = ((((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_30) 
                                | (5U != (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) 
                               | (0x48U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode))) 
                              | (0x68U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode))) 
                             | (8U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode))) 
                            | (0x28U != (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)));
-                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_86 
+                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_89 
                         = ((4U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
                            | (2U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)));
                     if ((((7U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
                           | (1U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) 
-                         | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_71))) {
+                         | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_76))) {
                         if (vlSelfRef.io_test_enable) {
                             __Vdly__CPU6502Testable__DOT__regSP 
                                 = vlSelfRef.io_test_s;
                         }
                     } else if ((9U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) {
-                        if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_61) {
-                            if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_56) {
+                        if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_66) {
+                            if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_61) {
                                 __Vdly__CPU6502Testable__DOT__regSP 
                                     = vlSelfRef.CPU6502Testable__DOT__regA;
-                            } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_57) {
+                            } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_62) {
                                 __Vdly__CPU6502Testable__DOT__regSP 
                                     = vlSelfRef.CPU6502Testable__DOT__regX;
-                            } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_58) {
+                            } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_63) {
                                 __Vdly__CPU6502Testable__DOT__regSP 
                                     = vlSelfRef.CPU6502Testable__DOT__regA;
-                            } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_59) {
+                            } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_64) {
                                 __Vdly__CPU6502Testable__DOT__regSP 
                                     = vlSelfRef.CPU6502Testable__DOT__regY;
-                            } else if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_60)))) {
+                            } else if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_65)))) {
                                 __Vdly__CPU6502Testable__DOT__regSP 
-                                    = vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_62;
+                                    = vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_67;
                             }
                         } else if (vlSelfRef.io_test_enable) {
                             __Vdly__CPU6502Testable__DOT__regSP 
                                 = vlSelfRef.io_test_s;
                         }
-                    } else if (((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_24) 
+                    } else if (((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_28) 
                                 | (5U != (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)))) {
                         if (vlSelfRef.io_test_enable) {
                             __Vdly__CPU6502Testable__DOT__regSP 
@@ -968,7 +967,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                     } else if ((0U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) {
                         if (vlSelfRef.CPU6502Testable__DOT___decoder_io_updateFlags) {
                             __Vdly__CPU6502Testable__DOT__flagN 
-                                = (1U & ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_79)
+                                = (1U & ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_82)
                                           ? ((IData)(vlSelfRef.CPU6502Testable__DOT__operand) 
                                              >> 7U)
                                           : (IData)(vlSelfRef.CPU6502Testable__DOT___alu_io_negative)));
@@ -982,7 +981,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                 = (1U & ((IData)(vlSelfRef.io_test_p) 
                                          >> 1U));
                         }
-                    } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_70) {
+                    } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_75) {
                         if (vlSelfRef.io_test_enable) {
                             __Vdly__CPU6502Testable__DOT__flagN 
                                 = (1U & ((IData)(vlSelfRef.io_test_p) 
@@ -994,13 +993,13 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                     } else if ((9U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) {
                         if (vlSelfRef.CPU6502Testable__DOT___decoder_io_updateFlags) {
                             vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT__unnamedblk5__DOT__transferValue 
-                                = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_56)
+                                = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_61)
                                     ? (IData)(vlSelfRef.CPU6502Testable__DOT__regA)
-                                    : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_57)
+                                    : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_62)
                                         ? (IData)(vlSelfRef.CPU6502Testable__DOT__regX)
-                                        : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_58)
+                                        : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_63)
                                             ? (IData)(vlSelfRef.CPU6502Testable__DOT__regA)
-                                            : (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_64))));
+                                            : (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_69))));
                             __Vdly__CPU6502Testable__DOT__flagN 
                                 = (1U & ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT__unnamedblk5__DOT__transferValue) 
                                          >> 7U));
@@ -1017,13 +1016,13 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                     } else if ((0xaU == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) {
                         if (vlSelfRef.CPU6502Testable__DOT___decoder_io_updateFlags) {
                             vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT__unnamedblk6__DOT__incDecResult 
-                                = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_65)
+                                = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_70)
                                     ? (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T)
-                                    : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_66)
+                                    : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_71)
                                         ? (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T_2)
-                                        : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_67)
+                                        : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_72)
                                             ? (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T_4)
-                                            : (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_69))));
+                                            : (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_74))));
                             __Vdly__CPU6502Testable__DOT__flagN 
                                 = (1U & ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT__unnamedblk6__DOT__incDecResult) 
                                          >> 7U));
@@ -1082,14 +1081,14 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                 = (1U & (IData)(vlSelfRef.io_test_p));
                         }
                     } else if ((0U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) {
-                        vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT__unnamedblk7__DOT___GEN_87 
+                        vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT__unnamedblk7__DOT___GEN_90 
                             = ((0U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp)) 
                                | (1U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp)));
                         if (vlSelfRef.CPU6502Testable__DOT___decoder_io_updateFlags) {
-                            if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT__unnamedblk7__DOT___GEN_87) {
+                            if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT__unnamedblk7__DOT___GEN_90) {
                                 __Vdly__CPU6502Testable__DOT__flagV 
                                     = vlSelfRef.CPU6502Testable__DOT___alu_io_overflow;
-                            } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_79) {
+                            } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_82) {
                                 __Vdly__CPU6502Testable__DOT__flagV 
                                     = (1U & ((IData)(vlSelfRef.CPU6502Testable__DOT__operand) 
                                              >> 6U));
@@ -1104,19 +1103,19 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                          >> 6U));
                         }
                         if (((IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_updateFlags) 
-                             & ((((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT__unnamedblk7__DOT___GEN_87) 
+                             & ((((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT__unnamedblk7__DOT___GEN_90) 
                                     | (0xbU == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp))) 
-                                   | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_75)) 
-                                  | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_76)) 
-                                 | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_77)) 
-                                | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_78)))) {
+                                   | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_78)) 
+                                  | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_79)) 
+                                 | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_80)) 
+                                | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_81)))) {
                             __Vdly__CPU6502Testable__DOT__flagC 
                                 = vlSelfRef.CPU6502Testable__DOT___alu_io_carryOut;
                         } else if (vlSelfRef.io_test_enable) {
                             __Vdly__CPU6502Testable__DOT__flagC 
                                 = (1U & (IData)(vlSelfRef.io_test_p));
                         }
-                    } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_86) {
+                    } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_89) {
                         if (vlSelfRef.io_test_enable) {
                             __Vdly__CPU6502Testable__DOT__flagV 
                                 = (1U & ((IData)(vlSelfRef.io_test_p) 
@@ -1126,21 +1125,21 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                         }
                     } else if ((6U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) {
                         __Vdly__CPU6502Testable__DOT__flagV 
-                            = (1U & ((((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_80) 
-                                         | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_81)) 
-                                        | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_82)) 
-                                       | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_83)) 
-                                      | (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_84))) 
+                            = (1U & ((((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_83) 
+                                         | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_84)) 
+                                        | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_85)) 
+                                       | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_86)) 
+                                      | (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_87))) 
                                      & ((IData)(vlSelfRef.io_test_enable)
                                          ? ((IData)(vlSelfRef.io_test_p) 
                                             >> 6U) : (IData)(vlSelfRef.CPU6502Testable__DOT__flagV))));
                         __Vdly__CPU6502Testable__DOT__flagC 
-                            = (1U & ((~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_80)) 
-                                     & ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_81) 
+                            = (1U & ((~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_83)) 
+                                     & ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_84) 
                                         | ((IData)(vlSelfRef.io_test_enable)
                                             ? (IData)(vlSelfRef.io_test_p)
                                             : (IData)(vlSelfRef.CPU6502Testable__DOT__flagC)))));
-                    } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_85) {
+                    } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_88) {
                         if (vlSelfRef.io_test_enable) {
                             __Vdly__CPU6502Testable__DOT__flagV 
                                 = (1U & ((IData)(vlSelfRef.io_test_p) 
@@ -1158,7 +1157,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                     if (((((7U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
                            | (1U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) 
                           | (0U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) 
-                         | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_86))) {
+                         | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_89))) {
                         if (vlSelfRef.io_test_enable) {
                             __Vdly__CPU6502Testable__DOT__flagD 
                                 = (1U & ((IData)(vlSelfRef.io_test_p) 
@@ -1168,11 +1167,11 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                          >> 2U));
                         }
                     } else if ((6U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) {
-                        if ((((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_80) 
-                                | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_81)) 
-                               | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_82)) 
-                              | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_83)) 
-                             | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_84))) {
+                        if ((((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_83) 
+                                | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_84)) 
+                               | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_85)) 
+                              | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_86)) 
+                             | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_87))) {
                             if (vlSelfRef.io_test_enable) {
                                 __Vdly__CPU6502Testable__DOT__flagD 
                                     = (1U & ((IData)(vlSelfRef.io_test_p) 
@@ -1187,8 +1186,8 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                              >> 3U)
                                           : (IData)(vlSelfRef.CPU6502Testable__DOT__flagD))));
                         }
-                        if (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_80) 
-                             | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_81))) {
+                        if (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_83) 
+                             | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_84))) {
                             if (vlSelfRef.io_test_enable) {
                                 __Vdly__CPU6502Testable__DOT__flagI 
                                     = (1U & ((IData)(vlSelfRef.io_test_p) 
@@ -1196,11 +1195,11 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                             }
                         } else {
                             __Vdly__CPU6502Testable__DOT__flagI 
-                                = ((~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_82)) 
-                                   & ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_83) 
-                                      | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_74)));
+                                = ((~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_85)) 
+                                   & ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_86) 
+                                      | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_77)));
                         }
-                    } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_85) {
+                    } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_88) {
                         if (vlSelfRef.io_test_enable) {
                             __Vdly__CPU6502Testable__DOT__flagD 
                                 = (1U & ((IData)(vlSelfRef.io_test_p) 
@@ -1218,42 +1217,42 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                      >> 2U));
                     }
                 } else {
-                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk8__DOT___GEN_88 
-                        = (((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_33) 
-                            | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_36)) 
-                           | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_37));
-                    if (vlSelfRef.CPU6502Testable__DOT___GEN_38) {
+                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk8__DOT___GEN_91 
+                        = (((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_37) 
+                            | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_38)) 
+                           | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_39));
+                    if (vlSelfRef.CPU6502Testable__DOT___GEN_40) {
                         if (vlSelfRef.io_test_enable) {
                             __Vdly__CPU6502Testable__DOT__regSP 
                                 = vlSelfRef.io_test_s;
                         }
-                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_33) {
-                        if (vlSelfRef.CPU6502Testable__DOT___GEN_0) {
-                            __Vdly__CPU6502Testable__DOT__regSP 
-                                = (0xffU & ((IData)(vlSelfRef.CPU6502Testable__DOT__regSP) 
-                                            - (IData)(1U)));
-                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_1) {
-                            __Vdly__CPU6502Testable__DOT__regSP 
-                                = (0xffU & ((IData)(vlSelfRef.CPU6502Testable__DOT__regSP) 
-                                            - (IData)(1U)));
-                        } else if (vlSelfRef.io_test_enable) {
-                            __Vdly__CPU6502Testable__DOT__regSP 
-                                = vlSelfRef.io_test_s;
-                        }
-                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_36) {
-                        if (vlSelfRef.CPU6502Testable__DOT___GEN_0) {
-                            __Vdly__CPU6502Testable__DOT__regSP 
-                                = (0xffU & ((IData)(1U) 
-                                            + (IData)(vlSelfRef.CPU6502Testable__DOT__regSP)));
-                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_1) {
-                            __Vdly__CPU6502Testable__DOT__regSP 
-                                = (0xffU & ((IData)(1U) 
-                                            + (IData)(vlSelfRef.CPU6502Testable__DOT__regSP)));
-                        } else if (vlSelfRef.io_test_enable) {
-                            __Vdly__CPU6502Testable__DOT__regSP 
-                                = vlSelfRef.io_test_s;
-                        }
                     } else if (vlSelfRef.CPU6502Testable__DOT___GEN_37) {
+                        if (vlSelfRef.CPU6502Testable__DOT___GEN_0) {
+                            __Vdly__CPU6502Testable__DOT__regSP 
+                                = (0xffU & ((IData)(vlSelfRef.CPU6502Testable__DOT__regSP) 
+                                            - (IData)(1U)));
+                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_1) {
+                            __Vdly__CPU6502Testable__DOT__regSP 
+                                = (0xffU & ((IData)(vlSelfRef.CPU6502Testable__DOT__regSP) 
+                                            - (IData)(1U)));
+                        } else if (vlSelfRef.io_test_enable) {
+                            __Vdly__CPU6502Testable__DOT__regSP 
+                                = vlSelfRef.io_test_s;
+                        }
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_38) {
+                        if (vlSelfRef.CPU6502Testable__DOT___GEN_0) {
+                            __Vdly__CPU6502Testable__DOT__regSP 
+                                = (0xffU & ((IData)(1U) 
+                                            + (IData)(vlSelfRef.CPU6502Testable__DOT__regSP)));
+                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_1) {
+                            __Vdly__CPU6502Testable__DOT__regSP 
+                                = (0xffU & ((IData)(1U) 
+                                            + (IData)(vlSelfRef.CPU6502Testable__DOT__regSP)));
+                        } else if (vlSelfRef.io_test_enable) {
+                            __Vdly__CPU6502Testable__DOT__regSP 
+                                = vlSelfRef.io_test_s;
+                        }
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_39) {
                         if (vlSelfRef.CPU6502Testable__DOT___GEN_0) {
                             if (vlSelfRef.io_test_enable) {
                                 __Vdly__CPU6502Testable__DOT__regSP 
@@ -1267,7 +1266,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                             __Vdly__CPU6502Testable__DOT__regSP 
                                 = (0xffU & ((IData)(vlSelfRef.CPU6502Testable__DOT__regSP) 
                                             - (IData)(1U)));
-                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_34) {
+                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_3) {
                             __Vdly__CPU6502Testable__DOT__regSP 
                                 = (0xffU & ((IData)(vlSelfRef.CPU6502Testable__DOT__regSP) 
                                             - (IData)(1U)));
@@ -1275,7 +1274,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                             __Vdly__CPU6502Testable__DOT__regSP 
                                 = vlSelfRef.io_test_s;
                         }
-                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_41) {
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_43) {
                         if (vlSelfRef.CPU6502Testable__DOT___GEN_0) {
                             __Vdly__CPU6502Testable__DOT__regSP 
                                 = (0xffU & ((IData)(1U) 
@@ -1296,7 +1295,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                         __Vdly__CPU6502Testable__DOT__regSP 
                             = vlSelfRef.io_test_s;
                     }
-                    if (vlSelfRef.CPU6502Testable__DOT___GEN_31) {
+                    if (vlSelfRef.CPU6502Testable__DOT___GEN_35) {
                         if (vlSelfRef.io_test_enable) {
                             __Vdly__CPU6502Testable__DOT__flagN 
                                 = (1U & ((IData)(vlSelfRef.io_test_p) 
@@ -1307,7 +1306,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                             __Vdly__CPU6502Testable__DOT__flagC 
                                 = (1U & (IData)(vlSelfRef.io_test_p));
                         }
-                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_32) {
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_36) {
                         if (vlSelfRef.CPU6502Testable__DOT___decoder_io_updateFlags) {
                             __Vdly__CPU6502Testable__DOT__flagN 
                                 = vlSelfRef.CPU6502Testable__DOT___alu_io_negative;
@@ -1322,18 +1321,18 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                          >> 1U));
                         }
                         if (((IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_updateFlags) 
-                             & ((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_75) 
-                                  | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_76)) 
-                                 | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_77)) 
-                                | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_78)))) {
+                             & ((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_78) 
+                                  | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_79)) 
+                                 | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_80)) 
+                                | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_81)))) {
                             __Vdly__CPU6502Testable__DOT__flagC 
                                 = vlSelfRef.CPU6502Testable__DOT___alu_io_carryOut;
                         } else if (vlSelfRef.io_test_enable) {
                             __Vdly__CPU6502Testable__DOT__flagC 
                                 = (1U & (IData)(vlSelfRef.io_test_p));
                         }
-                    } else if ((1U & ((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk8__DOT___GEN_88) 
-                                        | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_41))) 
+                    } else if ((1U & ((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk8__DOT___GEN_91) 
+                                        | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_43))) 
                                        | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_0)) 
                                       | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_1))))) {
                         if (vlSelfRef.io_test_enable) {
@@ -1356,20 +1355,20 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                         __Vdly__CPU6502Testable__DOT__flagC 
                             = (1U & (IData)(vlSelfRef.io_dataIn));
                     }
-                    if (((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_31) 
-                           | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_32)) 
-                          | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_33)) 
-                         | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_36))) {
+                    if (((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_35) 
+                           | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_36)) 
+                          | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_37)) 
+                         | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_38))) {
                         if (vlSelfRef.io_test_enable) {
                             __Vdly__CPU6502Testable__DOT__flagI 
                                 = (1U & ((IData)(vlSelfRef.io_test_p) 
                                          >> 2U));
                         }
-                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_37) {
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_39) {
                         __Vdly__CPU6502Testable__DOT__flagI 
-                            = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_73) 
-                               | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_74));
-                    } else if ((1U & (((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_41)) 
+                            = ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_59) 
+                               | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_77));
+                    } else if ((1U & (((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_43)) 
                                        | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_0)) 
                                       | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_1))))) {
                         if (vlSelfRef.io_test_enable) {
@@ -1382,10 +1381,10 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                             = (1U & ((IData)(vlSelfRef.io_dataIn) 
                                      >> 2U));
                     }
-                    if ((1U & ((((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_31) 
-                                   | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_32)) 
-                                  | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk8__DOT___GEN_88)) 
-                                 | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_41))) 
+                    if ((1U & ((((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_35) 
+                                   | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_36)) 
+                                  | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk8__DOT___GEN_91)) 
+                                 | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_43))) 
                                 | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_0)) 
                                | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_1))))) {
                         if (vlSelfRef.io_test_enable) {
@@ -1407,7 +1406,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                 }
             }
             if (vlSelfRef.CPU6502Testable__DOT___GEN) {
-                if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_55) {
+                if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_57) {
                     if (vlSelfRef.io_test_enable) {
                         __Vdly__CPU6502Testable__DOT__regPC 
                             = vlSelfRef.io_test_pc;
@@ -1417,158 +1416,157 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                         = (((IData)(vlSelfRef.io_dataIn) 
                             << 8U) | (IData)(vlSelfRef.CPU6502Testable__DOT__addrLo));
                 }
-                if ((((~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_43)) 
-                      & (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_2)) 
-                     | (IData)(vlSelfRef.io_test_enable))) {
+                if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_60) {
                     __Vdly__CPU6502Testable__DOT__state = 1U;
                 }
                 if (vlSelfRef.CPU6502Testable__DOT___GEN_0) {
                     __Vdly__CPU6502Testable__DOT__cycle = 1U;
                 } else if (vlSelfRef.CPU6502Testable__DOT___GEN_1) {
                     __Vdly__CPU6502Testable__DOT__cycle = 2U;
-                } else if (((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_2) 
-                            | (IData)(vlSelfRef.io_test_enable))) {
+                } else if (vlSelfRef.CPU6502Testable__DOT___GEN_2) {
+                    __Vdly__CPU6502Testable__DOT__cycle = 3U;
+                } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_58) {
                     __Vdly__CPU6502Testable__DOT__cycle = 0U;
                 }
-                if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_55)))) {
+                if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_57)))) {
                     __Vdly__CPU6502Testable__DOT__addrHi 
                         = vlSelfRef.io_dataIn;
                 }
-                if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_54)))) {
+                if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_55)))) {
                     __Vdly__CPU6502Testable__DOT__addrLo 
                         = vlSelfRef.io_dataIn;
                 }
-            } else if (vlSelfRef.CPU6502Testable__DOT___GEN_3) {
+            } else if (vlSelfRef.CPU6502Testable__DOT___GEN_7) {
                 __Vdly__CPU6502Testable__DOT__regPC 
                     = (0xffffU & ((IData)(1U) + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)));
                 __Vdly__CPU6502Testable__DOT__state = 2U;
                 if (vlSelfRef.io_test_enable) {
                     __Vdly__CPU6502Testable__DOT__cycle = 0U;
                 }
-            } else if (vlSelfRef.CPU6502Testable__DOT___GEN_4) {
+            } else if (vlSelfRef.CPU6502Testable__DOT___GEN_8) {
                 if (vlSelfRef.io_test_enable) {
-                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_89 
+                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_92 
                         = vlSelfRef.io_test_pc;
-                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_90 = 1U;
+                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93 = 1U;
                 } else {
-                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_89 
+                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_92 
                         = vlSelfRef.CPU6502Testable__DOT__regPC;
-                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_90 
+                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93 
                         = vlSelfRef.CPU6502Testable__DOT__state;
                 }
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_91 
-                    = (0x60U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_95[0U] 
-                    = (IData)((((QData)((IData)(((((IData)(1U) 
-                                                   + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
-                                                  << 0x10U) 
-                                                 | (0xffffU 
-                                                    & ((IData)(1U) 
-                                                       + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)))))) 
-                                << 0x20U) | (QData)((IData)(
-                                                            ((((IData)(1U) 
-                                                               + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
-                                                              << 0x10U) 
-                                                             | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_89))))));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_95[1U] 
-                    = (IData)(((((QData)((IData)(((
-                                                   ((IData)(1U) 
-                                                    + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
-                                                   << 0x10U) 
-                                                  | (0xffffU 
-                                                     & ((IData)(1U) 
-                                                        + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)))))) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             ((((IData)(1U) 
-                                                                + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
-                                                               << 0x10U) 
-                                                              | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_89))))) 
-                               >> 0x20U));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_95[2U] 
-                    = (IData)((((QData)((IData)(((((IData)(1U) 
-                                                   + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
-                                                  << 0x10U) 
-                                                 | (0xffffU 
-                                                    & ((IData)(1U) 
-                                                       + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)))))) 
-                                << 0x20U) | (QData)((IData)(
-                                                            ((((IData)(1U) 
-                                                               + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
-                                                              << 0x10U) 
-                                                             | (0xffffU 
-                                                                & ((IData)(1U) 
-                                                                   + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC))))))));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_95[3U] 
-                    = (IData)(((((QData)((IData)(((
-                                                   ((IData)(1U) 
-                                                    + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
-                                                   << 0x10U) 
-                                                  | (0xffffU 
-                                                     & ((IData)(1U) 
-                                                        + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)))))) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             ((((IData)(1U) 
-                                                                + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
-                                                               << 0x10U) 
-                                                              | (0xffffU 
-                                                                 & ((IData)(1U) 
-                                                                    + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC))))))) 
-                               >> 0x20U));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_95[4U] 
-                    = (IData)((((QData)((IData)(((((IData)(1U) 
-                                                   + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
-                                                  << 0x10U) 
-                                                 | (0xffffU 
-                                                    & ((IData)(1U) 
-                                                       + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)))))) 
-                                << 0x20U) | (QData)((IData)(
-                                                            ((((IData)(1U) 
-                                                               + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
-                                                              << 0x10U) 
-                                                             | (0xffffU 
-                                                                & ((IData)(1U) 
-                                                                   + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC))))))));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_95[5U] 
-                    = (IData)(((((QData)((IData)(((
-                                                   ((IData)(1U) 
-                                                    + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
-                                                   << 0x10U) 
-                                                  | (0xffffU 
-                                                     & ((IData)(1U) 
-                                                        + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)))))) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             ((((IData)(1U) 
-                                                                + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
-                                                               << 0x10U) 
-                                                              | (0xffffU 
-                                                                 & ((IData)(1U) 
-                                                                    + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC))))))) 
-                               >> 0x20U));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_95[6U] 
-                    = (IData)((((QData)((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_89)) 
-                                << 0x30U) | (((QData)((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_89)) 
-                                              << 0x20U) 
-                                             | (((QData)((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_89)) 
-                                                 << 0x10U) 
-                                                | (QData)((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_89))))));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_95[7U] 
-                    = (IData)(((((QData)((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_89)) 
-                                 << 0x30U) | (((QData)((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_89)) 
-                                               << 0x20U) 
-                                              | (((QData)((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_89)) 
-                                                  << 0x10U) 
-                                                 | (QData)((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_89))))) 
-                               >> 0x20U));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_92 
-                    = (0x40U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93 
-                    = (0U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
                 vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_94 
+                    = (0x60U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_98[0U] 
+                    = (IData)((((QData)((IData)(((((IData)(1U) 
+                                                   + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
+                                                  << 0x10U) 
+                                                 | (0xffffU 
+                                                    & ((IData)(1U) 
+                                                       + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)))))) 
+                                << 0x20U) | (QData)((IData)(
+                                                            ((((IData)(1U) 
+                                                               + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
+                                                              << 0x10U) 
+                                                             | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_92))))));
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_98[1U] 
+                    = (IData)(((((QData)((IData)(((
+                                                   ((IData)(1U) 
+                                                    + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
+                                                   << 0x10U) 
+                                                  | (0xffffU 
+                                                     & ((IData)(1U) 
+                                                        + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)))))) 
+                                 << 0x20U) | (QData)((IData)(
+                                                             ((((IData)(1U) 
+                                                                + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
+                                                               << 0x10U) 
+                                                              | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_92))))) 
+                               >> 0x20U));
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_98[2U] 
+                    = (IData)((((QData)((IData)(((((IData)(1U) 
+                                                   + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
+                                                  << 0x10U) 
+                                                 | (0xffffU 
+                                                    & ((IData)(1U) 
+                                                       + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)))))) 
+                                << 0x20U) | (QData)((IData)(
+                                                            ((((IData)(1U) 
+                                                               + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
+                                                              << 0x10U) 
+                                                             | (0xffffU 
+                                                                & ((IData)(1U) 
+                                                                   + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC))))))));
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_98[3U] 
+                    = (IData)(((((QData)((IData)(((
+                                                   ((IData)(1U) 
+                                                    + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
+                                                   << 0x10U) 
+                                                  | (0xffffU 
+                                                     & ((IData)(1U) 
+                                                        + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)))))) 
+                                 << 0x20U) | (QData)((IData)(
+                                                             ((((IData)(1U) 
+                                                                + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
+                                                               << 0x10U) 
+                                                              | (0xffffU 
+                                                                 & ((IData)(1U) 
+                                                                    + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC))))))) 
+                               >> 0x20U));
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_98[4U] 
+                    = (IData)((((QData)((IData)(((((IData)(1U) 
+                                                   + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
+                                                  << 0x10U) 
+                                                 | (0xffffU 
+                                                    & ((IData)(1U) 
+                                                       + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)))))) 
+                                << 0x20U) | (QData)((IData)(
+                                                            ((((IData)(1U) 
+                                                               + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
+                                                              << 0x10U) 
+                                                             | (0xffffU 
+                                                                & ((IData)(1U) 
+                                                                   + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC))))))));
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_98[5U] 
+                    = (IData)(((((QData)((IData)(((
+                                                   ((IData)(1U) 
+                                                    + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
+                                                   << 0x10U) 
+                                                  | (0xffffU 
+                                                     & ((IData)(1U) 
+                                                        + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)))))) 
+                                 << 0x20U) | (QData)((IData)(
+                                                             ((((IData)(1U) 
+                                                                + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)) 
+                                                               << 0x10U) 
+                                                              | (0xffffU 
+                                                                 & ((IData)(1U) 
+                                                                    + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC))))))) 
+                               >> 0x20U));
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_98[6U] 
+                    = (IData)((((QData)((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_92)) 
+                                << 0x30U) | (((QData)((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_92)) 
+                                              << 0x20U) 
+                                             | (((QData)((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_92)) 
+                                                 << 0x10U) 
+                                                | (QData)((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_92))))));
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_98[7U] 
+                    = (IData)(((((QData)((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_92)) 
+                                 << 0x30U) | (((QData)((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_92)) 
+                                               << 0x20U) 
+                                              | (((QData)((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_92)) 
+                                                  << 0x10U) 
+                                                 | (QData)((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_92))))) 
+                               >> 0x20U));
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_95 
+                    = (0x40U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_96 
+                    = (0U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_97 
                     = (0x20U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode));
                 __Vdly__CPU6502Testable__DOT__regPC 
                     = (0xffffU & (((0U == (0x1fU & 
                                            VL_SHIFTL_III(8,32,32, (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode), 4U)))
-                                    ? 0U : (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_95[
+                                    ? 0U : (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_98[
                                             (((IData)(0xfU) 
                                               + (0xffU 
                                                  & VL_SHIFTL_III(8,32,32, (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode), 4U))) 
@@ -1576,63 +1574,63 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                             << ((IData)(0x20U) 
                                                 - (0x1fU 
                                                    & VL_SHIFTL_III(8,32,32, (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode), 4U))))) 
-                                  | (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_95[
+                                  | (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_98[
                                      (7U & (VL_SHIFTL_III(8,32,32, (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode), 4U) 
                                             >> 5U))] 
                                      >> (0x1fU & VL_SHIFTL_III(8,32,32, (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode), 4U)))));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_96[0U] 
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_99[0U] 
                     = (0x10421060U | ((0xc0000000U 
-                                       & vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_96[0U]) 
-                                      | (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_94) 
+                                       & vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_99[0U]) 
+                                      | (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_97) 
                                           << 0x1bU) 
-                                         | ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_91)
+                                         | ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_94)
                                              ? 0xdU
-                                             : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_92)
+                                             : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_95)
                                                  ? 0xfU
                                                  : 
-                                                ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93)
+                                                ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_96)
                                                   ? 0xeU
                                                   : 3U))))));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_96[0U] 
-                    = ((0x3fffffffU & vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_96[0U]) 
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_99[0U] 
+                    = ((0x3fffffffU & vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_99[0U]) 
                        | ((IData)((0xc6a54108ULL | 
                                    ((QData)((IData)(
                                                     (0x7fffU 
-                                                     & (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_90) 
+                                                     & (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93) 
                                                          << 0xaU) 
-                                                        | (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_90) 
+                                                        | (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93) 
                                                             << 5U) 
-                                                           | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_90)))))) 
+                                                           | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93)))))) 
                                     << 0x23U))) << 0x1eU));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_96[1U] 
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_99[1U] 
                     = (((IData)((0xc6a54108ULL | ((QData)((IData)(
                                                                   (0x7fffU 
-                                                                   & (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_90) 
+                                                                   & (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93) 
                                                                        << 0xaU) 
-                                                                      | (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_90) 
+                                                                      | (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93) 
                                                                           << 5U) 
-                                                                         | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_90)))))) 
+                                                                         | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93)))))) 
                                                   << 0x23U))) 
                         >> 2U) | ((IData)(((0xc6a54108ULL 
                                             | ((QData)((IData)(
                                                                (0x7fffU 
-                                                                & (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_90) 
+                                                                & (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93) 
                                                                     << 0xaU) 
-                                                                   | (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_90) 
+                                                                   | (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93) 
                                                                        << 5U) 
-                                                                      | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_90)))))) 
+                                                                      | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93)))))) 
                                                << 0x23U)) 
                                            >> 0x20U)) 
                                   << 0x1eU));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_96[2U] 
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_99[2U] 
                     = (0xffffU & ((IData)(((0xc6a54108ULL 
                                             | ((QData)((IData)(
                                                                (0x7fffU 
-                                                                & (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_90) 
+                                                                & (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93) 
                                                                     << 0xaU) 
-                                                                   | (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_90) 
+                                                                   | (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93) 
                                                                        << 5U) 
-                                                                      | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_90)))))) 
+                                                                      | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93)))))) 
                                                << 0x23U)) 
                                            >> 0x20U)) 
                                   >> 2U));
@@ -1642,7 +1640,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                         ? (0x1fU & (((0U == (0x1fU 
                                              & ((IData)(5U) 
                                                 * (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode))))
-                                      ? 0U : (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_96[
+                                      ? 0U : (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_99[
                                               (((IData)(4U) 
                                                 + (0x7fU 
                                                    & ((IData)(5U) 
@@ -1653,7 +1651,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                                   (0x1fU 
                                                    & ((IData)(5U) 
                                                       * (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode)))))) 
-                                    | (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_96[
+                                    | (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_99[
                                        (3U & (((IData)(5U) 
                                                * (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode)) 
                                               >> 5U))] 
@@ -1661,71 +1659,71 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                            ((IData)(5U) 
                                             * (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode))))))
                         : 0U);
-                if (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_44)
-                      ? ((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_91) 
-                           | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_92)) 
-                          | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93)) 
+                if (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_45)
+                      ? ((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_94) 
+                           | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_95)) 
+                          | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_96)) 
                          | (IData)(vlSelfRef.io_test_enable))
-                      : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_45)
+                      : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_46)
                           ? (IData)(vlSelfRef.io_test_enable)
-                          : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_46)
-                              ? ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_94) 
+                          : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_47)
+                              ? ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_97) 
                                  | (IData)(vlSelfRef.io_test_enable))
-                              : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_47) 
+                              : ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_48) 
                                  | (IData)(vlSelfRef.io_test_enable)))))) {
                     __Vdly__CPU6502Testable__DOT__cycle = 0U;
                 }
-                if ((1U & (~ ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_44) 
-                              | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_45))))) {
-                    if ((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_46) 
-                          | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_47)) 
-                         | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_48))) {
+                if ((1U & (~ ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_45) 
+                              | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_46))))) {
+                    if ((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_47) 
+                          | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_48)) 
+                         | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_49))) {
                         __Vdly__CPU6502Testable__DOT__addrLo 
                             = vlSelfRef.io_dataIn;
-                    } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_49) {
-                        __Vdly__CPU6502Testable__DOT__addrLo 
-                            = (0xffU & ((IData)(vlSelfRef.io_dataIn) 
-                                        + (IData)(vlSelfRef.CPU6502Testable__DOT__regX)));
                     } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_50) {
                         __Vdly__CPU6502Testable__DOT__addrLo 
                             = (0xffU & ((IData)(vlSelfRef.io_dataIn) 
+                                        + (IData)(vlSelfRef.CPU6502Testable__DOT__regX)));
+                    } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_51) {
+                        __Vdly__CPU6502Testable__DOT__addrLo 
+                            = (0xffU & ((IData)(vlSelfRef.io_dataIn) 
                                         + (IData)(vlSelfRef.CPU6502Testable__DOT__regY)));
-                    } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_53) {
+                    } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_54) {
                         __Vdly__CPU6502Testable__DOT__addrLo 
                             = vlSelfRef.io_dataIn;
                     }
                 }
-                if ((1U & (~ (((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_44) 
-                                 | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_45)) 
-                                | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_46)) 
-                               | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_47)) 
-                              | (~ (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_48) 
-                                     | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_49)) 
-                                    | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_50))))))) {
+                if ((1U & (~ (((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_45) 
+                                 | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_46)) 
+                                | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_47)) 
+                               | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_48)) 
+                              | (~ (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_49) 
+                                     | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_50)) 
+                                    | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_51))))))) {
                     __Vdly__CPU6502Testable__DOT__addrHi = 0U;
                 }
             } else {
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_97 
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_100 
                     = (((IData)(vlSelfRef.io_dataIn) 
                         << 8U) | (IData)(vlSelfRef.CPU6502Testable__DOT__addrLo));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_98 
-                    = vlSelfRef.CPU6502Testable__DOT__regY;
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_99 
-                    = (6U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_100 
-                    = ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_33) 
-                       | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_36));
                 vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_101 
-                    = ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_11) 
+                    = vlSelfRef.CPU6502Testable__DOT__regY;
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_102 
+                    = (6U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_103 
+                    = ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_37) 
                        | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_38));
-                if (vlSelfRef.CPU6502Testable__DOT___GEN_5) {
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_104 
+                    = ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_15) 
+                       | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_40));
+                if (vlSelfRef.CPU6502Testable__DOT___GEN_9) {
                     vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk11__DOT__indexedAddr 
                         = (0xffffU & ((6U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode))
-                                       ? ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_97) 
+                                       ? ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_100) 
                                           + (IData)(vlSelfRef.CPU6502Testable__DOT__regX))
                                        : ((7U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode))
-                                           ? ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_97) 
-                                              + (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_98))
+                                           ? ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_100) 
+                                              + (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_101))
                                            : (((IData)(vlSelfRef.io_dataIn) 
                                                << 8U) 
                                               | (IData)(vlSelfRef.CPU6502Testable__DOT__addrLo)))));
@@ -1742,33 +1740,29 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                 } else {
                     vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT__indexedAddr_1 
                         = (0xffffU & ((0xaU == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode))
-                                       ? ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_97) 
-                                          + (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_98))
+                                       ? ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_100) 
+                                          + (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_101))
                                        : (((IData)(vlSelfRef.io_dataIn) 
                                            << 8U) | (IData)(vlSelfRef.CPU6502Testable__DOT__addrLo))));
-                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_102 
-                        = (1U & ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_72) 
-                                 | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_34))));
-                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_103 
-                        = ((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_0) 
-                             | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_1)) 
-                            | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_2)) 
-                           | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_34));
-                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_104 
-                        = (1U & ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_103) 
-                                 | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_39))));
                     vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_105 
+                        = (((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_0) 
+                            | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_1)) 
+                           | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_4));
+                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_106 
+                        = (1U & ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_105) 
+                                 | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_41))));
+                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_107 
                         = (((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_1) 
                               | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_2)) 
-                             | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_34)) 
-                            | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_39)) 
-                           | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_40));
-                    if (vlSelfRef.CPU6502Testable__DOT___GEN_18) {
+                             | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_3)) 
+                            | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_41)) 
+                           | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_42));
+                    if (vlSelfRef.CPU6502Testable__DOT___GEN_22) {
                         if (vlSelfRef.io_test_enable) {
                             __Vdly__CPU6502Testable__DOT__regPC 
                                 = vlSelfRef.io_test_pc;
                         }
-                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_11) {
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_15) {
                         if ((((7U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
                               | (1U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) 
                              | (0U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)))) {
@@ -1837,13 +1831,13 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                                      << 8U)) 
                                                  | (IData)(vlSelfRef.CPU6502Testable__DOT__operand))));
                         }
-                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_38) {
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_40) {
                         if (vlSelfRef.io_test_enable) {
                             __Vdly__CPU6502Testable__DOT__regPC 
                                 = vlSelfRef.io_test_pc;
                         }
-                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_33) {
-                        if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_102) {
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_37) {
+                        if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_57) {
                             if (vlSelfRef.io_test_enable) {
                                 __Vdly__CPU6502Testable__DOT__regPC 
                                     = vlSelfRef.io_test_pc;
@@ -1852,8 +1846,8 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                             __Vdly__CPU6502Testable__DOT__regPC 
                                 = vlSelfRef.CPU6502Testable__DOT__effectiveAddr;
                         }
-                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_36) {
-                        if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_102) {
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_38) {
+                        if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_57) {
                             if (vlSelfRef.io_test_enable) {
                                 __Vdly__CPU6502Testable__DOT__regPC 
                                     = vlSelfRef.io_test_pc;
@@ -1865,13 +1859,13 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                                   << 8U) 
                                                  | (IData)(vlSelfRef.CPU6502Testable__DOT__addrLo))));
                         }
-                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_37) {
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_39) {
                         if (vlSelfRef.CPU6502Testable__DOT___GEN_0) {
                             __Vdly__CPU6502Testable__DOT__regPC 
                                 = (0xffffU & ((IData)(1U) 
                                               + (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)));
-                        } else if ((1U & ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_105) 
-                                          | (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_99))))) {
+                        } else if ((1U & ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_107) 
+                                          | (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_102))))) {
                             if (vlSelfRef.io_test_enable) {
                                 __Vdly__CPU6502Testable__DOT__regPC 
                                     = vlSelfRef.io_test_pc;
@@ -1880,8 +1874,8 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                             __Vdly__CPU6502Testable__DOT__regPC 
                                 = vlSelfRef.CPU6502Testable__DOT__effectiveAddr;
                         }
-                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_41) {
-                        if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_104) {
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_43) {
+                        if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_106) {
                             if (vlSelfRef.io_test_enable) {
                                 __Vdly__CPU6502Testable__DOT__regPC 
                                     = vlSelfRef.io_test_pc;
@@ -1890,9 +1884,9 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                             __Vdly__CPU6502Testable__DOT__regPC 
                                 = vlSelfRef.CPU6502Testable__DOT__effectiveAddr;
                         }
-                    } else if ((1U & (((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_42)) 
-                                       | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_72)) 
-                                      | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_34))))) {
+                    } else if ((1U & (((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_44)) 
+                                       | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_56)) 
+                                      | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_3))))) {
                         if (vlSelfRef.io_test_enable) {
                             __Vdly__CPU6502Testable__DOT__regPC 
                                 = vlSelfRef.io_test_pc;
@@ -1902,22 +1896,22 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                             = (((IData)(vlSelfRef.CPU6502Testable__DOT__operand) 
                                 << 8U) | (IData)(vlSelfRef.CPU6502Testable__DOT__zpAddr));
                     }
-                    if (vlSelfRef.CPU6502Testable__DOT___GEN_7) {
+                    if (vlSelfRef.CPU6502Testable__DOT___GEN_11) {
                         __Vdly__CPU6502Testable__DOT__state 
                             = ((0xbU == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))
                                 ? 9U : 3U);
-                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_8) {
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_12) {
                         __Vdly__CPU6502Testable__DOT__state = 0xbU;
                         __Vdly__CPU6502Testable__DOT__addrLo 
                             = vlSelfRef.io_dataIn;
-                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_9) {
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_13) {
                         __Vdly__CPU6502Testable__DOT__state 
                             = ((2U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))
                                 ? 3U : 4U);
                         __Vdly__CPU6502Testable__DOT__addrLo 
                             = (0xffU & (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT__indexedAddr_1));
                     } else {
-                        if (((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_11)
+                        if (((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_15)
                               ? (((((((((((7U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
                                           | (1U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) 
                                          | (0U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) 
@@ -1929,67 +1923,67 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                    | (3U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) 
                                   | (5U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))) 
                                  | (IData)(vlSelfRef.io_test_enable))
-                              : ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_38) 
-                                 | ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_100)
-                                     ? ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_73) 
-                                        | (IData)(vlSelfRef.io_test_enable))
-                                     : ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_37)
+                              : ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_40) 
+                                 | ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_103)
+                                     ? (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_60)
+                                     : ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_39)
                                          ? (((~ ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_0) 
-                                                 | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_105))) 
-                                             & (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_99)) 
+                                                 | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_107))) 
+                                             & (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_102)) 
                                             | (IData)(vlSelfRef.io_test_enable))
-                                         : ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_41)
-                                             ? (((~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_103)) 
-                                                 & (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_39)) 
+                                         : ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_43)
+                                             ? (((~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_105)) 
+                                                 & (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_41)) 
                                                 | (IData)(vlSelfRef.io_test_enable))
-                                             : (((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_42) 
-                                                 & (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_73)) 
+                                             : (((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_44) 
+                                                 & (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_59)) 
                                                 | (IData)(vlSelfRef.io_test_enable)))))))) {
                             __Vdly__CPU6502Testable__DOT__state = 1U;
                         }
-                        if ((1U & (~ (((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_11) 
-                                         | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_31)) 
-                                        | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_32)) 
-                                       | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_33)) 
-                                      | ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_36)
-                                          ? (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_54)
-                                          : ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_37)
-                                              ? (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_104)
-                                              : (((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_41)) 
-                                                  | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_43)) 
+                        if ((1U & (~ (((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_15) 
+                                         | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_35)) 
+                                        | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_36)) 
+                                       | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_37)) 
+                                      | ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_38)
+                                          ? (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_55)
+                                          : ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_39)
+                                              ? (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_106)
+                                              : (((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_43)) 
+                                                  | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_5)) 
                                                  | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_2))))))))) {
                             __Vdly__CPU6502Testable__DOT__addrLo 
                                 = vlSelfRef.io_dataIn;
                         }
                     }
-                    if ((1U & (~ ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_7) 
-                                  | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_8))))) {
-                        if (vlSelfRef.CPU6502Testable__DOT___GEN_9) {
+                    if ((1U & (~ ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_11) 
+                                  | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_12))))) {
+                        if (vlSelfRef.CPU6502Testable__DOT___GEN_13) {
                             __Vdly__CPU6502Testable__DOT__addrHi 
                                 = (0xffU & ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT__indexedAddr_1) 
                                             >> 8U));
-                        } else if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_101)))) {
-                            if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_100) {
-                                if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_55)))) {
+                        } else if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_104)))) {
+                            if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_103) {
+                                if ((1U & (~ ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_5) 
+                                              | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_2)))))) {
                                     __Vdly__CPU6502Testable__DOT__addrHi 
                                         = vlSelfRef.io_dataIn;
                                 }
-                            } else if (vlSelfRef.CPU6502Testable__DOT___GEN_37) {
+                            } else if (vlSelfRef.CPU6502Testable__DOT___GEN_39) {
                                 if ((1U & (~ ((((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_0) 
                                                   | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_1)) 
                                                  | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_2)) 
-                                                | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_34)) 
-                                               | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_39)) 
-                                              | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_40)))))) {
+                                                | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_3)) 
+                                               | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_41)) 
+                                              | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_42)))))) {
                                     __Vdly__CPU6502Testable__DOT__addrHi 
                                         = vlSelfRef.io_dataIn;
                                 }
-                            } else if (vlSelfRef.CPU6502Testable__DOT___GEN_41) {
-                                if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_102)))) {
+                            } else if (vlSelfRef.CPU6502Testable__DOT___GEN_43) {
+                                if ((1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_57)))) {
                                     __Vdly__CPU6502Testable__DOT__addrHi 
                                         = vlSelfRef.io_dataIn;
                                 }
-                            } else if (((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_42) 
+                            } else if (((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_44) 
                                         & (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_0))) {
                                 __Vdly__CPU6502Testable__DOT__addrHi 
                                     = vlSelfRef.io_dataIn;
@@ -1997,106 +1991,101 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                         }
                     }
                 }
-                if ((((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_5) 
-                        | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_7)) 
-                       | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_8)) 
-                      | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_9)) 
-                     | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_101))) {
+                if ((((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_9) 
+                        | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_11)) 
+                       | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_12)) 
+                      | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_13)) 
+                     | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_104))) {
                     if (vlSelfRef.io_test_enable) {
                         __Vdly__CPU6502Testable__DOT__cycle = 0U;
                     }
-                } else {
-                    vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk13__DOT___GEN_106 
-                        = ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_34) 
-                           | (IData)(vlSelfRef.io_test_enable));
-                    if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_100) {
-                        if (vlSelfRef.CPU6502Testable__DOT___GEN_0) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 1U;
-                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_1) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 2U;
-                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_2) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 3U;
-                        } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk13__DOT___GEN_106) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 0U;
-                        }
-                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_37) {
-                        if (vlSelfRef.CPU6502Testable__DOT___GEN_0) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 1U;
-                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_1) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 2U;
-                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_2) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 3U;
-                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_34) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 4U;
-                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_39) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 5U;
-                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_40) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 6U;
-                        } else if (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_99) 
-                                    | (IData)(vlSelfRef.io_test_enable))) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 0U;
-                        }
-                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_41) {
-                        if (vlSelfRef.CPU6502Testable__DOT___GEN_0) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 1U;
-                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_1) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 2U;
-                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_2) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 3U;
-                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_34) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 4U;
-                        } else if (((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_39) 
-                                    | (IData)(vlSelfRef.io_test_enable))) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 0U;
-                        }
-                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_42) {
-                        if (vlSelfRef.CPU6502Testable__DOT___GEN_0) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 1U;
-                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_1) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 2U;
-                        } else if (vlSelfRef.CPU6502Testable__DOT___GEN_2) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 3U;
-                        } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk13__DOT___GEN_106) {
-                            __Vdly__CPU6502Testable__DOT__cycle = 0U;
-                        }
-                    } else if (vlSelfRef.io_test_enable) {
+                } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_103) {
+                    if (vlSelfRef.CPU6502Testable__DOT___GEN_0) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 1U;
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_1) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 2U;
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_2) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 3U;
+                    } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_58) {
                         __Vdly__CPU6502Testable__DOT__cycle = 0U;
                     }
+                } else if (vlSelfRef.CPU6502Testable__DOT___GEN_39) {
+                    if (vlSelfRef.CPU6502Testable__DOT___GEN_0) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 1U;
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_1) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 2U;
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_2) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 3U;
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_3) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 4U;
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_41) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 5U;
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_42) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 6U;
+                    } else if (((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_102) 
+                                | (IData)(vlSelfRef.io_test_enable))) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 0U;
+                    }
+                } else if (vlSelfRef.CPU6502Testable__DOT___GEN_43) {
+                    if (vlSelfRef.CPU6502Testable__DOT___GEN_0) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 1U;
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_1) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 2U;
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_2) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 3U;
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_3) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 4U;
+                    } else if (((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_41) 
+                                | (IData)(vlSelfRef.io_test_enable))) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 0U;
+                    }
+                } else if (vlSelfRef.CPU6502Testable__DOT___GEN_44) {
+                    if (vlSelfRef.CPU6502Testable__DOT___GEN_0) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 1U;
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_1) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 2U;
+                    } else if (vlSelfRef.CPU6502Testable__DOT___GEN_2) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 3U;
+                    } else if (vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_58) {
+                        __Vdly__CPU6502Testable__DOT__cycle = 0U;
+                    }
+                } else if (vlSelfRef.io_test_enable) {
+                    __Vdly__CPU6502Testable__DOT__cycle = 0U;
                 }
             }
         }
         if ((1U & (~ (((IData)(vlSelfRef.io_test_enable) 
                        | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN)) 
-                      | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_3))))) {
-            if (vlSelfRef.CPU6502Testable__DOT___GEN_4) {
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk14__DOT___GEN_107 
+                      | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_7))))) {
+            if (vlSelfRef.CPU6502Testable__DOT___GEN_8) {
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk13__DOT___GEN_108 
                     = (0xbU == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode));
                 if ((0xcU == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode))) {
                     __Vdly__CPU6502Testable__DOT__operand 
                         = vlSelfRef.CPU6502Testable__DOT__regA;
-                } else if ((1U & (~ ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_44) 
-                                     | (~ ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_45) 
+                } else if ((1U & (~ ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_45) 
+                                     | (~ ((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_46) 
                                            | (~ (((
-                                                   ((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_46) 
-                                                      | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_47)) 
-                                                     | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_48)) 
-                                                    | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_49)) 
-                                                   | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_50)) 
-                                                  | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_53)) 
-                                                 | (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk14__DOT___GEN_107)))))))))) {
+                                                   ((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_47) 
+                                                      | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_48)) 
+                                                     | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_49)) 
+                                                    | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_50)) 
+                                                   | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_51)) 
+                                                  | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_54)) 
+                                                 | (~ (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk13__DOT___GEN_108)))))))))) {
                     __Vdly__CPU6502Testable__DOT__operand 
                         = vlSelfRef.io_dataIn;
                 }
-                if ((1U & (~ ((((((((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_44) 
-                                      | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_45)) 
-                                     | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_46)) 
-                                    | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_47)) 
-                                   | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_48)) 
-                                  | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_49)) 
-                                 | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_50)) 
-                                | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_51)) 
-                               | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_52)) 
-                              | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk14__DOT___GEN_107))))) {
+                if ((1U & (~ ((((((((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_45) 
+                                      | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_46)) 
+                                     | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_47)) 
+                                    | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_48)) 
+                                   | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_49)) 
+                                  | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_50)) 
+                                 | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_51)) 
+                                | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_52)) 
+                               | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_53)) 
+                              | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk13__DOT___GEN_108))))) {
                     if ((9U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_addressMode))) {
                         __Vdly__CPU6502Testable__DOT__zpAddr 
                             = (0xffU & ((IData)(vlSelfRef.io_dataIn) 
@@ -2107,33 +2096,33 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                     }
                 }
             } else {
-                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk15__DOT___GEN_108 
-                    = ((((((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_9) 
-                             | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_11)) 
-                            | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_31)) 
-                           | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_32)) 
-                          | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_33)) 
-                         | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_36)) 
-                        | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_37)) 
-                       | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_41));
-                if ((1U & (~ ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_5) 
-                              | (~ ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_7) 
-                                    | (~ (((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_8) 
-                                             | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk15__DOT___GEN_108)) 
-                                            | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_42))) 
-                                           | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT___GEN_43)) 
+                vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk14__DOT___GEN_109 
+                    = ((((((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_13) 
+                             | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_15)) 
+                            | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_35)) 
+                           | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_36)) 
+                          | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_37)) 
+                         | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_38)) 
+                        | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_39)) 
+                       | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_43));
+                if ((1U & (~ ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_9) 
+                              | (~ ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_11) 
+                                    | (~ (((((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_12) 
+                                             | (IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk14__DOT___GEN_109)) 
+                                            | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_44))) 
+                                           | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_5)) 
                                           | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_2)))))))))) {
                     __Vdly__CPU6502Testable__DOT__operand 
                         = vlSelfRef.io_dataIn;
                 }
-                if ((1U & (~ ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_5) 
-                              | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_7))))) {
-                    if (vlSelfRef.CPU6502Testable__DOT___GEN_8) {
+                if ((1U & (~ ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_9) 
+                              | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_11))))) {
+                    if (vlSelfRef.CPU6502Testable__DOT___GEN_12) {
                         __Vdly__CPU6502Testable__DOT__zpAddr 
                             = (0xffU & ((IData)(1U) 
                                         + (IData)(vlSelfRef.CPU6502Testable__DOT__zpAddr)));
-                    } else if ((1U & (~ ((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk15__DOT___GEN_108) 
-                                           | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_42))) 
+                    } else if ((1U & (~ ((((IData)(vlSelfRef.CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk14__DOT___GEN_109) 
+                                           | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_44))) 
                                           | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_0)) 
                                          | (~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_1)))))) {
                         __Vdly__CPU6502Testable__DOT__zpAddr 
@@ -2176,13 +2165,18 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
     vlSelfRef.CPU6502Testable__DOT___GEN_0 = (0U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
     vlSelfRef.CPU6502Testable__DOT___GEN_1 = (1U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
     vlSelfRef.CPU6502Testable__DOT___GEN_2 = (2U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
-    vlSelfRef.CPU6502Testable__DOT___GEN_34 = (3U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
-    vlSelfRef.CPU6502Testable__DOT___GEN_39 = (4U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
-    vlSelfRef.CPU6502Testable__DOT___GEN_40 = (5U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
-    vlSelfRef.CPU6502Testable__DOT___GEN_35 = ((1U 
-                                                == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)) 
-                                               | (2U 
-                                                  == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)));
+    vlSelfRef.CPU6502Testable__DOT___GEN_3 = (3U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
+    vlSelfRef.CPU6502Testable__DOT___GEN_41 = (4U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
+    vlSelfRef.CPU6502Testable__DOT___GEN_42 = (5U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
+    vlSelfRef.CPU6502Testable__DOT___GEN_6 = ((1U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)) 
+                                              | (2U 
+                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)));
+    vlSelfRef.CPU6502Testable__DOT___GEN_4 = ((2U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)) 
+                                              | (3U 
+                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)));
+    vlSelfRef.CPU6502Testable__DOT___GEN_5 = ((0U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)) 
+                                              | (1U 
+                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)));
     CPU6502Testable__DOT____VdfgRegularize_h6471f877_0_2 
         = ((((IData)(vlSelfRef.CPU6502Testable__DOT__flagD) 
              << 3U) | ((IData)(vlSelfRef.CPU6502Testable__DOT__flagI) 
@@ -2203,32 +2197,32 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
     vlSelfRef.CPU6502Testable__DOT__state = __Vdly__CPU6502Testable__DOT__state;
     vlSelfRef.io_debug_state = (0xfU & (IData)(vlSelfRef.CPU6502Testable__DOT__state));
     vlSelfRef.CPU6502Testable__DOT___GEN = (0U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_3 = (1U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_4 = (2U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_5 = (8U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_7 = (4U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_8 = (0xaU 
-                                              == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_9 = (0xbU 
-                                              == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_11 = (3U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_33 = (0xcU 
+    vlSelfRef.CPU6502Testable__DOT___GEN_7 = (1U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_8 = (2U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_9 = (8U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_11 = (4U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_12 = (0xaU 
                                                == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_36 = (0xdU 
+    vlSelfRef.CPU6502Testable__DOT___GEN_13 = (0xbU 
                                                == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_37 = (0xeU 
+    vlSelfRef.CPU6502Testable__DOT___GEN_15 = (3U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_37 = (0xcU 
                                                == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_41 = (0xfU 
+    vlSelfRef.CPU6502Testable__DOT___GEN_38 = (0xdU 
                                                == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_42 = (0x10U 
+    vlSelfRef.CPU6502Testable__DOT___GEN_39 = (0xeU 
                                                == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_31 = (5U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_32 = (9U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_38 = ((5U 
+    vlSelfRef.CPU6502Testable__DOT___GEN_43 = (0xfU 
+                                               == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_44 = (0x10U 
+                                               == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_35 = (5U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_36 = (9U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_40 = ((5U 
                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
                                                | (9U 
                                                   == (IData)(vlSelfRef.CPU6502Testable__DOT__state)));
-    vlSelfRef.CPU6502Testable__DOT___GEN_18 = ((4U 
+    vlSelfRef.CPU6502Testable__DOT___GEN_22 = ((4U 
                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
                                                | ((0xaU 
                                                    == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
@@ -2354,7 +2348,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
     __VdfgRegularize_h7cd686f0_0_1 = ((0xc0U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
                                       | ((0xc4U == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
                                          | (0xccU == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode))));
-    vlSelfRef.CPU6502Testable__DOT___GEN_19 = ((0U 
+    vlSelfRef.CPU6502Testable__DOT___GEN_23 = ((0U 
                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
                                                | ((1U 
                                                    == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
@@ -2362,7 +2356,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                                       == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
                                                      | ((8U 
                                                          == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
-                                                        | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_18)))));
+                                                        | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_22)))));
     CPU6502Testable__DOT__decoder__DOT___GEN_121 = 
         ((IData)(CPU6502Testable__DOT__decoder__DOT____VdfgRegularize_hda09c56b_0_2) 
          | ((0x4dU == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
@@ -3458,7 +3452,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
         = ((2U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp)) 
            | ((3U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp)) 
               | (4U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp))));
-    vlSelfRef.CPU6502Testable__DOT___GEN_29 = ((7U 
+    vlSelfRef.CPU6502Testable__DOT___GEN_33 = ((7U 
                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
                                                | ((1U 
                                                    == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
@@ -3466,7 +3460,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                                       == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
                                                      | (4U 
                                                         == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)))));
-    vlSelfRef.CPU6502Testable__DOT___GEN_24 = ((0xaU 
+    vlSelfRef.CPU6502Testable__DOT___GEN_28 = ((0xaU 
                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
                                                | (3U 
                                                   == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)));
@@ -3480,9 +3474,9 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                 : ((IData)(__VdfgRegularize_h7cd686f0_0_1)
                     ? (IData)(vlSelfRef.CPU6502Testable__DOT__regY)
                     : (IData)(vlSelfRef.CPU6502Testable__DOT__regA))));
-    vlSelfRef.CPU6502Testable__DOT___GEN_26 = ((9U 
+    vlSelfRef.CPU6502Testable__DOT___GEN_30 = ((9U 
                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
-                                               | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_24));
+                                               | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_28));
     CPU6502Testable__DOT__alu__DOT____VdfgRegularize_hc81e6bf2_0_0 
         = ((IData)(vlSelfRef.CPU6502Testable__DOT____Vcellinp__alu__io_a) 
            & (IData)(vlSelfRef.CPU6502Testable__DOT__operand));
@@ -3493,18 +3487,18 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
     vlSelfRef.CPU6502Testable__DOT__alu__DOT__cmpDiff 
         = (0x1ffU & ((IData)(vlSelfRef.CPU6502Testable__DOT____Vcellinp__alu__io_a) 
                      - (IData)(vlSelfRef.CPU6502Testable__DOT__operand)));
-    vlSelfRef.CPU6502Testable__DOT___GEN_27 = ((6U 
+    vlSelfRef.CPU6502Testable__DOT___GEN_31 = ((6U 
                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
-                                               | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_26));
+                                               | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_30));
     vlSelfRef.CPU6502Testable__DOT__alu__DOT___diff_T_4 
         = (0x1ffU & ((IData)(vlSelfRef.CPU6502Testable__DOT__alu__DOT__cmpDiff) 
                      - (1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__flagC)))));
     vlSelfRef.io_writeEnable = ((~ (IData)(vlSelfRef.io_test_enable)) 
-                                & ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_19)) 
+                                & ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_23)) 
                                    & ((3U == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
-                                       ? ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_29)) 
+                                       ? ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_33)) 
                                           & ((2U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
-                                             | ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_27)) 
+                                             | ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_31)) 
                                                 & ((5U 
                                                     == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
                                                    & ((0x48U 
@@ -3513,25 +3507,22 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                                           != (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
                                                          & (8U 
                                                             == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode))))))))
-                                       : ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_38) 
+                                       : ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_40) 
                                           | ((0xcU 
                                               == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
-                                              ? ((0U 
-                                                  == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)) 
-                                                 | (1U 
-                                                    == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)))
+                                              ? (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_5)
                                               : ((0xdU 
                                                   != (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
                                                  & ((0xeU 
                                                      == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
                                                     & ((0U 
                                                         != (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)) 
-                                                       & ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_35) 
+                                                       & ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_6) 
                                                           | (3U 
                                                              == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)))))))))));
-    vlSelfRef.CPU6502Testable__DOT___GEN_28 = ((5U 
+    vlSelfRef.CPU6502Testable__DOT___GEN_32 = ((5U 
                                                 != (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
-                                               | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_27));
+                                               | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_31));
     if ((0U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp))) {
         vlSelfRef.CPU6502Testable__DOT___alu_io_carryOut 
             = (1U & ((IData)(vlSelfRef.CPU6502Testable__DOT__alu__DOT___sum_T_1) 
@@ -3698,9 +3689,8 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
     vlSelfRef.io_address = ((IData)(vlSelfRef.io_test_enable)
                              ? (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)
                              : ((0U == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
-                                 ? ((0U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))
-                                     ? 0xfffcU : ((1U 
-                                                   == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))
+                                 ? ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_5)
+                                     ? 0xfffcU : ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_4)
                                                    ? 0xfffdU
                                                    : (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)))
                                  : (((1U == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
@@ -3718,14 +3708,14 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                                 ((3U 
                                                   == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
                                                   ? 
-                                                 ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_29)
+                                                 ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_33)
                                                    ? (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)
                                                    : 
                                                   ((2U 
                                                     == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))
                                                     ? (IData)(vlSelfRef.CPU6502Testable__DOT__effectiveAddr)
                                                     : 
-                                                   ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_28)
+                                                   ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_32)
                                                      ? (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)
                                                      : 
                                                     ((0x48U 
@@ -3757,7 +3747,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                                                + (IData)(vlSelfRef.CPU6502Testable__DOT__regSP))))
                                                          : (IData)(vlSelfRef.CPU6502Testable__DOT__regPC))))))))
                                                   : 
-                                                 ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_38)
+                                                 ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_40)
                                                    ? (IData)(vlSelfRef.CPU6502Testable__DOT__effectiveAddr)
                                                    : 
                                                   ((0xcU 
@@ -3893,9 +3883,9 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                               >> 5U))] >> (0x1fU & 
                                            VL_SHIFTL_III(7,7,32, (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp), 3U)))));
     vlSelfRef.io_dataOut = (((IData)(vlSelfRef.io_test_enable) 
-                             | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_19))
+                             | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_23))
                              ? 0U : (0xffU & ((3U == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
-                                               ? ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_29)
+                                               ? ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_33)
                                                    ? 0U
                                                    : 
                                                   ((2U 
@@ -3929,7 +3919,7 @@ VL_INLINE_OPT void VCPU6502Testable___024root___nba_sequent__TOP__0(VCPU6502Test
                                                        ? (IData)(vlSelfRef.CPU6502Testable__DOT__regA)
                                                        : 0U)))
                                                     : 
-                                                   ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_28)
+                                                   ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_32)
                                                      ? 0U
                                                      : 
                                                     ((0x48U 

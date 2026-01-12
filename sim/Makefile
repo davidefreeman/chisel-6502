@@ -98,6 +98,42 @@ rebuild-skeleton:
 	$(MAKE) skeleton
 
 # ============================================
+# C64Top System (Full C64 text-mode emulation)
+# ============================================
+
+C64TOP_SRC := $(VERILOG_DIR)/c64/C64Top.sv
+C64TOP_TB  := $(SIM_DIR)/tb_c64top.cpp
+C64TOP_EXE := $(SIM_DIR)/obj_c64top/VC64Top
+
+VERILATOR_C64TOP_FLAGS := --cc --exe --build \
+    -Wall -Wno-fatal \
+    --trace \
+    --public-flat-rw \
+    -CFLAGS "-std=c++17 -O2" \
+    --top-module C64Top \
+    -Mdir $(SIM_DIR)/obj_c64top
+
+c64top: $(C64TOP_EXE)
+
+$(C64TOP_EXE): $(C64TOP_SRC) $(C64TOP_TB)
+	@echo "Building C64Top Verilator simulation..."
+	$(VERILATOR) $(VERILATOR_C64TOP_FLAGS) $(C64TOP_SRC) $(C64TOP_TB)
+	@echo "Build complete: $(C64TOP_EXE)"
+
+test-c64top: $(C64TOP_EXE)
+	@echo "Running C64Top keyboard test..."
+	$(C64TOP_EXE)
+
+rebuild-c64top:
+	@echo "Regenerating C64Top Verilog..."
+	cd $(PROJECT_ROOT) && sbt "runMain c64.C64TopMain"
+	rm -rf $(SIM_DIR)/obj_c64top
+	$(MAKE) c64top
+
+clean-c64top:
+	rm -rf $(SIM_DIR)/obj_c64top
+
+# ============================================
 # CPU6502 rebuild
 # ============================================
 

@@ -211,44 +211,49 @@ VL_ATTR_COLD void VCPU6502Testable___024root___stl_sequent__TOP__0(VCPU6502Testa
     vlSelfRef.io_debug_opcode = vlSelfRef.CPU6502Testable__DOT__opcode;
     vlSelfRef.io_debug_state = (0xfU & (IData)(vlSelfRef.CPU6502Testable__DOT__state));
     vlSelfRef.CPU6502Testable__DOT___GEN = (0U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_7 = (1U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_8 = (2U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_9 = (8U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_11 = (4U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_12 = (0xaU 
+                                               == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_13 = (0xbU 
+                                               == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_15 = (3U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_37 = (0xcU 
+                                               == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
     vlSelfRef.CPU6502Testable__DOT___GEN_0 = (0U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
     vlSelfRef.CPU6502Testable__DOT___GEN_1 = (1U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
-    vlSelfRef.CPU6502Testable__DOT___GEN_3 = (1U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_4 = (2U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_5 = (8U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_7 = (4U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_8 = (0xaU 
-                                              == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_9 = (0xbU 
-                                              == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_11 = (3U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_33 = (0xcU 
-                                               == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_36 = (0xdU 
+    vlSelfRef.CPU6502Testable__DOT___GEN_38 = (0xdU 
                                                == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
     vlSelfRef.CPU6502Testable__DOT___GEN_2 = (2U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
-    vlSelfRef.CPU6502Testable__DOT___GEN_37 = (0xeU 
+    vlSelfRef.CPU6502Testable__DOT___GEN_39 = (0xeU 
                                                == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_34 = (3U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
-    vlSelfRef.CPU6502Testable__DOT___GEN_39 = (4U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
-    vlSelfRef.CPU6502Testable__DOT___GEN_40 = (5U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
-    vlSelfRef.CPU6502Testable__DOT___GEN_41 = (0xfU 
+    vlSelfRef.CPU6502Testable__DOT___GEN_3 = (3U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
+    vlSelfRef.CPU6502Testable__DOT___GEN_41 = (4U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
+    vlSelfRef.CPU6502Testable__DOT___GEN_42 = (5U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle));
+    vlSelfRef.CPU6502Testable__DOT___GEN_43 = (0xfU 
                                                == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_42 = (0x10U 
+    vlSelfRef.CPU6502Testable__DOT___GEN_44 = (0x10U 
                                                == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_31 = (5U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
-    vlSelfRef.CPU6502Testable__DOT___GEN_32 = (9U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_35 = (5U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
+    vlSelfRef.CPU6502Testable__DOT___GEN_36 = (9U == (IData)(vlSelfRef.CPU6502Testable__DOT__state));
     vlSelfRef.CPU6502Testable__DOT___io_address_T_3 
         = (0xffU & ((IData)(1U) + (IData)(vlSelfRef.CPU6502Testable__DOT__regSP)));
     vlSelfRef.io_cycleCount = vlSelfRef.CPU6502Testable__DOT__cycleCount;
-    vlSelfRef.CPU6502Testable__DOT___GEN_35 = ((1U 
-                                                == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)) 
-                                               | (2U 
-                                                  == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)));
+    vlSelfRef.CPU6502Testable__DOT___GEN_6 = ((1U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)) 
+                                              | (2U 
+                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)));
+    vlSelfRef.CPU6502Testable__DOT___GEN_4 = ((2U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)) 
+                                              | (3U 
+                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)));
     vlSelfRef.CPU6502Testable__DOT__effectiveAddr = 
         (((IData)(vlSelfRef.CPU6502Testable__DOT__addrHi) 
           << 8U) | (IData)(vlSelfRef.CPU6502Testable__DOT__addrLo));
-    vlSelfRef.CPU6502Testable__DOT___GEN_38 = ((5U 
+    vlSelfRef.CPU6502Testable__DOT___GEN_5 = ((0U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)) 
+                                              | (1U 
+                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)));
+    vlSelfRef.CPU6502Testable__DOT___GEN_40 = ((5U 
                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
                                                | (9U 
                                                   == (IData)(vlSelfRef.CPU6502Testable__DOT__state)));
@@ -257,7 +262,7 @@ VL_ATTR_COLD void VCPU6502Testable___024root___stl_sequent__TOP__0(VCPU6502Testa
              << 3U) | ((IData)(vlSelfRef.CPU6502Testable__DOT__flagI) 
                        << 2U)) | (((IData)(vlSelfRef.CPU6502Testable__DOT__flagZ) 
                                    << 1U) | (IData)(vlSelfRef.CPU6502Testable__DOT__flagC)));
-    vlSelfRef.CPU6502Testable__DOT___GEN_18 = ((4U 
+    vlSelfRef.CPU6502Testable__DOT___GEN_22 = ((4U 
                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
                                                | ((0xaU 
                                                    == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
@@ -391,7 +396,7 @@ VL_ATTR_COLD void VCPU6502Testable___024root___stl_sequent__TOP__0(VCPU6502Testa
         = (0x30U | (((IData)(vlSelfRef.CPU6502Testable__DOT__flagN) 
                      << 7U) | (((IData)(vlSelfRef.CPU6502Testable__DOT__flagV) 
                                 << 6U) | (IData)(CPU6502Testable__DOT____VdfgRegularize_h6471f877_0_2))));
-    vlSelfRef.CPU6502Testable__DOT___GEN_19 = ((0U 
+    vlSelfRef.CPU6502Testable__DOT___GEN_23 = ((0U 
                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
                                                | ((1U 
                                                    == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
@@ -399,7 +404,7 @@ VL_ATTR_COLD void VCPU6502Testable___024root___stl_sequent__TOP__0(VCPU6502Testa
                                                       == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
                                                      | ((8U 
                                                          == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
-                                                        | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_18)))));
+                                                        | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_22)))));
     CPU6502Testable__DOT__decoder__DOT___GEN_121 = 
         ((IData)(CPU6502Testable__DOT__decoder__DOT____VdfgRegularize_hda09c56b_0_2) 
          | ((0x4dU == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
@@ -1495,7 +1500,7 @@ VL_ATTR_COLD void VCPU6502Testable___024root___stl_sequent__TOP__0(VCPU6502Testa
         = ((2U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp)) 
            | ((3U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp)) 
               | (4U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp))));
-    vlSelfRef.CPU6502Testable__DOT___GEN_29 = ((7U 
+    vlSelfRef.CPU6502Testable__DOT___GEN_33 = ((7U 
                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
                                                | ((1U 
                                                    == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
@@ -1503,7 +1508,7 @@ VL_ATTR_COLD void VCPU6502Testable___024root___stl_sequent__TOP__0(VCPU6502Testa
                                                       == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
                                                      | (4U 
                                                         == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)))));
-    vlSelfRef.CPU6502Testable__DOT___GEN_24 = ((0xaU 
+    vlSelfRef.CPU6502Testable__DOT___GEN_28 = ((0xaU 
                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
                                                | (3U 
                                                   == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)));
@@ -1517,9 +1522,9 @@ VL_ATTR_COLD void VCPU6502Testable___024root___stl_sequent__TOP__0(VCPU6502Testa
                 : ((IData)(__VdfgRegularize_h7cd686f0_0_1)
                     ? (IData)(vlSelfRef.CPU6502Testable__DOT__regY)
                     : (IData)(vlSelfRef.CPU6502Testable__DOT__regA))));
-    vlSelfRef.CPU6502Testable__DOT___GEN_26 = ((9U 
+    vlSelfRef.CPU6502Testable__DOT___GEN_30 = ((9U 
                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
-                                               | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_24));
+                                               | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_28));
     CPU6502Testable__DOT__alu__DOT____VdfgRegularize_hc81e6bf2_0_0 
         = ((IData)(vlSelfRef.CPU6502Testable__DOT____Vcellinp__alu__io_a) 
            & (IData)(vlSelfRef.CPU6502Testable__DOT__operand));
@@ -1530,18 +1535,18 @@ VL_ATTR_COLD void VCPU6502Testable___024root___stl_sequent__TOP__0(VCPU6502Testa
     vlSelfRef.CPU6502Testable__DOT__alu__DOT__cmpDiff 
         = (0x1ffU & ((IData)(vlSelfRef.CPU6502Testable__DOT____Vcellinp__alu__io_a) 
                      - (IData)(vlSelfRef.CPU6502Testable__DOT__operand)));
-    vlSelfRef.CPU6502Testable__DOT___GEN_27 = ((6U 
+    vlSelfRef.CPU6502Testable__DOT___GEN_31 = ((6U 
                                                 == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
-                                               | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_26));
+                                               | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_30));
     vlSelfRef.CPU6502Testable__DOT__alu__DOT___diff_T_4 
         = (0x1ffU & ((IData)(vlSelfRef.CPU6502Testable__DOT__alu__DOT__cmpDiff) 
                      - (1U & (~ (IData)(vlSelfRef.CPU6502Testable__DOT__flagC)))));
     vlSelfRef.io_writeEnable = ((~ (IData)(vlSelfRef.io_test_enable)) 
-                                & ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_19)) 
+                                & ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_23)) 
                                    & ((3U == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
-                                       ? ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_29)) 
+                                       ? ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_33)) 
                                           & ((2U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
-                                             | ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_27)) 
+                                             | ((~ (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_31)) 
                                                 & ((5U 
                                                     == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
                                                    & ((0x48U 
@@ -1550,25 +1555,22 @@ VL_ATTR_COLD void VCPU6502Testable___024root___stl_sequent__TOP__0(VCPU6502Testa
                                                           != (IData)(vlSelfRef.CPU6502Testable__DOT__opcode)) 
                                                          & (8U 
                                                             == (IData)(vlSelfRef.CPU6502Testable__DOT__opcode))))))))
-                                       : ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_38) 
+                                       : ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_40) 
                                           | ((0xcU 
                                               == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
-                                              ? ((0U 
-                                                  == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)) 
-                                                 | (1U 
-                                                    == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)))
+                                              ? (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_5)
                                               : ((0xdU 
                                                   != (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
                                                  & ((0xeU 
                                                      == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
                                                     & ((0U 
                                                         != (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)) 
-                                                       & ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_35) 
+                                                       & ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_6) 
                                                           | (3U 
                                                              == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle)))))))))));
-    vlSelfRef.CPU6502Testable__DOT___GEN_28 = ((5U 
+    vlSelfRef.CPU6502Testable__DOT___GEN_32 = ((5U 
                                                 != (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType)) 
-                                               | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_27));
+                                               | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_31));
     if ((0U == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp))) {
         vlSelfRef.CPU6502Testable__DOT___alu_io_carryOut 
             = (1U & ((IData)(vlSelfRef.CPU6502Testable__DOT__alu__DOT___sum_T_1) 
@@ -1735,9 +1737,8 @@ VL_ATTR_COLD void VCPU6502Testable___024root___stl_sequent__TOP__0(VCPU6502Testa
     vlSelfRef.io_address = ((IData)(vlSelfRef.io_test_enable)
                              ? (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)
                              : ((0U == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
-                                 ? ((0U == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))
-                                     ? 0xfffcU : ((1U 
-                                                   == (IData)(vlSelfRef.CPU6502Testable__DOT__cycle))
+                                 ? ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_5)
+                                     ? 0xfffcU : ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_4)
                                                    ? 0xfffdU
                                                    : (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)))
                                  : (((1U == (IData)(vlSelfRef.CPU6502Testable__DOT__state)) 
@@ -1755,14 +1756,14 @@ VL_ATTR_COLD void VCPU6502Testable___024root___stl_sequent__TOP__0(VCPU6502Testa
                                                 ((3U 
                                                   == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
                                                   ? 
-                                                 ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_29)
+                                                 ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_33)
                                                    ? (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)
                                                    : 
                                                   ((2U 
                                                     == (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_instrType))
                                                     ? (IData)(vlSelfRef.CPU6502Testable__DOT__effectiveAddr)
                                                     : 
-                                                   ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_28)
+                                                   ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_32)
                                                      ? (IData)(vlSelfRef.CPU6502Testable__DOT__regPC)
                                                      : 
                                                     ((0x48U 
@@ -1794,7 +1795,7 @@ VL_ATTR_COLD void VCPU6502Testable___024root___stl_sequent__TOP__0(VCPU6502Testa
                                                                + (IData)(vlSelfRef.CPU6502Testable__DOT__regSP))))
                                                          : (IData)(vlSelfRef.CPU6502Testable__DOT__regPC))))))))
                                                   : 
-                                                 ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_38)
+                                                 ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_40)
                                                    ? (IData)(vlSelfRef.CPU6502Testable__DOT__effectiveAddr)
                                                    : 
                                                   ((0xcU 
@@ -1930,9 +1931,9 @@ VL_ATTR_COLD void VCPU6502Testable___024root___stl_sequent__TOP__0(VCPU6502Testa
                               >> 5U))] >> (0x1fU & 
                                            VL_SHIFTL_III(7,7,32, (IData)(vlSelfRef.CPU6502Testable__DOT___decoder_io_aluOp), 3U)))));
     vlSelfRef.io_dataOut = (((IData)(vlSelfRef.io_test_enable) 
-                             | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_19))
+                             | (IData)(vlSelfRef.CPU6502Testable__DOT___GEN_23))
                              ? 0U : (0xffU & ((3U == (IData)(vlSelfRef.CPU6502Testable__DOT__state))
-                                               ? ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_29)
+                                               ? ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_33)
                                                    ? 0U
                                                    : 
                                                   ((2U 
@@ -1966,7 +1967,7 @@ VL_ATTR_COLD void VCPU6502Testable___024root___stl_sequent__TOP__0(VCPU6502Testa
                                                        ? (IData)(vlSelfRef.CPU6502Testable__DOT__regA)
                                                        : 0U)))
                                                     : 
-                                                   ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_28)
+                                                   ((IData)(vlSelfRef.CPU6502Testable__DOT___GEN_32)
                                                      ? 0U
                                                      : 
                                                     ((0x48U 
@@ -2166,22 +2167,22 @@ VL_ATTR_COLD void VCPU6502Testable___024root___ctor_var_reset(VCPU6502Testable__
     vlSelf->CPU6502Testable__DOT___GEN_3 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 1661394689363506793ull);
     vlSelf->CPU6502Testable__DOT___GEN_4 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 8840504517674565640ull);
     vlSelf->CPU6502Testable__DOT___GEN_5 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 15175875627679109433ull);
+    vlSelf->CPU6502Testable__DOT___GEN_6 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 17432286517652774850ull);
     vlSelf->CPU6502Testable__DOT___GEN_7 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 9906289295233834904ull);
     vlSelf->CPU6502Testable__DOT___GEN_8 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 9816833623575412694ull);
     vlSelf->CPU6502Testable__DOT___GEN_9 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 5364528047880622928ull);
     vlSelf->CPU6502Testable__DOT___GEN_11 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 14419740578039401392ull);
-    vlSelf->CPU6502Testable__DOT___GEN_18 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 4510829574558753287ull);
-    vlSelf->CPU6502Testable__DOT___GEN_19 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16835091537114052798ull);
+    vlSelf->CPU6502Testable__DOT___GEN_12 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 9868719077940217353ull);
+    vlSelf->CPU6502Testable__DOT___GEN_13 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 9112616484153083979ull);
+    vlSelf->CPU6502Testable__DOT___GEN_15 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 11618039972394066725ull);
+    vlSelf->CPU6502Testable__DOT___GEN_22 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 18362662702055004525ull);
+    vlSelf->CPU6502Testable__DOT___GEN_23 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 13860922473531578962ull);
     vlSelf->CPU6502Testable__DOT___io_address_T_3 = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 13213589886692224235ull);
-    vlSelf->CPU6502Testable__DOT___GEN_24 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16006567166461067574ull);
-    vlSelf->CPU6502Testable__DOT___GEN_26 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 7679184938896714668ull);
-    vlSelf->CPU6502Testable__DOT___GEN_27 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 4814159935075311667ull);
     vlSelf->CPU6502Testable__DOT___GEN_28 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 5460064416155002775ull);
-    vlSelf->CPU6502Testable__DOT___GEN_29 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 3473721827777700435ull);
+    vlSelf->CPU6502Testable__DOT___GEN_30 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 12448371236049949432ull);
     vlSelf->CPU6502Testable__DOT___GEN_31 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 1701569074715650466ull);
     vlSelf->CPU6502Testable__DOT___GEN_32 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 11291875869092421887ull);
     vlSelf->CPU6502Testable__DOT___GEN_33 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 13288369889105863783ull);
-    vlSelf->CPU6502Testable__DOT___GEN_34 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 3569400816131277136ull);
     vlSelf->CPU6502Testable__DOT___GEN_35 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 10764482234974227366ull);
     vlSelf->CPU6502Testable__DOT___GEN_36 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 15409373946247123436ull);
     vlSelf->CPU6502Testable__DOT___GEN_37 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16190117175822375713ull);
@@ -2190,9 +2191,9 @@ VL_ATTR_COLD void VCPU6502Testable___024root___ctor_var_reset(VCPU6502Testable__
     vlSelf->CPU6502Testable__DOT___GEN_40 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 12251262142324892595ull);
     vlSelf->CPU6502Testable__DOT___GEN_41 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 15561892216197549202ull);
     vlSelf->CPU6502Testable__DOT___GEN_42 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16377250233465334106ull);
+    vlSelf->CPU6502Testable__DOT___GEN_43 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16836898430116885706ull);
+    vlSelf->CPU6502Testable__DOT___GEN_44 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16031691844485158009ull);
     vlSelf->CPU6502Testable__DOT____Vcellinp__alu__io_a = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 6434810963110142234ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT___GEN_43 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 6073353057074957295ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT___GEN_44 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 3845054292126358842ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT___GEN_45 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 14962283738730173785ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT___GEN_46 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 11582269331233943788ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT___GEN_47 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 10529374848397635422ull);
@@ -2202,7 +2203,7 @@ VL_ATTR_COLD void VCPU6502Testable___024root___ctor_var_reset(VCPU6502Testable__
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT___GEN_51 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 13462319096167715733ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT___GEN_52 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16205232877377325695ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT___GEN_53 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 3832306944925077981ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_54 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16661341189390836580ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT___GEN_54 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 10597779157281365794ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_55 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 12478787654039489996ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_56 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 11309971969187692203ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_57 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 13399903747228409807ull);
@@ -2210,61 +2211,62 @@ VL_ATTR_COLD void VCPU6502Testable___024root___ctor_var_reset(VCPU6502Testable__
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_59 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 10210042046440876509ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_60 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 2435054234111800445ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_61 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 18441271995541303044ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_62 = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 17272456310689505263ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_63 = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 9636381765222090271ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_64 = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 501892863588525821ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_62 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 17272456310689505263ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_63 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 9636381765222090271ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_64 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 501892863588525821ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_65 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 9370725476276101714ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 6325385283499662395ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_66 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 12643948518915061023ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T_2 = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 1293894219222477607ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_67 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 10821157167739611753ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T_4 = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 3224020287067406849ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_68 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 1265703831842844410ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T_6 = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 11792661164954760314ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_67 = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 10821157167739611753ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_68 = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 1265703831842844410ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_69 = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 1288696674385319881ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_70 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 8956984598917790235ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 6325385283499662395ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_71 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 4774431063566444934ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T_2 = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 1293894219222477607ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_72 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 3605615378714736831ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T_4 = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 3224020287067406849ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_73 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 8378736915438928128ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_74 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 17563945008467459270ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_75 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 6350721389598272414ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_76 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 3996578251499056926ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___incDecResult_T_6 = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 11792661164954760314ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_74 = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 13160533997194237455ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_75 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 5524459451726745983ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT___GEN_76 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 4355643766875049776ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_77 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 13982695320139916405ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_78 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 7040808738516236187ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_79 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 8930239962563699753ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_80 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 14448723046796622209ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_81 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 10702215132676141612ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_79 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 10620574288924524282ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_80 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 13256021263761833859ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_81 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 10378758526308226474ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_82 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 9109581378964805298ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_83 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 3720209019055166322ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_84 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 8793001398288184943ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_85 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 943149049197882610ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_86 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 2983985086707998127ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_87 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 9050418721006650168ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_88 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 6183193456460385319ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT___GEN_89 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 908179702042400738ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT__unnamedblk5__DOT__transferValue = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 16423936542776035611ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT__unnamedblk6__DOT__incDecResult = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 13784030470001091772ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT__unnamedblk7__DOT___GEN_87 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 2904935023852325330ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk8__DOT___GEN_88 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 12561805266699851677ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_89 = VL_SCOPED_RAND_RESET_I(16, __VscopeHash, 6721665673305337387ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_90 = VL_SCOPED_RAND_RESET_I(5, __VscopeHash, 3214296682716825209ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_91 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 5362505019216201604ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_92 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 7219550616724065085ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 14296705602620180739ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk4__DOT__unnamedblk7__DOT___GEN_90 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 2364863802724064975ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk3__DOT__unnamedblk8__DOT___GEN_91 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 1432612124737007205ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_92 = VL_SCOPED_RAND_RESET_I(16, __VscopeHash, 7219550616724065085ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_93 = VL_SCOPED_RAND_RESET_I(5, __VscopeHash, 14296705602620180739ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_94 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16312107670365598166ull);
-    VL_SCOPED_RAND_RESET_W(256, vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_95, __VscopeHash, 16876539203573012110ull);
-    VL_SCOPED_RAND_RESET_W(80, vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_96, __VscopeHash, 18032660404765427494ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_97 = VL_SCOPED_RAND_RESET_I(16, __VscopeHash, 4989620157986779060ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_98 = VL_SCOPED_RAND_RESET_I(16, __VscopeHash, 13048992259646968614ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_99 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 9280754516656957383ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_100 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 11786425015141595145ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_101 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 12415578076548784391ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_95 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16876539203573012110ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_96 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 18032660404765427494ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_97 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 17052259443575292673ull);
+    VL_SCOPED_RAND_RESET_W(256, vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_98, __VscopeHash, 15215651942128537400ull);
+    VL_SCOPED_RAND_RESET_W(80, vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk9__DOT___GEN_99, __VscopeHash, 1046535260584589216ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_100 = VL_SCOPED_RAND_RESET_I(16, __VscopeHash, 11786425015141595145ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_101 = VL_SCOPED_RAND_RESET_I(16, __VscopeHash, 12415578076548784391ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_102 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16633355229260808412ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_103 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 325893283797465824ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT___GEN_104 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 5978208266489754466ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk11__DOT__indexedAddr = VL_SCOPED_RAND_RESET_I(16, __VscopeHash, 3845994495986982813ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT__indexedAddr_1 = VL_SCOPED_RAND_RESET_I(16, __VscopeHash, 13027873477456284927ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_102 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 15435208455851361270ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_103 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 8730637355801136712ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_104 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 4888434828480373304ull);
     vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_105 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 10743676871394639951ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk13__DOT___GEN_106 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 4336053212094553720ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk14__DOT___GEN_107 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 3903730600528173843ull);
-    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk15__DOT___GEN_108 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 12307009571410693033ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_106 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 6361966219182736095ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk2__DOT__unnamedblk10__DOT__unnamedblk12__DOT___GEN_107 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 12203849883835652415ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk13__DOT___GEN_108 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 213541419622967528ull);
+    vlSelf->CPU6502Testable__DOT__unnamedblk1__DOT__unnamedblk14__DOT___GEN_109 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 2703966699789452600ull);
     vlSelf->CPU6502Testable__DOT____VdfgRegularize_h6471f877_0_3 = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 10956800344242373572ull);
     vlSelf->CPU6502Testable__DOT__alu__DOT___sum_T_1 = VL_SCOPED_RAND_RESET_I(9, __VscopeHash, 5324264057608866615ull);
     vlSelf->CPU6502Testable__DOT__alu__DOT__cmpDiff = VL_SCOPED_RAND_RESET_I(9, __VscopeHash, 2316884844236685776ull);

@@ -32,7 +32,8 @@ import cpu6502.CPU6502Testable
 class C64Top(
   basicRomContents: Seq[Int] = Seq(),
   kernalRomContents: Seq[Int] = Seq(),
-  charRomContents: Seq[Int] = Seq()
+  charRomContents: Seq[Int] = Seq(),
+  numCells: Int = 1000
 ) extends Module {
   val io = IO(new Bundle {
     // Test injection (directly wired to CPU)
@@ -87,7 +88,7 @@ class C64Top(
   val mmu    = Module(new MmuPla)
   val cia1   = Module(new Cia6526)
   val cia2   = Module(new Cia6526)
-  val vic    = Module(new VicIIText(1000))  // Full 40x25 frame buffer
+  val vic    = Module(new VicIIText(numCells))  // 1000 for production, smaller for testing
   val mem    = Module(new MemoryController(basicRomContents, kernalRomContents, charRomContents))
 
   // ==========================================================================

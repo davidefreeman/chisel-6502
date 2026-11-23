@@ -1,3 +1,8 @@
+<!--
+SPDX-License-Identifier: Apache-2.0
+SPDX-FileCopyrightText: 2026 chisel-6502 contributors
+-->
+
 # Warp Agent Framework
 
 This directory contains role definitions for the Warp AI agent framework used to build the C64 text-mode emulator.

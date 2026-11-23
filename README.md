@@ -1,3 +1,8 @@
+<!--
+SPDX-License-Identifier: Apache-2.0
+SPDX-FileCopyrightText: 2026 chisel-6502 contributors
+-->
+
 # Chisel 6502
 
 A hardware implementation of the MOS Technology 6502 8-bit microprocessor written in [Chisel](https://www.chisel-lang.org/), targeting NES (2A03) compatibility.
@@ -155,4 +160,31 @@ sbt -DtestCount=100 "testOnly cpu6502.Test_*_indx"  # (zp,X)
 
 ## License
 
-MIT License
+Project-owned HDL, software, build files, and documentation are licensed under
+the [Apache License, Version 2.0](LICENSE) (`Apache-2.0`).
+Copyright (c) 2026 chisel-6502 contributors, for copyrightable contributions.
+
+Apache-2.0 is a permissive license with an express contributor patent grant; it
+does not require publishing modifications. It applies to the project-owned
+design sources and their generated forms, without replacing licenses on
+third-party dependencies or tool runtime code.
+
+### Third-party material
+
+- SingleStepTests vectors in `src/test/resources/singlestep/` and `8d.json`
+  originate from [SingleStepTests/65x02](https://github.com/SingleStepTests/65x02)
+  and retain their MIT license. See
+  [the bundled upstream license](src/test/resources/singlestep/LICENSE).
+- Firmware and ROM images retain their respective owners' licenses; see
+  [firmware/README.md](firmware/README.md). They are not covered by this project's
+  Apache-2.0 license.
+- Dependencies and third-party code included in generated simulator artifacts
+  retain their upstream licenses and notices. Project source headers are not
+  intended to relicense those materials.
+
+### AI assistance
+
+AI agents have been used in developing this project. The license applies to
+copyrightable contributions to the extent the contributors have rights to
+license them; it does not assert copyright in material that is not eligible
+for copyright protection.

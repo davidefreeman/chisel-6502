@@ -1,3 +1,8 @@
+<!--
+SPDX-License-Identifier: Apache-2.0
+SPDX-FileCopyrightText: 2026 chisel-6502 contributors
+-->
+
 # WARP.md
 
 This file provides guidance to WARP (warp.dev) when working with code in this repository.

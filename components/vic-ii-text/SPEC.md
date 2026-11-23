@@ -1,3 +1,8 @@
+<!--
+SPDX-License-Identifier: Apache-2.0
+SPDX-FileCopyrightText: 2026 chisel-6502 contributors
+-->
+
 # Component Specification: VIC-II (Text Mode)
 
 ## Overview

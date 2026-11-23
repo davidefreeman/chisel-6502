@@ -1,8 +1,10 @@
-// See README.md for license details.
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-FileCopyrightText: 2026 chisel-6502 contributors
 
 ThisBuild / scalaVersion     := "2.13.14"
 ThisBuild / version          := "0.1.0"
 ThisBuild / organization     := "com.github.chisel6502"
+ThisBuild / licenses         := Seq("Apache-2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0"))
 
 val chiselVersion = "6.5.0"
 val circeVersion = "0.14.7"

@@ -1,3 +1,8 @@
+<!--
+SPDX-License-Identifier: Apache-2.0
+SPDX-FileCopyrightText: 2026 chisel-6502 contributors
+-->
+
 # Chisel 6502 Architecture Document
 
 This document provides a detailed technical description of the 6502 CPU implementation, including rationale behind key design decisions, assumptions, and block-by-block analysis.

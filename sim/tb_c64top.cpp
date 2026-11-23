@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-FileCopyrightText: 2026 chisel-6502 contributors
+
 // Verilator testbench for C64Top
 //
 // Command-based text protocol via stdin/stdout.

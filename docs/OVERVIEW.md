@@ -1,3 +1,8 @@
+<!--
+SPDX-License-Identifier: Apache-2.0
+SPDX-FileCopyrightText: 2026 chisel-6502 contributors
+-->
+
 # Chisel 6502 Technical Overview
 
 A guide for engineers who want to understand this 6502 CPU implementation without deep CPU design experience.

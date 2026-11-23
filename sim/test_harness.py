@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2026 chisel-6502 contributors
+
 """
 Simple adapter to test the Verilator testbench.
 Reads SingleStepTests JSON, converts to testbench protocol, validates results.

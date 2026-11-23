@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-FileCopyrightText: 2026 chisel-6502 contributors
+
 // Verilator testbench for CPU6502Testable
 // 
 // Protocol (one test per line on stdin):
